@@ -7,3 +7,9 @@ helix-importer-ui
 .DS_Store
 *.bak
 .idea
+
+# Scraped site content (large binary assets + HTML)
+import-work/
+import-work-*/
+site-import-analysis/
+scrape-all.log

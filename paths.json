@@ -1,6 +1,8 @@
 {
   "mappings": [
-    "/content/abbvie/:/"
+    "/content/abbvie/:/",
+    "/content/abbvie/configuration:/.helix/config.json",
+    "/content/abbvie/metadata:/metadata.json"
   ],
   "includes": [
     "/content/abbvie/"
