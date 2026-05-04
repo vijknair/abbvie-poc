@@ -1,7 +1,14 @@
 /* Header Block — v2-siab (OZURDEX)
- * Header overlays the hero (transparent/absolute).
- * Contains: utility links (top) + logo + hamburger.
- * Primary nav is extracted to .primary-nav-bar below the hero.
+ * Header overlays the hero (position: absolute, transparent bg).
+ * Contains: logo (nav-brand) + utility links (nav-tools) + hamburger.
+ * Primary nav (nav-sections) is extracted to .primary-nav-bar below hero by JS.
+ *
+ * DOM structure after decoration:
+ *   nav#nav
+ *     .nav-hamburger (mobile toggle)
+ *     .section.nav-brand (logo)
+ *     .section.nav-sections (primary links — hidden on desktop, shown in hamburger)
+ *     .section.nav-tools (utility links — PI, HCP)
  */
 
 /* ============================================
@@ -27,7 +34,7 @@ header nav {
   justify-content: space-between;
   margin: auto;
   max-width: var(--content-max-width, 1200px);
-  padding: 12px 24px;
+  padding: 16px 24px;
   font-family: var(--heading-font-family);
 }
 
@@ -48,13 +55,8 @@ header nav a:any-link {
   text-decoration: none;
 }
 
-header nav a:hover {
-  text-decoration: none;
-  opacity: 0.8;
-}
-
 /* ============================================
-   HAMBURGER (mobile)
+   HAMBURGER
    ============================================ */
 header nav .nav-hamburger {
   order: 3;
@@ -134,15 +136,11 @@ header nav[aria-expanded='true'] .nav-hamburger button {
 }
 
 /* ============================================
-   BRAND / LOGO — white on hero
+   BRAND / LOGO
    ============================================ */
-header .nav-brand {
+header nav .nav-brand {
   order: 1;
   flex-shrink: 0;
-}
-
-header nav .nav-brand a {
-  display: inline-block;
 }
 
 header nav .nav-brand img {
@@ -150,38 +148,27 @@ header nav .nav-brand img {
   height: auto;
 }
 
-header nav .nav-brand .button-container {
-  margin: 0;
-}
-
-header nav .nav-brand a.button {
+header nav .nav-brand a {
+  display: inline-block;
   background: none;
   border: none;
   padding: 0;
   margin: 0;
   color: inherit;
-  font-size: inherit;
-  text-transform: none;
-}
-
-header nav .nav-brand a.button:hover {
-  background: none;
 }
 
 /* ============================================
-   NAV SECTIONS — hidden in header on desktop
-   (shown in hamburger menu on mobile)
+   NAV SECTIONS — hidden on desktop (in header).
+   Visible in hamburger menu on mobile.
    ============================================ */
 header nav .nav-sections {
   order: 4;
   flex-basis: 100%;
   display: none;
-  visibility: hidden;
 }
 
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
-  visibility: visible;
   margin-top: 20px;
 }
 
@@ -197,11 +184,11 @@ header nav .nav-sections ul > li {
   border-bottom: 1px solid var(--border-color, #e8e8e8);
 }
 
-header nav .nav-sections a {
+header nav .nav-sections ul > li > a {
   color: var(--brand-primary);
   font-family: var(--heading-font-family);
-  font-weight: 500;
   font-size: 16px;
+  text-decoration: none;
 }
 
 /* ============================================
@@ -212,38 +199,35 @@ header nav .nav-tools {
   display: none;
 }
 
-header nav .nav-tools .default-content-wrapper a,
-header nav .nav-tools .default-content-wrapper a.button {
+header nav .nav-tools .button-container {
   display: inline;
-  background: none;
-  border: none;
-  border-radius: 0;
-  padding: 0;
   margin: 0;
-  color: var(--color-white, #fff);
+}
+
+header nav .section.nav-tools a {
+  display: inline;
+  background: none !important;
+  border: none !important;
+  border-radius: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: var(--color-white, #fff) !important;
   font-family: var(--body-font-family);
-  font-size: 12px;
+  font-size: 12px !important;
   font-weight: 400;
   text-transform: none;
   white-space: nowrap;
 }
 
-header nav .nav-tools .default-content-wrapper a:hover,
-header nav .nav-tools .default-content-wrapper a.button:hover {
-  background: none;
-  color: var(--color-white, #fff);
+header nav .section.nav-tools a:hover {
   text-decoration: underline;
-}
-
-header nav .nav-tools p {
-  display: inline;
-  margin: 0;
 }
 
 header nav .nav-tools p + p::before {
   content: "|";
   margin: 0 8px;
   opacity: 0.6;
+  color: var(--color-white, #fff);
   font-size: 12px;
 }
 
@@ -251,32 +235,16 @@ header nav .nav-tools p + p::before {
    DESKTOP (>= 900px)
    ============================================ */
 @media (width >= 900px) {
-  header .nav-wrapper {
-    padding: 0;
-  }
-
   header nav {
-    padding: 16px 32px;
+    padding: 20px 32px;
   }
 
-  /* Show utility links on desktop */
-  header nav .nav-tools {
-    display: block;
-    color: var(--color-white, #fff);
-  }
-
-  /* Hide hamburger on desktop */
   header nav .nav-hamburger {
     display: none;
-    visibility: hidden;
   }
 
-  /* Nav sections MUST be hidden in header on desktop
-     (they are rendered in .primary-nav-bar below hero).
-     Using !important to override boilerplate's desktop rule. */
-  header nav .nav-sections.nav-sections {
-    display: none !important;
-    visibility: hidden !important;
+  header nav .nav-tools {
+    display: block;
   }
 
   header nav .nav-brand img {
@@ -285,8 +253,8 @@ header nav .nav-tools p + p::before {
 }
 
 /* ============================================
-   PRIMARY NAV BAR — placed below hero by JS
-   Sticky on scroll. Gray background.
+   PRIMARY NAV BAR — placed below hero by JS.
+   Sticky gray bar with horizontal links.
    ============================================ */
 .primary-nav-bar {
   background: var(--nav-bg, #f3f3f3);
@@ -296,28 +264,22 @@ header nav .nav-tools p + p::before {
   z-index: var(--z-sticky, 200);
 }
 
-.primary-nav-bar .section.nav-sections {
-  display: block;
-  visibility: visible;
-  max-width: var(--content-max-width, 1200px);
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-.primary-nav-bar .nav-sections .default-content-wrapper > ul {
+.primary-nav-bar .default-content-wrapper > ul {
   display: flex;
   justify-content: center;
   gap: 32px;
   list-style: none;
   margin: 0;
-  padding: 12px 0;
+  padding: 14px 32px;
+  max-width: var(--content-max-width, 1200px);
+  margin-inline: auto;
 }
 
-.primary-nav-bar .nav-sections .default-content-wrapper > ul > li {
+.primary-nav-bar .default-content-wrapper > ul > li {
   font-weight: 500;
 }
 
-.primary-nav-bar .section.nav-sections .default-content-wrapper a {
+.primary-nav-bar .default-content-wrapper > ul > li > a:any-link {
   color: var(--brand-primary);
   font-family: var(--heading-font-family);
   font-size: 16px;
@@ -326,11 +288,11 @@ header nav .nav-tools p + p::before {
   text-transform: capitalize;
 }
 
-.primary-nav-bar .section.nav-sections .default-content-wrapper a:hover {
+.primary-nav-bar .default-content-wrapper > ul > li > a:any-link:hover {
   opacity: 0.7;
 }
 
-/* Hide primary nav bar on mobile (it shows in hamburger menu instead) */
+/* Hide primary nav bar on mobile (links in hamburger menu) */
 @media (width < 900px) {
   .primary-nav-bar {
     display: none;

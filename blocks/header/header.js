@@ -104,18 +104,21 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+  // Assign classes to the section DIVs (skip meta/link/script tags from fragment head)
+  const sections = [...nav.querySelectorAll(':scope > div.section')];
   const classes = ['brand', 'sections', 'tools'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
+  sections.forEach((section, i) => {
+    if (classes[i]) section.classList.add(`nav-${classes[i]}`);
   });
 
   // Clean up brand link (remove button styling)
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = '';
+      brandLink.closest('.button-container').className = '';
+    }
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -141,8 +144,13 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+  // On desktop, keep nav collapsed (primary nav is in .primary-nav-bar below hero)
+  toggleMenu(nav, navSections, false);
+  isDesktop.addEventListener('change', () => {
+    if (isDesktop.matches) {
+      toggleMenu(nav, navSections, false);
+    }
+  });
 
   // Extract primary nav and place it below the hero section
   if (navSections && isDesktop.matches) {
