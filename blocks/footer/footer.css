@@ -1,20 +1,118 @@
+/* Footer Block — per block-catalog.md
+ * Standard AbbVie footer: dark navy bg, white text,
+ * horizontal link list, AbbVie logo, copyright, legal, job code.
+ * Auto-blocked. Minimal JS for cookie settings button.
+ */
+
+/* Footer container — dark navy background */
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--footer-bg, #00335b);
+  color: var(--footer-text, #fff);
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+footer .footer {
+  visibility: visible;
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--content-max-width, 1200px);
+  padding: 15px 24px 30px;
 }
 
-footer .footer p {
+/* Section 1: Compliance link list */
+footer .section:first-child ul {
+  list-style: none;
   margin: 0;
+  padding: 0 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+}
+
+footer .section:first-child li {
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+footer .section:first-child li::after {
+  content: "|";
+  margin: 0 8px;
+  opacity: 0.6;
+}
+
+footer .section:first-child li:last-child::after {
+  content: none;
+}
+
+/* All footer links — shared style */
+footer a {
+  color: var(--footer-link-color, #fff);
+  text-decoration: underline;
+}
+
+footer a:hover {
+  opacity: 0.8;
+}
+
+footer .section:first-child a {
+  font-size: 12px;
+}
+
+/* Section 2: Legal text + logo */
+footer .section:last-child {
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+footer .section:last-child p {
+  margin: 0 0 10px;
+  color: var(--footer-text, #fff);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* AbbVie logo in footer */
+footer .section:last-child picture {
+  display: block;
+  margin-bottom: 15px;
+}
+
+footer .section:last-child img {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Job code — last paragraph */
+footer .section:last-child p:last-child {
+  margin-top: 15px;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* Override global heading/text colors inside footer */
+footer h2,
+footer h3,
+footer h4 {
+  color: var(--footer-text, #fff);
+}
+
+footer .default-content-wrapper {
+  padding: 0;
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 15px 32px 30px;
+  }
+
+  footer .section:first-child ul {
+    flex-wrap: nowrap;
+    justify-content: center;
   }
 }

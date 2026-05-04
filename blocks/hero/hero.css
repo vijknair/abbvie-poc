@@ -1,37 +1,128 @@
+/* Hero Block — photo-bg variant (per block-catalog.md)
+ * Full-bleed background image with white text overlay.
+ * No JS required — pure CSS layout.
+ * Used on: homepage hero + mid-page CTA banners.
+ */
+
+/* Remove wrapper constraints so hero goes full-width */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
+.hero-container {
+  margin: 0;
+}
+
+/* Hero block: position relative for absolute bg image */
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+  padding: 60px 24px;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Row 1: Background image — absolute fill */
+.hero > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero > div:first-child picture {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.hero > div:first-child img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Row 2: Text content — overlaid on image */
+.hero > div:last-child {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max-width, 1200px);
+  width: 100%;
+}
+
+/* Hero heading */
+.hero h1,
+.hero h2 {
+  font-family: var(--heading-font-family);
+  font-weight: 800;
+  color: var(--color-white, #fff);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  line-height: 1.08;
 }
 
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+  font-size: clamp(36px, 8vw, 65px);
 }
 
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+.hero h2 {
+  font-size: clamp(28px, 5vw, 40px);
 }
 
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+/* Hero body text */
+.hero p {
+  color: var(--color-white, #fff);
+  font-family: var(--heading-font-family);
+  text-align: center;
+  margin-top: 16px;
 }
 
+/* Hero CTA links — white bordered button */
+.hero a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 15px 50px;
+  border: 2px solid var(--color-white, #fff);
+  border-radius: var(--border-radius-s, 3px);
+  color: var(--color-white, #fff);
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color var(--transition-base, 300ms ease-in-out), color var(--transition-base, 300ms ease-in-out);
+}
+
+.hero a:hover {
+  background-color: var(--color-white, #fff);
+  color: var(--brand-primary, #00335b);
+  text-decoration: none;
+}
+
+/* Superscript styling in hero */
+.hero sup {
+  font-size: 0.5em;
+  vertical-align: super;
+}
+
+/* Desktop */
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 500px;
+    padding: 80px 32px;
+  }
+
+  .hero a {
+    padding: 20px 70px;
+    font-size: 22px;
   }
 }
