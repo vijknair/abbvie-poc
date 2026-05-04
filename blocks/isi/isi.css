@@ -1,7 +1,11 @@
 /* ISI Block — Important Safety Information
  * Per block-catalog.md: standard variant (no boxed warning).
  * Two parts: inline ISI section + sticky bottom bar.
- * One CSS implementation across all AbbVie sites.
+ *
+ * Sticky bar behavior (confirmed from live ozurdex.com):
+ * - Collapsed: ~176px, shows ISI text preview, fade gradient at top, overflow:hidden
+ * - Expanded: ~75vh overlay, full ISI content, overflow:auto (scrollable)
+ * - Auto-hides when inline ISI is in viewport
  */
 
 /* ============================================
@@ -33,7 +37,7 @@
   margin-bottom: var(--spacing-s, 8px);
 }
 
-/* ISI sub-headings (IMPORTANT SAFETY INFORMATION, When Not to Use, etc.) */
+/* ISI sub-headings */
 .isi h3 {
   font-family: var(--heading-font-family);
   font-size: var(--body-font-size-s, 16px);
@@ -91,7 +95,8 @@
 }
 
 /* ============================================
-   STICKY BAR (fixed bottom of viewport)
+   STICKY BAR — COLLAPSED STATE
+   Shows ~176px of ISI text with fade gradient.
    ============================================ */
 .isi-sticky-bar {
   position: fixed;
@@ -99,9 +104,11 @@
   left: 0;
   right: 0;
   z-index: var(--z-isi-bar, 400);
-  background: var(--color-white, #fff);
-  box-shadow: 0 -4px 12px rgb(0 0 0 / 15%);
-  transition: transform var(--transition-base, 300ms ease-in-out);
+  height: 176px;
+  background: #f3f3f3;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+  box-shadow: 0 -2px 8px rgb(0 0 0 / 10%);
 }
 
 /* Hidden when inline ISI is in view */
@@ -110,75 +117,126 @@
   pointer-events: none;
 }
 
-/* Toggle button bar */
+/* Toggle button row — positioned top-right */
+.isi-sticky-toggle-row {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  z-index: 2;
+}
+
 .isi-sticky-toggle {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 12px 24px;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   border: none;
-  border-top: 3px solid var(--brand-accent, #a0b320);
-  background: var(--color-white, #fff);
+  border-radius: 50%;
+  background: var(--brand-accent, #a0b320);
   cursor: pointer;
-  font-family: var(--heading-font-family);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--brand-primary);
-  text-align: left;
+  padding: 0;
+  margin: 0;
 }
 
 .isi-sticky-toggle:hover {
-  background: var(--color-gray-100, #f5f5f5);
-}
-
-.isi-sticky-title {
-  flex: 1;
+  opacity: 0.85;
 }
 
 .isi-sticky-icon {
   font-size: 20px;
   font-weight: 700;
-  margin-left: 16px;
-  color: var(--brand-accent, #a0b320);
+  color: var(--color-white, #fff);
+  line-height: 1;
 }
 
-/* Expandable content area */
+/* Fade gradient at top of content (collapsed state) */
+.isi-sticky-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(to bottom, #f3f3f3 0%, rgb(243 243 243 / 0%) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content area — full ISI cloned */
 .isi-sticky-content {
-  max-height: 0;
+  height: calc(100% - 8px);
   overflow: hidden;
-  transition: max-height var(--transition-base, 300ms ease-in-out);
-  padding: 0 24px;
+  padding: 16px 24px 8px;
 }
 
-.isi-sticky-bar[aria-expanded="true"] .isi-sticky-content {
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 0 24px 16px;
+/* ISI text styling inside sticky bar */
+.isi-sticky-content h2,
+.isi-sticky-content h3 {
+  font-family: var(--heading-font-family);
+  font-size: var(--isi-font-size, 14px);
+  font-weight: 700;
+  color: var(--isi-heading-color, var(--brand-accent, #a0b320));
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.isi-sticky-content h2:first-child,
+.isi-sticky-content h3:first-child {
+  margin-top: 0;
 }
 
 .isi-sticky-content p {
   font-family: var(--heading-font-family);
-  font-size: 13px;
+  font-size: var(--isi-font-size, 14px);
   line-height: 1.5;
   color: var(--isi-text-color, #414a55);
-  margin: 0;
+  margin: 0 0 6px;
+  border-left: none;
+  padding-left: 0;
 }
 
+.isi-sticky-content ul {
+  padding-left: 20px;
+  margin: 4px 0 12px;
+}
+
+.isi-sticky-content li {
+  font-family: var(--heading-font-family);
+  font-size: var(--isi-font-size, 14px);
+  line-height: 1.5;
+  color: var(--isi-text-color, #414a55);
+  margin-bottom: 2px;
+}
+
+/* ============================================
+   STICKY BAR — EXPANDED STATE
+   75vh overlay with full scrollable ISI content.
+   ============================================ */
+.isi-sticky-bar[aria-expanded="true"] {
+  height: 75vh;
+}
+
+.isi-sticky-bar[aria-expanded="true"] .isi-sticky-content {
+  overflow-y: auto;
+}
+
+.isi-sticky-bar[aria-expanded="true"] .isi-sticky-fade {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (width >= 900px) {
   .isi {
     padding: var(--spacing-xl, 32px) 32px;
   }
 
-  .isi-sticky-toggle {
-    padding: 12px 32px;
-  }
-
   .isi-sticky-content {
-    padding: 0 32px;
+    padding: 16px 32px 8px;
   }
 
-  .isi-sticky-bar[aria-expanded="true"] .isi-sticky-content {
-    padding: 0 32px 16px;
+  .isi-sticky-toggle-row {
+    right: 32px;
   }
 }

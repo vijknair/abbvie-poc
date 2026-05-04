@@ -1,48 +1,45 @@
 /**
  * ISI Block — Important Safety Information
  * Per block-catalog.md: One JS implementation across all AbbVie sites.
- * Behaviors: expand/collapse toggle, sticky bar, scroll-into-view on jump link.
+ * Behaviors:
+ * - Collapsed: ~176px sticky bar at bottom showing ISI text preview with fade
+ * - Expanded: ~75vh overlay with full scrollable ISI content
+ * - Auto-hide: disappears when inline ISI section scrolls into view
+ * - Jump links: scrolls to inline ISI on click
  */
 
 export default function decorate(block) {
-  // Mark the inline ISI section with an ID for jump-link targeting
   block.id = 'isi-content';
-
-  // Get the first heading for the sticky bar preview
-  const safetyRow = block.children[1];
-  const firstHeading = safetyRow?.querySelector('h3');
-  const previewTitle = firstHeading
-    ? firstHeading.textContent.trim()
-    : 'IMPORTANT SAFETY INFORMATION';
-
-  // Get a preview snippet from the first paragraph of the safety section
-  const firstParagraph = safetyRow?.querySelector('p');
-  const previewText = firstParagraph
-    ? firstParagraph.textContent.trim().substring(0, 150)
-    : '';
 
   // Create the sticky bar
   const stickyBar = document.createElement('div');
   stickyBar.className = 'isi-sticky-bar';
   stickyBar.setAttribute('aria-expanded', 'false');
 
-  // Toggle button
+  // Toggle button row
+  const toggleRow = document.createElement('div');
+  toggleRow.className = 'isi-sticky-toggle-row';
+
   const toggleBtn = document.createElement('button');
   toggleBtn.className = 'isi-sticky-toggle';
   toggleBtn.setAttribute('aria-label', 'Expand Safety Information');
-  toggleBtn.innerHTML = `<span class="isi-sticky-title">${previewTitle}</span><span class="isi-sticky-icon">+</span>`;
+  toggleBtn.innerHTML = '<span class="isi-sticky-icon">+</span>';
 
-  // Expandable preview content
-  const previewContent = document.createElement('div');
-  previewContent.className = 'isi-sticky-content';
-  if (previewText) {
-    const p = document.createElement('p');
-    p.textContent = `${previewText}...`;
-    previewContent.appendChild(p);
-  }
+  toggleRow.appendChild(toggleBtn);
 
-  stickyBar.appendChild(toggleBtn);
-  stickyBar.appendChild(previewContent);
+  // Fade gradient overlay (visible in collapsed state)
+  const fadeOverlay = document.createElement('div');
+  fadeOverlay.className = 'isi-sticky-fade';
+
+  // Content area — clone the full ISI content from the inline block
+  const contentArea = document.createElement('div');
+  contentArea.className = 'isi-sticky-content';
+  contentArea.innerHTML = block.innerHTML;
+
+  // Assemble: toggle row at top-right, fade at top of content, content below
+  stickyBar.appendChild(toggleRow);
+  stickyBar.appendChild(fadeOverlay);
+  stickyBar.appendChild(contentArea);
   document.body.appendChild(stickyBar);
 
   // Toggle expand/collapse
