@@ -1,14 +1,10 @@
 /* Header Block — v2-siab (OZURDEX)
  * Header overlays the hero (position: absolute, transparent bg).
- * Contains: logo (nav-brand) + utility links (nav-tools) + hamburger.
- * Primary nav (nav-sections) is extracted to .primary-nav-bar below hero by JS.
- *
- * DOM structure after decoration:
- *   nav#nav
- *     .nav-hamburger (mobile toggle)
- *     .section.nav-brand (logo)
- *     .section.nav-sections (primary links — hidden on desktop, shown in hamburger)
- *     .section.nav-tools (utility links — PI, HCP)
+ * Layout (top to bottom):
+ *   - Utility links (left-aligned, small white text)
+ *   - Logo (left-aligned) + Hamburger (right)
+ * Primary nav: extracted to .primary-nav-bar below hero (sticky gray bar).
+ * Mobile hamburger: shows both primary nav + utility links.
  */
 
 /* ============================================
@@ -30,16 +26,15 @@ header .nav-wrapper {
 header nav {
   box-sizing: border-box;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   margin: auto;
   max-width: var(--content-max-width, 1200px);
-  padding: 16px 24px;
+  padding: 10px 24px;
   font-family: var(--heading-font-family);
 }
 
 header nav[aria-expanded='true'] {
-  flex-wrap: wrap;
   background: var(--nav-bg, #f3f3f3);
   min-height: 100dvh;
   align-content: flex-start;
@@ -56,10 +51,77 @@ header nav a:any-link {
 }
 
 /* ============================================
-   HAMBURGER
+   UTILITY NAV (nav-tools) — top row, left-aligned
+   Small white text above the logo.
+   ============================================ */
+header nav .nav-tools {
+  order: 1;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+header nav .nav-tools p {
+  display: inline;
+}
+
+header nav .section.nav-tools a {
+  display: inline;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: var(--color-white, #fff) !important;
+  font-family: var(--body-font-family);
+  font-size: 12px !important;
+  font-weight: 400;
+  text-transform: none;
+  white-space: nowrap;
+  border-radius: 0;
+}
+
+header nav .section.nav-tools a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* Ensure brand and nav-sections links are not affected by nav-tools styles */
+
+header nav .nav-tools p + p::before {
+  content: "|";
+  margin: 0 8px;
+  opacity: 0.6;
+  color: var(--color-white, #fff);
+  font-size: 12px;
+}
+
+/* ============================================
+   BRAND / LOGO — second row, left-aligned
+   ============================================ */
+header nav .nav-brand {
+  order: 2;
+  flex-shrink: 0;
+}
+
+header nav .nav-brand img {
+  width: 150px;
+  height: auto;
+}
+
+/* stylelint-disable no-descending-specificity */
+header nav .section.nav-brand a {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ============================================
+   HAMBURGER — second row, right-aligned
    ============================================ */
 header nav .nav-hamburger {
   order: 3;
+  margin-left: auto;
   height: 22px;
   display: flex;
   align-items: center;
@@ -136,34 +198,12 @@ header nav[aria-expanded='true'] .nav-hamburger button {
 }
 
 /* ============================================
-   BRAND / LOGO
-   ============================================ */
-header nav .nav-brand {
-  order: 1;
-  flex-shrink: 0;
-}
-
-header nav .nav-brand img {
-  width: 150px;
-  height: auto;
-}
-
-header nav .nav-brand a {
-  display: inline-block;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  color: inherit;
-}
-
-/* ============================================
-   NAV SECTIONS — hidden on desktop (in header).
-   Visible in hamburger menu on mobile.
+   NAV SECTIONS — hidden by default.
+   Visible in hamburger menu on mobile expand.
    ============================================ */
 header nav .nav-sections {
   order: 4;
-  flex-basis: 100%;
+  width: 100%;
   display: none;
 }
 
@@ -184,7 +224,7 @@ header nav .nav-sections ul > li {
   border-bottom: 1px solid var(--border-color, #e8e8e8);
 }
 
-header nav .nav-sections ul > li > a {
+header nav .section.nav-sections ul > li > a {
   color: var(--brand-primary);
   font-family: var(--heading-font-family);
   font-size: 16px;
@@ -192,43 +232,25 @@ header nav .nav-sections ul > li > a {
 }
 
 /* ============================================
-   NAV TOOLS (utility links) — small white text
+   MOBILE EXPANDED: show utility links in hamburger
    ============================================ */
-header nav .nav-tools {
-  order: 2;
-  display: none;
+header nav[aria-expanded='true'] .nav-tools {
+  order: 5;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color, #e8e8e8);
 }
 
-header nav .nav-tools .button-container {
-  display: inline;
-  margin: 0;
+header nav[aria-expanded='true'] .section.nav-tools a {
+  color: var(--brand-primary) !important;
+  font-size: 14px !important;
+  display: block;
+  padding: 8px 0;
 }
 
-header nav .section.nav-tools a {
-  display: inline;
-  background: none !important;
-  border: none !important;
-  border-radius: 0;
-  padding: 0 !important;
-  margin: 0 !important;
-  color: var(--color-white, #fff) !important;
-  font-family: var(--body-font-family);
-  font-size: 12px !important;
-  font-weight: 400;
-  text-transform: none;
-  white-space: nowrap;
-}
-
-header nav .section.nav-tools a:hover {
-  text-decoration: underline;
-}
-
-header nav .nav-tools p + p::before {
-  content: "|";
-  margin: 0 8px;
-  opacity: 0.6;
-  color: var(--color-white, #fff);
-  font-size: 12px;
+header nav[aria-expanded='true'] .nav-tools p + p::before {
+  content: none;
 }
 
 /* ============================================
@@ -236,15 +258,22 @@ header nav .nav-tools p + p::before {
    ============================================ */
 @media (width >= 900px) {
   header nav {
-    padding: 20px 32px;
+    padding: 10px 32px;
   }
 
+  /* Hide hamburger on desktop */
   header nav .nav-hamburger {
     display: none;
   }
 
+  /* Utility links visible on desktop (top-left, white) */
   header nav .nav-tools {
     display: block;
+  }
+
+  /* Nav sections hidden on desktop (lives in .primary-nav-bar) */
+  header nav .nav-sections {
+    display: none;
   }
 
   header nav .nav-brand img {
@@ -254,10 +283,10 @@ header nav .nav-tools p + p::before {
 
 /* ============================================
    PRIMARY NAV BAR — placed below hero by JS.
-   Sticky gray bar with horizontal links.
+   Sticky gray bar with horizontal centered links.
    ============================================ */
 .primary-nav-bar {
-  background: var(--nav-bg, #f3f3f3);
+  background: #f3f3f3;
   border-bottom: 1px solid var(--border-color, #e8e8e8);
   position: sticky;
   top: 0;
@@ -292,7 +321,7 @@ header nav .nav-tools p + p::before {
   opacity: 0.7;
 }
 
-/* Hide primary nav bar on mobile (links in hamburger menu) */
+/* Hide primary nav bar on mobile (links in hamburger menu instead) */
 @media (width < 900px) {
   .primary-nav-bar {
     display: none;

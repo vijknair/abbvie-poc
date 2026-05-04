@@ -91,8 +91,10 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 
 /**
  * loads and decorates the header.
- * OZURDEX pattern: Header overlays hero (utility + logo + hamburger).
- * Primary nav is extracted and placed below the first main section (hero).
+ * OZURDEX pattern:
+ * - Header overlays hero (utility links above logo + hamburger)
+ * - Primary nav extracted to sticky bar below hero (desktop)
+ * - Hamburger includes both primary nav + utility links (mobile)
  */
 export default async function decorate(block) {
   const navMeta = getMetadata('nav');
@@ -119,6 +121,17 @@ export default async function decorate(block) {
       brandLink.className = '';
       brandLink.closest('.button-container').className = '';
     }
+  }
+
+  // Clean up utility links (remove button styling)
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    navTools.querySelectorAll('.button').forEach((btn) => {
+      btn.className = '';
+    });
+    navTools.querySelectorAll('.button-container').forEach((container) => {
+      container.className = '';
+    });
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -152,8 +165,8 @@ export default async function decorate(block) {
     }
   });
 
-  // Extract primary nav and place it below the hero section
-  if (navSections && isDesktop.matches) {
+  // Extract primary nav and place it below the hero section (always, not just desktop)
+  if (navSections) {
     const primaryNavBar = document.createElement('div');
     primaryNavBar.className = 'primary-nav-bar';
     primaryNavBar.appendChild(navSections.cloneNode(true));
