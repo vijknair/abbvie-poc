@@ -1,0 +1,71 @@
+/* Teaser Block — background image with overlaid text/CTA.
+ * Used for: visual acuity panels, "Learn more" callouts.
+ */
+
+.teaser > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 350px;
+  overflow: hidden;
+}
+
+.teaser .teaser-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.teaser .teaser-image picture,
+.teaser .teaser-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.teaser .teaser-content {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  max-width: 50%;
+}
+
+.teaser .teaser-content h2,
+.teaser .teaser-content h3 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  color: var(--brand-primary);
+  margin-top: 0;
+}
+
+.teaser .teaser-content p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  color: var(--text-color-muted);
+}
+
+.teaser .teaser-content .button-container {
+  margin-top: var(--spacing-l);
+}
+
+/* Mobile: stack content below image */
+@media (width < 900px) {
+  .teaser > div {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .teaser .teaser-image {
+    position: relative;
+    inset: auto;
+    height: 250px;
+  }
+
+  .teaser .teaser-content {
+    max-width: 100%;
+    padding: 24px;
+  }
+}

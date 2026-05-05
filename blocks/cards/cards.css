@@ -25,3 +25,31 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+/* Borderless variant — centered text, no border, used for severity tiles */
+.cards.borderless > ul {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cards.borderless > ul > li {
+  border: none;
+  background: none;
+  text-align: center;
+}
+
+.cards.borderless .cards-card-body {
+  margin: var(--spacing-s) var(--spacing-m);
+}
+
+.cards.borderless .cards-card-body p {
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 500;
+  color: var(--text-color-muted);
+  line-height: 1.4;
+}
+
+.cards.borderless > ul > li img {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--border-radius-m);
+}
