@@ -492,6 +492,43 @@ main .section.accent-border-left > .default-content-wrapper > ul {
   padding-left: 65px;
 }
 
+/* Resource link — anchor link with trailing arrow icon (used in whattoexpect) */
+main .section.accent-border-left > .default-content-wrapper > .button-container > a.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--heading-font-family);
+  font-size: 23px;
+  font-weight: 500;
+  color: var(--brand-primary);
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  text-transform: none;
+}
+
+main .section.accent-border-left > .default-content-wrapper > .button-container > a.button::after {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: var(--brand-accent, #abb920);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z'/%3E%3C/svg%3E");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+main .section.accent-border-left > .default-content-wrapper > .button-container > a.button:hover {
+  background-color: transparent;
+  color: var(--brand-primary);
+  text-decoration: underline;
+}
+
 /* Wide gap — increases gap between columns for before/after image comparisons */
 main .section.wide-gap .columns > div {
   gap: 120px;
