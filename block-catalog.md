@@ -16,6 +16,9 @@
 | 10 | epkinlyHCP | epkinlyhcp.com | Hematology | HCP | DLBCL / FL |
 | 11 | abbvieoncology | one.abbvieoncology.com | Hematology | HCP | CLL/SLL (VENCLEXTA) |
 | 12 | ozurdex | ozurdex.com | Eyecare | DTC Patient | DME / RVO / Uveitis |
+| 26 | ozurdex-howitworks | ozurdex.com/howitworks | Eyecare | DTC Patient | How It Works sub-page |
+| 27 | ozurdex-whattoexpect | ozurdex.com/whattoexpect | Eyecare | DTC Patient | What to Expect sub-page |
+| 28 | ozurdex-aboutyourcondition | ozurdex.com/aboutyourcondition | Eyecare | DTC Patient | About Your Condition sub-page |
 | 13 | rinvoq | rinvoq.com | Cross-Franchise | DTC Patient | RA, PsA, AD, AS, nr-axSpA, UC, CD, pJIA, JPsA |
 | 14 | skyrizi | skyrizi.com | Cross-Franchise | DTC Patient | Plaque Psoriasis, PsA, Crohn's, UC |
 | 15 | vraylar | vraylar.com | Mental Health | DTC Patient | Bipolar I / MDD |
@@ -85,7 +88,7 @@ The static, full-bleed page hero section. Contains a background image (full-widt
 
 | Variant | Description | Sites |
 |---|---|---|
-| **photo-bg** | Full-bleed background `<picture>` (mobile + desktop), H1, optional body text, 1–2 CTAs. Most common pattern. Also used mid-page as editorial banners (dark bg, H2 + CTA, reusing the same block structure). | botoxcervicaldystonia, botoxchronicmigraine, botoxoveractivebladder, botoxspasticity, qulipta, quliptahcp, creonhcp, ozurdex, ubrelvy, vraylarhcp |
+| **photo-bg** | Full-bleed background `<picture>` (mobile + desktop), H1, optional body text, 1–2 CTAs. Most common pattern. Also used mid-page as editorial banners (dark bg, H2 + CTA, reusing the same block structure). | botoxcervicaldystonia, botoxchronicmigraine, botoxoveractivebladder, botoxspasticity, qulipta, quliptahcp, creonhcp, ozurdex, ozurdex-whattoexpect, ozurdex-aboutyourcondition, ubrelvy, vraylarhcp |
 | **hcp-brushstroke** | Dark bg with decorative brushstroke SVG overlays. No photography — CSS gradient + SVG shapes. H1 with `stroke--text` emphasis. Specialty badge image. Pure CSS, no photo LCP element. | rinvoqhcp |
 | **video-bg** | Background `<video>` element (mp4) auto-playing instead of a background image. H1 + body text + single "Register" CTA. LCP element is the video poster/first frame. | botoxone |
 | **split-carousel** | Two-column layout. Left: static H1 + bullet list + Sign Up CTA + Log In link. Right: OWL image-only carousel (4 lifestyle photos, no per-slide text). Content stays fixed; only the right photo panel rotates. This is fundamentally different from `hero-carousel` (where each slide has its own content). | botox |
@@ -103,7 +106,7 @@ The static, full-bleed page hero section. Contains a background image (full-widt
 **Lowest.** For photo-bg: single bg image preloadable. For hcp-brushstroke: SVG assets are tiny; text may be LCP element. No JS parse cost.
 
 ### Affected Pages
-botoxcervicaldystonia, botoxchronicmigraine, botoxoveractivebladder, botoxspasticity, qulipta, quliptahcp, creonhcp, ozurdex, rinvoqhcp
+botoxcervicaldystonia, botoxchronicmigraine, botoxoveractivebladder, botoxspasticity, qulipta, quliptahcp, creonhcp, ozurdex, ozurdex-whattoexpect, ozurdex-aboutyourcondition, rinvoqhcp
 
 ---
 
@@ -196,7 +199,7 @@ All variants use identical JS. Content structure differs by regulatory requireme
 
 | Variant | Description | Sites |
 |---|---|---|
-| **standard** | Indication summary in `abbv-inline-use` + ISI in `abbv-inline-safety`. No Boxed Warning. | botoxcervicaldystonia, botoxoveractivebladder, ozurdex, qulipta, creonhcp, skyrizihcp, skyrizilocator |
+| **standard** | Indication summary in `abbv-inline-use` + ISI in `abbv-inline-safety`. No Boxed Warning. | botoxcervicaldystonia, botoxoveractivebladder, ozurdex, ozurdex-howitworks, ozurdex-whattoexpect, ozurdex-aboutyourcondition, qulipta, creonhcp, skyrizihcp, skyrizilocator |
 | **dtc-standard** | Empty `abbv-inline-use` slot. Consumer-language ISI in `abbv-inline-safety` — no clinical endpoints. Starts with "Do not take..." contraindication. PI link → Patient Information (not full PI). | ubrelvy |
 | **dtc-boxed-warning** | "Uses" in `abbv-inline-use`. Consumer-language ISI in `abbv-inline-safety` with a Boxed Warning. PI link → Medication Guide (patient-facing). venclexta: TLS warning. botox: spread-of-effect warning. | venclexta, botox |
 | **boxed-warning** | Adds FDA Boxed Warning section (bold bordered box) above the standard ISI in `abbv-inline-safety`. | botoxchronicmigraine, botoxspasticity, duopa, duopahcp, rinvoq, skyrizi, vraylar, rinvoqhcp, vraylarhcp |
@@ -249,10 +252,12 @@ Flexible two-column or three-column layout block for presenting paired content �
 
 | Variant | Description | Sites |
 |---|---|---|
-| **2-col image-left** | Left: photo or product image. Right: H2, body text, CTA button. | duopa, ozurdex, botoxspasticity |
-| **2-col image-right** | Left: H2, body text, CTA. Right: photo or product image. Text-first reading order. | duopahcp, creonhcp |
+| **2-col image-left** | Left: photo or product image. Right: H2, body text or bulleted list, optional CTA button. | duopa, ozurdex, ozurdex-whattoexpect, ozurdex-aboutyourcondition, botoxspasticity |
+| **2-col image-right** | Left: H2, body text or bulleted list, optional CTA. Right: photo or product image. Text-first reading order. | duopahcp, creonhcp, ozurdex-whattoexpect |
 | **2-col icon-text** | Left: logo or icon image (e.g. DuoConnect Complete logo). Right: H2 + body + phone number or CTA. Used for support/resource sections. | duopahcp, duopa |
-| **3-col icon-descriptors** | Three equal columns, each with a small icon/SVG and short text descriptor. Used for "How It Works" feature highlights. | ozurdex, creonhcp |
+| **3-col icon-descriptors** | Three equal columns, each with a small icon/image and short text descriptor. Used for "How It Works" feature highlights and visual severity scales. | ozurdex, creonhcp, ozurdex-aboutyourcondition |
+| **2-col before-after** | Two columns used for medical image comparison. Each column: label text (e.g. "Swollen Macula") + clinical/OCT image + caption footnote. No CTAs. Purely visual comparison pattern. | ozurdex-howitworks, ozurdex-aboutyourcondition |
+| **2-col image-text-overlay** | Two photos side-by-side where text (heading or bulleted list) is positioned as an overlay directly on the image surface via CSS absolute positioning. Text sits on top of the photo at a specified corner (top-left or top-right). Distinct from image-left/right where text is in an adjacent column. | ozurdex-aboutyourcondition |
 
 ### JS Required
 **None.** Pure CSS flexbox layout. Block Collection implementation.
@@ -261,7 +266,7 @@ Flexible two-column or three-column layout block for presenting paired content �
 **None.** Columns sections are always below Section 1. No LCP relevance.
 
 ### Affected Pages
-duopa, duopahcp, ozurdex, botoxspasticity, creonhcp, abbvieoncology
+duopa, duopahcp, ozurdex, ozurdex-howitworks, ozurdex-whattoexpect, ozurdex-aboutyourcondition, botoxspasticity, creonhcp, abbvieoncology
 
 ---
 
@@ -352,6 +357,7 @@ An embedded Brightcove video player. Brightcove's `video.js` library (~200KB+) i
 |---|---|---|
 | **responsive-inline** | Two `<video-js>` player instances (same video ID) rendered in the DOM — one for mobile, one for desktop. CSS shows/hides the appropriate instance. Both players initialize on page load. | duopahcp (30:52 "Quick Connect On Demand" video, ID: 6233806903001) |
 | **modal-trigger** | Video player is not initialized until user clicks a CTA button. Player renders in a modal/lightbox overlay. Brightcove JS loads on demand (lighter initial load). | duopa |
+| **inline-single** | Single `<video-js>` inline player instance. Poster image shown. Player is already initialized on page load. Includes a "Transcript" text link below the player. Simpler than responsive-inline — no dual DOM instances, no CSS toggling. | ozurdex-howitworks (0:34s MOA explainer, ID: 6313079694112) |
 
 ### JS Required
 **Critical — Brightcove `video.js` (~200KB+ minified).** Player initialization, playback controls, quality switching, caption track loading. For the responsive-inline variant, both player instances initialize on page load even if only one is visible — double initialization cost.
@@ -360,7 +366,7 @@ An embedded Brightcove video player. Brightcove's `video.js` library (~200KB+) i
 **Critical if placed in Section 1.** Even in Section 2+, Brightcove JS competes for main thread bandwidth. For responsive-inline: consider lazy initialization (IntersectionObserver trigger). For modal-trigger: load Brightcove JS only on button click.
 
 ### Affected Pages
-duopahcp (responsive-inline), duopa (modal-trigger)
+duopahcp (responsive-inline), duopa (modal-trigger), ozurdex-howitworks (inline-single)
 
 ---
 
@@ -619,25 +625,53 @@ vraylarhcp
 
 ---
 
+## Block 23: `callout`
+
+### Description
+A mid-page editorial banner that uses a full-bleed background photograph with a heading and single CTA button overlaid on the image. Structurally identical to the `hero` `photo-bg` pattern but used as a section-level call-to-action rather than the primary page entry point. Always contains an H2 (not H1), is positioned mid-page, and drives toward a downloadable resource (brochure, patient guide). Repeats once per condition topic on multi-condition education pages.
+
+### Variants
+
+| Variant | Description | Sites |
+|---|---|---|
+| **photo-bg** | Full-bleed background image, centered H2 heading, single CTA button overlaid. No body text. Used for condition-specific brochure download CTAs. | ozurdex-aboutyourcondition (×3: DME / RVO / Uveitis callouts) |
+
+### Typical Content Structure
+- Full-bleed background `<picture>` (condition-specific photo)
+- H2 heading (e.g. "LEARN MORE ABOUT DME")
+- Single CTA button (e.g. "DOWNLOAD A BROCHURE")
+
+### JS Required
+**None.** Pure CSS layout — same as `hero` `photo-bg`.
+
+### LCP Impact
+**None.** Always mid-page, never in Section 1.
+
+### Affected Pages
+ozurdex-aboutyourcondition
+
+---
+
 ## Summary Table
 
 | Block | Variants | New/Existing/BC | JS Complexity | LCP Impact | Affected Sites |
 |---|---|---|---|---|---|
-| `header` | 8 (CSS-only) | Custom | Auto-blocked | Medium | All 24 |
-| `hero` | 4 (photo-bg, hcp-brushstroke, video-bg, split-carousel) | Extend existing | None–Medium | **Lowest–High** | botoxcervicaldystonia, botoxchronicmigraine, botoxoveractivebladder, botoxspasticity, qulipta, quliptahcp, creonhcp, ozurdex, rinvoqhcp, ubrelvy, vraylarhcp (photo-bg/brushstroke); botoxone (video-bg); botox (split-carousel) |
+| `header` | 8 (CSS-only) | Custom | Auto-blocked | Medium | All 26 |
+| `hero` | 4 (photo-bg, hcp-brushstroke, video-bg, split-carousel) | Extend existing | None–Medium | **Lowest–High** | botoxcervicaldystonia, botoxchronicmigraine, botoxoveractivebladder, botoxspasticity, qulipta, quliptahcp, creonhcp, ozurdex, ozurdex-whattoexpect, ozurdex-aboutyourcondition, rinvoqhcp, ubrelvy, vraylarhcp (photo-bg/brushstroke); botoxone (video-bg); botox (split-carousel) |
 | `hero-carousel` | None | New custom | High — OWL carousel | **Critical** | duopahcp, rinvoq |
 | `hero-indication` | 6 sub-layouts | New custom | Medium–Low | **High–Medium** | duopa, epkinly, epkinlyHCP, skyrizi, vraylar, abbvieoncology, skyrizihcp, venclexta |
-| `isi` | 9 (content-only) | Custom | One impl / zero extra | None | All 24 |
-| `footer` | 3 (standard, co-brand-genmab, co-brand-genentech) | Custom | Auto-blocked | None | All 24 |
-| `columns` | 4 | Block Collection | None | None | duopa, duopahcp, ozurdex, botoxspasticity, creonhcp, abbvieoncology, venclexta, botoxone, botox |
+| `isi` | 9 (content-only) | Custom | One impl / zero extra | None | All 26 |
+| `footer` | 3 (standard, co-brand-genmab, co-brand-genentech) | Custom | Auto-blocked | None | All 26 |
+| `columns` | 6 (2-col image-left, image-right, icon-text, image-text-overlay, 3-col icon-descriptors, 2-col before-after) | Block Collection + custom overlay variant | None | None | duopa, duopahcp, ozurdex, ozurdex-howitworks, ozurdex-whattoexpect, ozurdex-aboutyourcondition, botoxspasticity, creonhcp, abbvieoncology, venclexta, botoxone, botox |
+| `callout` | 1 (photo-bg) | **New custom** | None | None | ozurdex-aboutyourcondition |
 | `cards` | 6 (icon, image, feature, savings, image-quote, clinical-pillars) | Block Collection + custom | Minimal–Low | Low | creonhcp, qulipta, botoxchronicmigraine, vraylar, rinvoqhcp, ubrelvy, vraylarhcp, botox |
 | `tabs` | 2 | Block Collection | Low | Low | epkinlyHCP, creonhcp |
 | `accordion` | 3 (standard, blade, references) | Block Collection + custom blade | Low–Medium | Low | creonhcp, botoxspasticity, duopa (standard); quliptahcp, skyrizihcp (blade) |
-| `video` | 2 | New custom | **Critical — Brightcove** | **Critical if Section 1** | duopahcp, duopa |
+| `video` | 3 (responsive-inline, modal-trigger, inline-single) | New custom | **Critical — Brightcove** | **Critical if Section 1** | duopahcp, duopa, ozurdex-howitworks |
 | `testimonial` | 3 (carousel, static-quote, image-quote) | New custom | Medium / None | Low | botoxspasticity, botoxchronicmigraine, duopa, ubrelvy, botox |
-| `modal` | 6 (data-driven) | Custom | Low — one impl | Low | All 24 |
+| `modal` | 6 (data-driven) | Custom | Low — one impl | Low | All 26 |
 | `form` | 1 | Custom | High — Adobe Forms | Low | abbvieoncology, botoxone |
-| `fragment` | None | Block Collection | None | None | All sites (shared content) |
+| `fragment` | None | Block Collection | None | None | All 26 sites (shared content) |
 | `promo-drawer` | 2 (desktop sticky-right, mobile sticky-bottom) | New custom | Medium | Low | quliptahcp, botoxone |
 | `brand-explorer` | 1 (immunology-3brand) | New custom | Medium | Low | rinvoqhcp, skyrizihcp |
 | `indication-hub` | 1 (specialty-brush-cards) | New custom | Low | Low | rinvoqhcp |
@@ -646,7 +680,7 @@ vraylarhcp
 | `stats` | 2 (milestone-trio, affordability-stat) | New custom | None | Low | vraylarhcp, botox |
 | `locator` | 2 (infusion-finder, physician-finder) | New custom | **Very High** — map SDK, geocoding, AJAX | Low (map lazy-loaded) | skyrizilocator, botox |
 
-**Total: 22 blocks / ~65 variants**
+**Total: 23 blocks / ~71 variants across 26 analyzed pages**
 
 ---
 
@@ -659,7 +693,7 @@ vraylarhcp
 | **High** | `hero-indication` (hcp-2col, stacked-indication) | Right-column product image or top hero image needs preload | `<link rel="preload">` for right-col product shot; ensure LCP image is in `<head>` preload chain |
 | **Medium** | `header` | Always loaded, sticky behavior JS in critical path | Already lightweight in EDS boilerplate; keep header JS minimal |
 | **Low** | `cards`, `tabs`, `testimonial`, `modal` | Never in Section 1 on analyzed pages | Lazy-load images within these blocks |
-| **None** | `hero` (static), `isi`, `footer`, `columns`, `accordion`, `fragment` | No JS / deferred / below fold | No action required |
+| **None** | `hero` (static), `isi`, `footer`, `columns`, `callout`, `accordion`, `fragment` | No JS / deferred / below fold | No action required |
 
 ---
 
