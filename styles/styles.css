@@ -492,6 +492,35 @@ main .section.accent-border-left > .default-content-wrapper > ul {
   padding-left: 65px;
 }
 
+/* Retina callout — dark navy section with upward arrow */
+main .section.retina-callout {
+  background-color: var(--brand-primary, #00335b);
+  padding: 50px 24px;
+  margin-top: -30px;
+  position: relative;
+  text-align: center;
+}
+
+main .section.retina-callout::after {
+  content: " ";
+  position: absolute;
+  top: -30px;
+  left: calc(50% - 30px);
+  border-width: 0 30px 30px;
+  border-style: solid;
+  border-color: transparent transparent var(--brand-primary, #00335b);
+}
+
+main .section.retina-callout > .default-content-wrapper > p {
+  font-family: var(--heading-font-family);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-white, #fff);
+  margin: 0;
+  text-align: center;
+}
+
 /* ============================================
    HR / DIVIDERS
    ============================================ */
