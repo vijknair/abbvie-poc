@@ -24,7 +24,6 @@
   max-width: var(--content-max-width, 1200px);
   margin: 0 auto;
   padding: var(--spacing-xl, 32px) 24px;
-  border-top: 3px solid var(--brand-accent, #a0b320);
 }
 
 /* Approved Uses heading */
