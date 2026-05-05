@@ -26,10 +26,10 @@
   --color-gray-700: #333;
 
   /* --- Semantic Color Tokens ---
-     These are AbbVie defaults. Brand themes (styles/themes/*.css) override them. */
+     AbbVie defaults. Brand theme (loaded in head.html) overrides these. */
   --brand-primary: var(--abbvie-navy);
   --brand-primary-dark: #041230;
-  --brand-accent: #007F6E;
+  --brand-accent: var(--abbvie-navy);
   --background-color: var(--color-white);
   --light-color: var(--color-gray-100);
   --dark-color: var(--brand-primary);
