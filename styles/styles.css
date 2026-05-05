@@ -492,6 +492,11 @@ main .section.accent-border-left > .default-content-wrapper > ul {
   padding-left: 65px;
 }
 
+/* Wide gap — increases gap between columns for before/after image comparisons */
+main .section.wide-gap .columns > div {
+  gap: 120px;
+}
+
 /* Retina callout — dark navy section with upward arrow */
 main .section.retina-callout {
   background-color: var(--brand-primary, #00335b);
