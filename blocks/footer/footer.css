@@ -1,20 +1,109 @@
+/* Footer Block — per block-catalog.md
+ * Standard AbbVie footer: dark navy bg, white text.
+ * Layout (top to bottom): AbbVie logo + legal text, then link list at bottom.
+ * No pipe separators between links — just inline-block with spacing.
+ */
+
+/* Footer container — dark navy background with green accent top border */
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--footer-bg, #00335b);
+  color: var(--footer-text, #fff);
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  line-height: 1.6;
+  border-top: 5px solid var(--brand-accent, #abb920);
+}
+
+footer .footer {
+  visibility: visible;
 }
 
 footer .footer > div {
+  display: flex;
+  flex-direction: column;
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--content-max-width, 1200px);
+  padding: 15px 24px 30px;
 }
 
-footer .footer p {
+/* Section with links — move to bottom with order */
+footer .footer .section:first-of-type {
+  order: 2;
+  padding-top: 15px;
+}
+
+footer .footer ul {
+  list-style: none !important;
   margin: 0;
+  padding: 0;
+}
+
+footer .footer li {
+  display: inline-block;
+  font-size: 12px;
+  margin: 0;
+  padding-right: 20px;
+  padding-bottom: 6px;
+  line-height: 1.4;
+}
+
+/* All footer links */
+footer .footer a {
+  color: var(--footer-link-color, #fff) !important;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+footer .footer a:hover {
+  opacity: 0.8;
+}
+
+/* Section with legal text + logo — move to top with order */
+footer .footer .section:last-of-type {
+  order: 1;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+footer .footer .section:last-of-type p {
+  margin: 0 0 10px;
+  color: var(--footer-text, #fff);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* AbbVie logo in footer */
+footer .footer .section:last-of-type picture {
+  display: block;
+  margin-bottom: 15px;
+}
+
+footer .footer .section:last-of-type img {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Job code — last paragraph */
+footer .footer .section:last-of-type p:last-child {
+  margin-top: 15px;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* Override global heading/text colors inside footer */
+footer h2,
+footer h3,
+footer h4 {
+  color: var(--footer-text, #fff);
+}
+
+footer .default-content-wrapper {
+  padding: 0;
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 15px 32px 30px;
   }
 }

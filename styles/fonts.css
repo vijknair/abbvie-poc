@@ -1,36 +1,27 @@
-/* stylelint-disable max-line-length */
+/* OZURDEX Fonts — Adobe Typekit (futura-pt, quicksand) */
+@import url('https://use.typekit.net/YOUR_TYPEKIT_ID.css');
+
+/*
+ * NOTE: Replace YOUR_TYPEKIT_ID with the actual Adobe Typekit project ID.
+ * The original site loads futura-pt from use.typekit.net.
+ *
+ * Fonts used on ozurdex.com:
+ * - futura-pt: weights 400, 500, 700, 800 (headings, body content, CTAs)
+ * - quicksand: weight 400 (secondary/decorative)
+ * - Arial / Helvetica Neue: system fallback (nav, footer, lists)
+ *
+ * If Typekit is not available, fallback fonts below will be used.
+ */
+
+/* Fallback font definitions */
 @font-face {
-  font-family: roboto-condensed;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/roboto-condensed-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: futura-pt-fallback;
+  size-adjust: 97%;
+  src: local('Trebuchet MS'), local('Arial');
 }
 
 @font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/roboto-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/roboto-medium.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/roboto-regular.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: quicksand-fallback;
+  size-adjust: 102%;
+  src: local('Arial Rounded MT Bold'), local('Arial');
 }

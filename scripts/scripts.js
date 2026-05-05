@@ -86,12 +86,33 @@ export function decorateMain(main) {
 }
 
 /**
+ * Loads the brand theme CSS based on hostname.
+ * Each AbbVie brand site maps to a theme file in /styles/themes/.
+ */
+function loadBrandTheme() {
+  const themes = {
+    'www.ozurdex.com': 'ozurdex',
+    'www.durysta.com': 'durysta',
+    'www.rinvoq.com': 'rinvoq',
+    'www.skyrizi.com': 'skyrizi',
+    'www.loloestrin.com': 'loloestrin',
+    localhost: 'ozurdex',
+  };
+  const { hostname } = window.location;
+  const theme = themes[hostname] || themes.localhost;
+  if (theme) {
+    loadCSS(`${window.hlx.codeBasePath}/styles/themes/${theme}.css`);
+  }
+}
+
+/**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  loadBrandTheme();
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);

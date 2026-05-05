@@ -1,10 +1,15 @@
+/* Columns Block — per block-catalog.md
+ * Flexible 2-col or 3-col layout for paired content.
+ * Variants: 2-col image-left, 2-col image-right, 3-col icon-descriptors
+ * No JS required — pure CSS flexbox.
+ */
+
+/* Mobile: stack vertically, image first */
 .columns > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns img {
-  width: 100%;
+  gap: var(--spacing-l, 24px);
+  padding: var(--spacing-xl, 32px) 0;
 }
 
 .columns > div > div {
@@ -15,19 +20,103 @@
   order: 0;
 }
 
-.columns > div > .columns-img-col img {
+/* Images */
+.columns img {
+  width: 100%;
+  height: auto;
   display: block;
 }
 
+/* Headings in columns */
+.columns h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl, 32px);
+  font-weight: 800;
+  color: var(--brand-primary);
+  line-height: 1.375;
+  margin-top: 0;
+  margin-bottom: var(--spacing-m, 16px);
+}
+
+/* Body text in columns */
+.columns p {
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-m, 18px);
+  line-height: 1.6;
+  color: var(--text-color-muted, #464646);
+  margin-bottom: var(--spacing-m, 16px);
+}
+
+/* List items in columns */
+.columns li {
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-m, 18px);
+  line-height: 1.6;
+  color: var(--text-color-muted, #464646);
+  margin-bottom: var(--spacing-l, 24px);
+}
+
+/* Accent left border on descriptive paragraphs (OZURDEX pattern) */
+.columns p:not(.button-container, :has(picture), :has(img), :has(a), :has(em)) {
+  border-left: 5px solid var(--brand-accent, #abb920);
+  padding-left: 24px;
+}
+
+/* Caption / emphasis text — no border */
+.columns em {
+  font-style: italic;
+  font-size: var(--body-font-size-s, 16px);
+  color: var(--text-color-muted, #464646);
+}
+
+/* CTA buttons in columns — inherit global button style */
+.columns .button-container {
+  margin-top: var(--spacing-l, 24px);
+  border-left: none;
+  padding-left: 0;
+}
+
+.columns a.button {
+  font-family: var(--heading-font-family);
+}
+
+/* Links that aren't buttons */
+.columns a:not(.button) {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.columns a:not(.button):hover {
+  text-decoration: underline;
+}
+
+/* Desktop: side-by-side columns */
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    gap: 40px;
+    padding: var(--spacing-2xl, 48px) 0;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .columns h2 {
+    font-size: 40px;
+    line-height: 55px;
+  }
+
+  .columns li {
+    font-size: 22px;
+    line-height: 36px;
+    margin-bottom: 30px;
+  }
+
+  .columns p:not(.button-container, :has(picture), :has(img), :has(a), :has(em)) {
+    border-left-width: 5px;
+    padding-left: 30px;
   }
 }

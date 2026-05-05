@@ -1,0 +1,43 @@
+/*
+ * OZURDEX® (dexamethasone intravitreal implant) — Brand Theme
+ *
+ * Layer 2 overrides for the AbbVie global design system.
+ * Loaded after styles.css to override --brand-* tokens.
+ *
+ * Fonts: futura-pt (Adobe Typekit), Arial fallback
+ * Primary: #00335B (navy)
+ * Accent: #ABB920 (lime green — ISI headings)
+ */
+
+:root {
+  /* Brand colors */
+  --brand-primary: #00335B;
+  --brand-primary-dark: #001F3A;
+  --brand-accent: #ABB920;
+
+  /* Links */
+  --link-color: #093254;
+  --link-hover-color: #001F3A;
+
+  /* Typography — futura-pt from Adobe Typekit */
+  --heading-font-family: futura-pt, futura-pt-fallback, sans-serif;
+  --body-font-family: arial, "Helvetica Neue", helvetica, sans-serif;
+
+  /* Layout */
+  --nav-height: 140px;
+  --nav-bg: #F3F3F3;
+
+  /* Footer */
+  --footer-bg: #00335B;
+  --footer-text: #fff;
+  --footer-link-color: #fff;
+
+  /* ISI */
+  --isi-heading-color: var(--brand-accent);
+  --isi-text-color: #414A55;
+}
+
+/* OZURDEX content paragraphs use the heading font (futura-pt) */
+main p {
+  font-family: var(--heading-font-family);
+}

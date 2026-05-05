@@ -1,0 +1,265 @@
+/* ISI Block — Important Safety Information
+ * Per block-catalog.md: standard variant (no boxed warning).
+ * Two parts: inline ISI section + sticky bottom bar.
+ *
+ * Sticky bar behavior (confirmed from live ozurdex.com):
+ * - Collapsed: ~176px, shows ISI text preview, fade gradient at top, overflow:hidden
+ * - Expanded: ~75vh overlay, full ISI content, overflow:auto (scrollable)
+ * - Auto-hides when inline ISI is in viewport
+ */
+
+/* ============================================
+   INLINE ISI SECTION (full content above footer)
+   ============================================ */
+.isi-container {
+  margin: 0;
+}
+
+.isi-container .isi-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.isi {
+  max-width: var(--content-max-width, 1200px);
+  margin: 0 auto;
+  padding: var(--spacing-xl, 32px) 24px;
+}
+
+/* Approved Uses heading */
+.isi h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-s, 16px);
+  font-weight: 700;
+  color: var(--isi-heading-color, var(--brand-accent, #abb920));
+  margin-top: 0;
+  margin-bottom: var(--spacing-s, 8px);
+}
+
+/* ISI sub-headings */
+.isi h3 {
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-s, 16px);
+  font-weight: 700;
+  color: var(--isi-heading-color, var(--brand-accent, #abb920));
+  margin-top: var(--spacing-m, 16px);
+  margin-bottom: var(--spacing-xs, 4px);
+}
+
+/* ISI body text */
+.isi p {
+  font-family: var(--heading-font-family);
+  font-size: var(--isi-font-size, 14px);
+  line-height: 1.5;
+  color: var(--isi-text-color, #414a55);
+  margin-top: 0;
+  margin-bottom: var(--spacing-s, 8px);
+  border-left: none;
+  padding-left: 0;
+}
+
+/* ISI lists */
+.isi ul {
+  padding-left: 20px;
+  margin-top: var(--spacing-xs, 4px);
+  margin-bottom: var(--spacing-m, 16px);
+}
+
+.isi li {
+  font-family: var(--heading-font-family);
+  font-size: var(--isi-font-size, 14px);
+  line-height: 1.5;
+  color: var(--isi-text-color, #414a55);
+  margin-bottom: var(--spacing-xs, 4px);
+}
+
+/* ISI links */
+.isi a {
+  color: var(--brand-accent, #abb920);
+  text-decoration: underline;
+}
+
+.isi a:hover {
+  color: var(--brand-primary);
+}
+
+/* Row styling — remove block table borders */
+.isi > div {
+  border: none;
+  padding: 0;
+}
+
+.isi > div > div {
+  padding: 0;
+}
+
+/* ============================================
+   STICKY BAR
+   Green title bar + safety content preview + fade.
+   Matches live ozurdex.com implementation:
+   - ::before creates green bar (30px)
+   - Title + "SEE MORE +" on green bar
+   - Content below with sub-headings and text
+   ============================================ */
+.isi-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-isi-bar, 400);
+  height: 150px;
+  background: #f3f3f3;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+  box-shadow: 0 -2px 8px rgb(0 0 0 / 10%);
+}
+
+/* Hidden when inline ISI is in view */
+.isi-sticky-bar.isi-sticky-hidden {
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+/* Green title bar */
+.isi-sticky-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--brand-accent, #abb920);
+  padding: 6px 24px;
+  min-height: 30px;
+}
+
+.isi-sticky-title {
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-white, #fff);
+  letter-spacing: 0.02em;
+}
+
+/* SEE MORE / SEE LESS toggle button */
+.isi-sticky-toggle {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-white, #fff);
+  white-space: nowrap;
+}
+
+.isi-sticky-toggle:hover {
+  opacity: 0.85;
+}
+
+/* Content area — safety text below green bar */
+.isi-sticky-content {
+  height: calc(100% - 42px);
+  overflow: hidden;
+  padding: 12px 24px 8px;
+}
+
+/* ISI text styling inside sticky bar */
+.isi-sticky-content h2,
+.isi-sticky-content h3 {
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--isi-heading-color, var(--brand-accent, #abb920));
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.isi-sticky-content h2:first-child,
+.isi-sticky-content h3:first-child {
+  margin-top: 0;
+}
+
+.isi-sticky-content p {
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--isi-text-color, #414a55);
+  margin: 0 0 6px;
+  border-left: none;
+  padding-left: 0;
+}
+
+.isi-sticky-content ul {
+  padding-left: 20px;
+  margin: 4px 0 12px;
+}
+
+.isi-sticky-content li {
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--isi-text-color, #414a55);
+  margin-bottom: 2px;
+}
+
+/* Fade gradient at bottom (collapsed state) */
+.isi-sticky-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, rgb(243 243 243 / 0%) 0%, #f3f3f3 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ============================================
+   STICKY BAR — EXPANDED STATE
+   75vh overlay with full scrollable ISI content.
+   ============================================ */
+.isi-sticky-bar[aria-expanded="true"] {
+  height: 75vh;
+}
+
+.isi-sticky-bar[aria-expanded="true"] .isi-sticky-content {
+  overflow-y: auto;
+}
+
+.isi-sticky-bar[aria-expanded="true"] .isi-sticky-fade {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (width >= 900px) {
+  .isi {
+    padding: var(--spacing-xl, 32px) 32px;
+  }
+
+  .isi-sticky-title-bar {
+    padding: 6px 32px;
+  }
+
+  .isi-sticky-title {
+    font-size: 18px;
+  }
+
+  .isi-sticky-content {
+    padding: 12px 32px 8px;
+  }
+
+  .isi-sticky-content h2,
+  .isi-sticky-content h3 {
+    font-size: 18px;
+  }
+
+  .isi-sticky-content p {
+    font-size: 16px;
+  }
+
+  .isi-sticky-content li {
+    font-size: 16px;
+  }
+}

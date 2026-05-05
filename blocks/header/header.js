@@ -51,23 +51,12 @@ function focusNavSection() {
   document.activeElement.addEventListener('keydown', openOnKeydown);
 }
 
-/**
- * Toggles all nav sections
- * @param {Element} sections The container element
- * @param {Boolean} expanded Whether the element should be expanded or collapsed
- */
 function toggleAllNavSections(sections, expanded = false) {
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
 }
 
-/**
- * Toggles the entire nav
- * @param {Element} nav The container element
- * @param {Element} navSections The nav sections within the container element
- * @param {*} forceExpanded Optional param to force nav expand behavior when not null
- */
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
@@ -75,7 +64,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-  // enable nav dropdown keyboard accessibility
+
   const navDrops = navSections.querySelectorAll('.nav-drop');
   if (isDesktop.matches) {
     navDrops.forEach((drop) => {
@@ -91,11 +80,8 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     });
   }
 
-  // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
-    // collapse menu on escape press
     window.addEventListener('keydown', closeOnEscape);
-    // collapse menu on focus lost
     nav.addEventListener('focusout', closeOnFocusLost);
   } else {
     window.removeEventListener('keydown', closeOnEscape);
@@ -104,32 +90,48 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
- * loads and decorates the header, mainly the nav
- * @param {Element} block The header block element
+ * loads and decorates the header.
+ * OZURDEX pattern:
+ * - Header overlays hero (utility links above logo + hamburger)
+ * - Primary nav extracted to sticky bar below hero (desktop)
+ * - Hamburger includes both primary nav + utility links (mobile)
  */
 export default async function decorate(block) {
-  // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
 
-  // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+  // Assign classes to the section DIVs (skip meta/link/script tags from fragment head)
+  const sections = [...nav.querySelectorAll(':scope > div.section')];
   const classes = ['brand', 'sections', 'tools'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
+  sections.forEach((section, i) => {
+    if (classes[i]) section.classList.add(`nav-${classes[i]}`);
   });
 
+  // Clean up brand link (remove button styling)
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = '';
+      brandLink.closest('.button-container').className = '';
+    }
+  }
+
+  // Clean up utility links (remove button styling)
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    navTools.querySelectorAll('.button').forEach((btn) => {
+      btn.className = '';
+    });
+    navTools.querySelectorAll('.button-container').forEach((container) => {
+      container.className = '';
+    });
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -146,7 +148,7 @@ export default async function decorate(block) {
     });
   }
 
-  // hamburger for mobile
+  // Hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
@@ -155,9 +157,26 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+  // On desktop, keep nav collapsed (primary nav is in .primary-nav-bar below hero)
+  toggleMenu(nav, navSections, false);
+  isDesktop.addEventListener('change', () => {
+    if (isDesktop.matches) {
+      toggleMenu(nav, navSections, false);
+    }
+  });
+
+  // Extract primary nav and place it below the hero section (always, not just desktop)
+  if (navSections) {
+    const primaryNavBar = document.createElement('div');
+    primaryNavBar.className = 'primary-nav-bar';
+    primaryNavBar.appendChild(navSections.cloneNode(true));
+
+    // Insert after the first section in main (the hero)
+    const firstSection = document.querySelector('main > .section:first-child');
+    if (firstSection) {
+      firstSection.after(primaryNavBar);
+    }
+  }
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
