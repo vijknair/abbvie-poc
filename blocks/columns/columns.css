@@ -18,6 +18,7 @@
 
 .columns > div > .columns-img-col {
   order: 0;
+  position: relative;
 }
 
 /* Images */
@@ -62,11 +63,34 @@
   padding-left: 24px;
 }
 
+/* Caption overlay — positions em caption over the image */
+.columns > div > .columns-img-col > p:has(em) {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0;
+  padding: 8px 16px;
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-white, #fff);
+  background: rgb(0 0 0 / 50%);
+  border-left: none;
+  padding-left: 16px;
+}
+
 /* Caption / emphasis text — no border */
 .columns em {
   font-style: italic;
   font-size: var(--body-font-size-s, 16px);
   color: var(--text-color-muted, #464646);
+}
+
+.columns > div > .columns-img-col > p:has(em) em {
+  font-style: normal;
+  color: inherit;
 }
 
 /* CTA buttons in columns — inherit global button style */
