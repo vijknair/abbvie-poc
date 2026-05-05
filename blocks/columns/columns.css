@@ -56,17 +56,17 @@
   margin-bottom: var(--spacing-l, 24px);
 }
 
-/* Accent left border on descriptive paragraphs (OZURDEX pattern) */
-.columns p:not(.button-container, :has(picture), :has(img), :has(a), :has(em)) {
-  border-left: 5px solid var(--brand-accent, #abb920);
-  padding-left: 24px;
+/* Caption / footnote text (em inside image column) */
+.columns .columns-img-col p {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text-color-muted, #464646);
+  margin-top: var(--spacing-s, 8px);
+  line-height: 1.4;
 }
 
-/* Caption / emphasis text — no border */
 .columns em {
   font-style: italic;
-  font-size: var(--body-font-size-s, 16px);
-  color: var(--text-color-muted, #464646);
 }
 
 /* CTA buttons in columns — inherit global button style */
