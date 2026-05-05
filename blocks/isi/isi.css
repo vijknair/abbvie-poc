@@ -94,8 +94,12 @@
 }
 
 /* ============================================
-   STICKY BAR — COLLAPSED STATE
-   Shows ~176px of ISI text with fade gradient.
+   STICKY BAR
+   Green title bar + safety content preview + fade.
+   Matches live ozurdex.com implementation:
+   - ::before creates green bar (30px)
+   - Title + "SEE MORE +" on green bar
+   - Content below with sub-headings and text
    ============================================ */
 .isi-sticky-bar {
   position: fixed;
@@ -103,7 +107,7 @@
   left: 0;
   right: 0;
   z-index: var(--z-isi-bar, 400);
-  height: 176px;
+  height: 150px;
   background: #f3f3f3;
   overflow: hidden;
   transition: height 0.3s ease-in-out;
@@ -116,66 +120,57 @@
   pointer-events: none;
 }
 
-/* Toggle button row — positioned top-right */
-.isi-sticky-toggle-row {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-  z-index: 2;
-}
-
-.isi-sticky-toggle {
+/* Green title bar */
+.isi-sticky-title-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
+  justify-content: space-between;
+  background: var(--brand-accent, #abb920);
+  padding: 6px 24px;
+  min-height: 30px;
+}
+
+.isi-sticky-title {
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-white, #fff);
+  letter-spacing: 0.02em;
+}
+
+/* SEE MORE / SEE LESS toggle button */
+.isi-sticky-toggle {
   border: none;
-  border-radius: 50%;
-  background: var(--brand-accent, #a0b320);
+  background: none;
   cursor: pointer;
   padding: 0;
   margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-white, #fff);
+  white-space: nowrap;
 }
 
 .isi-sticky-toggle:hover {
   opacity: 0.85;
 }
 
-.isi-sticky-icon {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--color-white, #fff);
-  line-height: 1;
-}
-
-/* Fade gradient at top of content (collapsed state) */
-.isi-sticky-fade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(to bottom, #f3f3f3 0%, rgb(243 243 243 / 0%) 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Content area — full ISI cloned */
+/* Content area — safety text below green bar */
 .isi-sticky-content {
-  height: calc(100% - 8px);
+  height: calc(100% - 42px);
   overflow: hidden;
-  padding: 16px 24px 8px;
+  padding: 12px 24px 8px;
 }
 
 /* ISI text styling inside sticky bar */
 .isi-sticky-content h2,
 .isi-sticky-content h3 {
   font-family: var(--heading-font-family);
-  font-size: var(--isi-font-size, 14px);
+  font-size: 16px;
   font-weight: 700;
-  color: var(--isi-heading-color, var(--brand-accent, #a0b320));
-  margin-top: 12px;
+  color: var(--isi-heading-color, var(--brand-accent, #abb920));
+  margin-top: 10px;
   margin-bottom: 4px;
 }
 
@@ -186,7 +181,7 @@
 
 .isi-sticky-content p {
   font-family: var(--heading-font-family);
-  font-size: var(--isi-font-size, 14px);
+  font-size: 15px;
   line-height: 1.5;
   color: var(--isi-text-color, #414a55);
   margin: 0 0 6px;
@@ -201,10 +196,22 @@
 
 .isi-sticky-content li {
   font-family: var(--heading-font-family);
-  font-size: var(--isi-font-size, 14px);
+  font-size: 15px;
   line-height: 1.5;
   color: var(--isi-text-color, #414a55);
   margin-bottom: 2px;
+}
+
+/* Fade gradient at bottom (collapsed state) */
+.isi-sticky-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, rgb(243 243 243 / 0%) 0%, #f3f3f3 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* ============================================
@@ -231,11 +238,28 @@
     padding: var(--spacing-xl, 32px) 32px;
   }
 
-  .isi-sticky-content {
-    padding: 16px 32px 8px;
+  .isi-sticky-title-bar {
+    padding: 6px 32px;
   }
 
-  .isi-sticky-toggle-row {
-    right: 32px;
+  .isi-sticky-title {
+    font-size: 18px;
+  }
+
+  .isi-sticky-content {
+    padding: 12px 32px 8px;
+  }
+
+  .isi-sticky-content h2,
+  .isi-sticky-content h3 {
+    font-size: 18px;
+  }
+
+  .isi-sticky-content p {
+    font-size: 16px;
+  }
+
+  .isi-sticky-content li {
+    font-size: 16px;
   }
 }
