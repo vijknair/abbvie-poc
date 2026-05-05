@@ -459,6 +459,24 @@ main .section.isi-content li {
   color: var(--isi-text-color);
 }
 
+/* Content page section — inner page body text styling */
+main .section.content-page > .default-content-wrapper > p {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #464646;
+}
+
+main .section.content-page > .default-content-wrapper > ul > li {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #464646;
+  margin-bottom: 12px;
+}
+
 /* Accent border left — green left border on body content (p and ul only, not headings) */
 main .section.accent-border-left > .default-content-wrapper > p,
 main .section.accent-border-left > .default-content-wrapper > ul {
@@ -468,24 +486,10 @@ main .section.accent-border-left > .default-content-wrapper > ul {
   margin-bottom: 0;
   padding-top: 4px;
   padding-bottom: 4px;
-  font-family: var(--heading-font-family);
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 22px;
-  color: #464646;
 }
 
 main .section.accent-border-left > .default-content-wrapper > ul {
   padding-left: 65px;
-}
-
-main .section.accent-border-left > .default-content-wrapper > ul > li {
-  font-family: var(--heading-font-family);
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 22px;
-  color: #464646;
-  margin-bottom: 12px;
 }
 
 /* ============================================
