@@ -492,6 +492,26 @@ main .section.accent-border-left > .default-content-wrapper > ul {
   padding-left: 65px;
 }
 
+/* Overlay caption — positions caption text over the image in columns block */
+main .section.overlay-caption .columns > div > .columns-img-col {
+  position: relative;
+}
+
+main .section.overlay-caption .columns > div > .columns-img-col > p {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0;
+  padding: 8px 16px;
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-white, #fff);
+  background: rgb(0 0 0 / 50%);
+}
+
 /* ============================================
    HR / DIVIDERS
    ============================================ */
