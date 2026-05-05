@@ -4,13 +4,14 @@
  * No pipe separators between links — just inline-block with spacing.
  */
 
-/* Footer container — dark navy background */
+/* Footer container — dark navy background with green accent top border */
 footer {
   background-color: var(--footer-bg, #00335b);
   color: var(--footer-text, #fff);
   font-family: var(--body-font-family);
   font-size: 12px;
   line-height: 1.6;
+  border-top: 5px solid var(--brand-accent, #a0b320);
 }
 
 footer .footer {
