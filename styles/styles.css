@@ -427,6 +427,12 @@ main .section.accent {
   padding: var(--spacing-section) 0;
 }
 
+/* Centered section — centers headings */
+main .section.centered h2,
+main .section.centered h3 {
+  text-align: center;
+}
+
 /* ISI section styling */
 main .section.isi-content {
   background-color: var(--color-white);
@@ -451,6 +457,13 @@ main .section.isi-content p {
 main .section.isi-content li {
   font-size: var(--isi-font-size);
   color: var(--isi-text-color);
+}
+
+/* Accent border left — green left border on body content */
+main .section.accent-border-left > div > .default-content-wrapper > p,
+main .section.accent-border-left > div > .default-content-wrapper > ul {
+  border-left: 5px solid var(--brand-accent, #abb920);
+  padding-left: 45px;
 }
 
 /* ============================================
