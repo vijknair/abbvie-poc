@@ -1,7 +1,7 @@
 /* Footer Block — per block-catalog.md
- * Standard AbbVie footer: dark navy bg, white text,
- * horizontal link list, AbbVie logo, copyright, legal, job code.
- * Auto-blocked. Minimal JS for cookie settings button.
+ * Standard AbbVie footer: dark navy bg, white text.
+ * Layout (top to bottom): AbbVie logo + legal text, then link list at bottom.
+ * No pipe separators between links — just inline-block with spacing.
  */
 
 /* Footer container — dark navy background */
@@ -18,59 +18,54 @@ footer .footer {
 }
 
 footer .footer > div {
+  display: flex;
+  flex-direction: column;
   margin: auto;
   max-width: var(--content-max-width, 1200px);
   padding: 15px 24px 30px;
 }
 
-/* Section 1: Compliance link list */
-footer .section:first-child ul {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 15px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 0;
+/* Section with links — move to bottom with order */
+footer .footer .section:first-of-type {
+  order: 2;
+  padding-top: 15px;
 }
 
-footer .section:first-child li {
+footer .footer ul {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer li {
+  display: inline-block;
   font-size: 12px;
   margin: 0;
+  padding-right: 20px;
+  padding-bottom: 6px;
   line-height: 1.4;
 }
 
-footer .section:first-child li::after {
-  content: "|";
-  margin: 0 8px;
-  opacity: 0.6;
-}
-
-footer .section:first-child li:last-child::after {
-  content: none;
-}
-
-/* All footer links — shared style */
-footer a {
-  color: var(--footer-link-color, #fff);
+/* All footer links */
+footer .footer a {
+  color: var(--footer-link-color, #fff) !important;
   text-decoration: underline;
-}
-
-footer a:hover {
-  opacity: 0.8;
-}
-
-footer .section:first-child a {
   font-size: 12px;
 }
 
-/* Section 2: Legal text + logo */
-footer .section:last-child {
-  border-top: 1px solid rgb(255 255 255 / 20%);
-  padding-top: 20px;
-  margin-top: 10px;
+footer .footer a:hover {
+  opacity: 0.8;
 }
 
-footer .section:last-child p {
+/* Section with legal text + logo — move to top with order */
+footer .footer .section:last-of-type {
+  order: 1;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+footer .footer .section:last-of-type p {
   margin: 0 0 10px;
   color: var(--footer-text, #fff);
   font-size: 12px;
@@ -78,18 +73,18 @@ footer .section:last-child p {
 }
 
 /* AbbVie logo in footer */
-footer .section:last-child picture {
+footer .footer .section:last-of-type picture {
   display: block;
   margin-bottom: 15px;
 }
 
-footer .section:last-child img {
+footer .footer .section:last-of-type img {
   max-width: 200px;
   height: auto;
 }
 
 /* Job code — last paragraph */
-footer .section:last-child p:last-child {
+footer .footer .section:last-of-type p:last-child {
   margin-top: 15px;
   font-size: 11px;
   opacity: 0.8;
@@ -109,10 +104,5 @@ footer .default-content-wrapper {
 @media (width >= 900px) {
   footer .footer > div {
     padding: 15px 32px 30px;
-  }
-
-  footer .section:first-child ul {
-    flex-wrap: nowrap;
-    justify-content: center;
   }
 }
