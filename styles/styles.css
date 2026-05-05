@@ -427,6 +427,12 @@ main .section.accent {
   padding: var(--spacing-section) 0;
 }
 
+/* Centered section — centers headings */
+main .section.centered h2,
+main .section.centered h3 {
+  text-align: center;
+}
+
 /* ISI section styling */
 main .section.isi-content {
   background-color: var(--color-white);
@@ -451,6 +457,39 @@ main .section.isi-content p {
 main .section.isi-content li {
   font-size: var(--isi-font-size);
   color: var(--isi-text-color);
+}
+
+/* Content page section — inner page body text styling */
+main .section.content-page > .default-content-wrapper > p {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #464646;
+}
+
+main .section.content-page > .default-content-wrapper > ul > li {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #464646;
+  margin-bottom: 12px;
+}
+
+/* Accent border left — green left border on p and ul (not headings), no break */
+main .section.accent-border-left > .default-content-wrapper > p,
+main .section.accent-border-left > .default-content-wrapper > ul {
+  border-left: 5px solid var(--brand-accent, #abb920);
+  padding-left: 45px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+main .section.accent-border-left > .default-content-wrapper > ul {
+  padding-left: 65px;
 }
 
 /* ============================================
