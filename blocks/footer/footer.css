@@ -11,7 +11,7 @@ footer {
   font-family: var(--body-font-family);
   font-size: 12px;
   line-height: 1.6;
-  border-top: 5px solid var(--brand-accent, #a0b320);
+  border-top: 5px solid var(--brand-accent, #abb920);
 }
 
 footer .footer {

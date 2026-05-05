@@ -31,7 +31,7 @@
   font-family: var(--heading-font-family);
   font-size: var(--body-font-size-s, 16px);
   font-weight: 700;
-  color: var(--isi-heading-color, var(--brand-accent, #a0b320));
+  color: var(--isi-heading-color, var(--brand-accent, #abb920));
   margin-top: 0;
   margin-bottom: var(--spacing-s, 8px);
 }
@@ -41,7 +41,7 @@
   font-family: var(--heading-font-family);
   font-size: var(--body-font-size-s, 16px);
   font-weight: 700;
-  color: var(--isi-heading-color, var(--brand-accent, #a0b320));
+  color: var(--isi-heading-color, var(--brand-accent, #abb920));
   margin-top: var(--spacing-m, 16px);
   margin-bottom: var(--spacing-xs, 4px);
 }
@@ -75,7 +75,7 @@
 
 /* ISI links */
 .isi a {
-  color: var(--brand-accent, #a0b320);
+  color: var(--brand-accent, #abb920);
   text-decoration: underline;
 }
 
