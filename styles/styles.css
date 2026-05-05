@@ -459,11 +459,20 @@ main .section.isi-content li {
   color: var(--isi-text-color);
 }
 
-/* Accent border left — green left border on body content */
-main .section.accent-border-left > .default-content-wrapper > p,
-main .section.accent-border-left > .default-content-wrapper > ul {
+/* Accent border left — green left border on body content (below heading) */
+main .section.accent-border-left > .default-content-wrapper {
   border-left: 5px solid var(--brand-accent, #abb920);
   padding-left: 45px;
+}
+
+main .section.accent-border-left > .default-content-wrapper > h2,
+main .section.accent-border-left > .default-content-wrapper > h3 {
+  margin-left: -50px;
+  border-left: none;
+}
+
+main .section.accent-border-left > .default-content-wrapper > ul {
+  padding-left: 20px;
 }
 
 /* ============================================
