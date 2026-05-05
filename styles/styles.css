@@ -460,8 +460,8 @@ main .section.isi-content li {
 }
 
 /* Accent border left — green left border on body content */
-main .section.accent-border-left > div > .default-content-wrapper > p,
-main .section.accent-border-left > div > .default-content-wrapper > ul {
+main .section.accent-border-left > .default-content-wrapper > p,
+main .section.accent-border-left > .default-content-wrapper > ul {
   border-left: 5px solid var(--brand-accent, #abb920);
   padding-left: 45px;
 }
