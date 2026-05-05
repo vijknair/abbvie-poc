@@ -468,10 +468,24 @@ main .section.accent-border-left > .default-content-wrapper > ul {
   margin-bottom: 0;
   padding-top: 4px;
   padding-bottom: 4px;
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #464646;
 }
 
 main .section.accent-border-left > .default-content-wrapper > ul {
   padding-left: 65px;
+}
+
+main .section.accent-border-left > .default-content-wrapper > ul > li {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #464646;
+  margin-bottom: 12px;
 }
 
 /* ============================================
