@@ -7,6 +7,10 @@
   margin-top: 125px;
 }
 
+.section.light > .teaser-wrapper:last-child {
+  margin-bottom: -50px;
+}
+
 .teaser > div {
   position: relative;
   display: flex;
