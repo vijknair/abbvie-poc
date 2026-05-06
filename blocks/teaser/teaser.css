@@ -1,5 +1,6 @@
 /* Teaser Block — background image with overlaid text/CTA.
  * Used for: visual acuity panels, "Learn more" callouts.
+ * Variants: overlay-right (default), overlay-left
  */
 
 .teaser-wrapper + .teaser-wrapper {
@@ -10,7 +11,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 350px;
+  min-height: 420px;
   overflow: hidden;
 }
 
@@ -28,10 +29,12 @@
   display: block;
 }
 
+/* Default: overlay-right — white semi-transparent box on the right */
 .teaser .teaser-content {
   position: relative;
   z-index: 1;
   background-color: var(--color-white, #fff);
+  opacity: 0.75;
   padding: 46px 45px;
   max-width: 50%;
   margin-left: auto;
@@ -60,6 +63,14 @@
   margin-top: var(--spacing-l);
 }
 
+/* Variant: overlay-left — solid white box on the left */
+.teaser.overlay-left .teaser-content {
+  margin-left: 0;
+  margin-right: auto;
+  opacity: 1;
+  align-self: flex-end;
+}
+
 /* Mobile: stack content below image */
 @media (width < 900px) {
   .teaser > div {
@@ -76,5 +87,7 @@
   .teaser .teaser-content {
     max-width: 100%;
     padding: 24px;
+    opacity: 1;
+    margin-left: 0;
   }
 }
