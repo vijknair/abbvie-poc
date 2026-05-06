@@ -29,6 +29,7 @@
 /* Borderless variant — centered text, no border, used for severity tiles */
 .cards.borderless > ul {
   grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
 
 .cards.borderless > ul > li {
@@ -38,18 +39,19 @@
 }
 
 .cards.borderless .cards-card-body {
-  margin: var(--spacing-s) var(--spacing-m);
+  margin: var(--spacing-m) 0 0;
 }
 
 .cards.borderless .cards-card-body p {
   font-family: var(--heading-font-family);
-  font-size: var(--body-font-size-m);
+  font-size: 23px;
   font-weight: 500;
-  color: var(--text-color-muted);
+  color: var(--brand-primary);
   line-height: 1.4;
 }
 
 .cards.borderless > ul > li img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
   border-radius: var(--border-radius-m);
 }
