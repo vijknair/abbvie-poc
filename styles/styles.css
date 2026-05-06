@@ -465,7 +465,7 @@ main .section.content-page > .default-content-wrapper > p {
   font-size: 22px;
   font-weight: 500;
   line-height: 22px;
-  color: #464646;
+  color: var(--text-color-muted);
 }
 
 main .section.content-page > .default-content-wrapper > ul > li {
@@ -473,7 +473,7 @@ main .section.content-page > .default-content-wrapper > ul > li {
   font-size: 22px;
   font-weight: 500;
   line-height: 22px;
-  color: #464646;
+  color: var(--text-color-muted);
   margin-bottom: 12px;
 }
 

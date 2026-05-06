@@ -286,7 +286,7 @@ header nav[aria-expanded='true'] .nav-tools p + p::before {
    Sticky gray bar with horizontal centered links.
    ============================================ */
 .primary-nav-bar {
-  background: #f3f3f3;
+  background: var(--light-color);
   border-bottom: 1px solid var(--border-color, #e8e8e8);
   position: sticky;
   top: 0;

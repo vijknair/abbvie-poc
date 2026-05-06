@@ -21,7 +21,7 @@
 
   /* Typography — futura-pt from Adobe Typekit */
   --heading-font-family: futura-pt, futura-pt-fallback, sans-serif;
-  --body-font-family: arial, "Helvetica Neue", helvetica, sans-serif;
+  --body-font-family: futura-pt, futura-pt-fallback, sans-serif;
 
   /* Layout */
   --nav-height: 140px;
@@ -35,9 +35,4 @@
   /* ISI */
   --isi-heading-color: var(--brand-accent);
   --isi-text-color: #414A55;
-}
-
-/* OZURDEX content paragraphs use the heading font (futura-pt) */
-main p {
-  font-family: var(--heading-font-family);
 }
