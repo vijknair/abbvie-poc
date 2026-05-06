@@ -41,7 +41,7 @@
 /* Body text in columns */
 .columns p {
   font-family: var(--heading-font-family);
-  font-size: var(--body-font-size-m, 18px);
+  font-size: 22px;
   line-height: 1.6;
   color: var(--text-color-muted, #464646);
   margin-bottom: var(--spacing-m, 16px);
@@ -105,8 +105,8 @@
   }
 
   .columns h2 {
-    font-size: 40px;
-    line-height: 55px;
+    font-size: 30px;
+    line-height: 40px;
   }
 
   .columns li {
