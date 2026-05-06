@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="cq:Page">
+  <jcr:content
+      jcr:primaryType="cq:PageContent"
+      jcr:title="Footer"
+      sling:resourceType="core/franklin/components/page/v1/page"
+      cq:template="/conf/ozurdex/settings/wcm/templates/fragment">
+    <section_0
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section">
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://www.allergan.com/assets/pdf/ozurdex_pi.pdf&quot;&gt;Full Prescribing Information&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.abbvie.com&quot;&gt;AbbVie.com&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.abbvie.com/accessibility-statement.html&quot;&gt;Accessibility Statement&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.abbvie.com/contactus.html&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.abbvie.com/termsofuse.html&quot;&gt;Terms of Use&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://privacy.abbvie/privacy-policies/us-privacy-policy.html&quot;&gt;Privacy Notice&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://abbv.ie/PrivacyConsumerHealth&quot;&gt;Consumer Health Data Privacy Notice&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://abbviemetadata.my.site.com/AbbvieDSRM&quot;&gt;Your Privacy Choices&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"/>
+    </section_0>
+    <section_1
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section">
+      <image
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/image/v1/image"
+          image="/content/dam/ozurdexhcp/images/global/AbbVieLogo_white.png"
+          imageAlt="AbbVie Logo"
+          link="https://www.abbvie.com/"/>
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;&amp;copy; 2024 AbbVie. All rights reserved. All trademarks are the property of their respective owners.&lt;/p&gt;&lt;p&gt;This site is intended for U.S. consumers only. No information on this site is provided with the intention to give medical advice or instructions on the accurate use of AbbVie products. AbbVie cannot answer unsolicited emails requesting medical advice; visitors should always consult a healthcare professional.&lt;/p&gt;&lt;p&gt;If you are new to AbbVie and have non OZURDEX&amp;reg; related questions or concerns, call &lt;a href=&quot;tel:1-844-639-2246&quot;&gt;1-844-639-2246&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;US-OZU-240023&lt;/p&gt;"/>
+    </section_1>
+  </jcr:content>
+</jcr:root>
