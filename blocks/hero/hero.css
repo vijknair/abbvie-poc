@@ -31,6 +31,10 @@
   .hero {
     height: 560px;
   }
+
+  .hero:has(> div:only-child) {
+    height: 420px;
+  }
 }
 
 /* Row 1: Background image — absolute fill */
