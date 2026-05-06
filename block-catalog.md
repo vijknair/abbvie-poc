@@ -625,24 +625,25 @@ vraylarhcp
 
 ---
 
-## Block 23: `callout`
+## Block 23: `teaser`
 
 ### Description
-A mid-page editorial banner that uses a full-bleed background photograph with a heading and single CTA button overlaid on the image. Structurally identical to the `hero` `photo-bg` pattern but used as a section-level call-to-action rather than the primary page entry point. Always contains an H2 (not H1), is positioned mid-page, and drives toward a downloadable resource (brochure, patient guide). Repeats once per condition topic on multi-condition education pages.
+A background image panel with an overlaid text content box. Used for informational panels (visual acuity explanations), editorial callouts (condition brochure downloads), and any pattern where text sits on or beside a full-bleed photograph. The text overlay can be positioned left or right, with configurable opacity (semi-transparent or solid). Pure CSS, no JS required.
 
 ### Variants
 
 | Variant | Description | Sites |
 |---|---|---|
-| **photo-bg** | Full-bleed background image, centered H2 heading, single CTA button overlaid. No body text. Used for condition-specific brochure download CTAs. | ozurdex-aboutyourcondition (×3: DME / RVO / Uveitis callouts) |
+| **overlay-right** (default) | Semi-transparent white box (opacity 0.75) positioned on the right half of the image. Text overlays the photograph. Used for informational panels. | ozurdex-aboutyourcondition (Visual Acuity - "UNDERSTANDING VISUAL ACUITY") |
+| **overlay-left** | Solid white box positioned on the left, image offset to the right (70% width). Content vertically centered. Used for panels with icon lists. | ozurdex-aboutyourcondition (Visual Acuity - "DECREASED VISUAL ACUITY") |
+| **callout** | Solid white box on the left (40%), image on the right (60%). Text centered within box. Heading + outlined CTA button. Used for condition-specific brochure download CTAs. | ozurdex-aboutyourcondition (×3: DME / RVO / Uveitis "Learn more" callouts) |
 
 ### Typical Content Structure
-- Full-bleed background `<picture>` (condition-specific photo)
-- H2 heading (e.g. "LEARN MORE ABOUT DME")
-- Single CTA button (e.g. "DOWNLOAD A BROCHURE")
+- Row 1, Col 1: Full-bleed background `<picture>`
+- Row 1, Col 2: Text content (heading, paragraph, optional CTA button)
 
 ### JS Required
-**None.** Pure CSS layout — same as `hero` `photo-bg`.
+**None.** Pure CSS layout with variant classes.
 
 ### LCP Impact
 **None.** Always mid-page, never in Section 1.
@@ -663,7 +664,7 @@ ozurdex-aboutyourcondition
 | `isi` | 9 (content-only) | Custom | One impl / zero extra | None | All 26 |
 | `footer` | 3 (standard, co-brand-genmab, co-brand-genentech) | Custom | Auto-blocked | None | All 26 |
 | `columns` | 6 (2-col image-left, image-right, icon-text, image-text-overlay, 3-col icon-descriptors, 2-col before-after) | Block Collection + custom overlay variant | None | None | duopa, duopahcp, ozurdex, ozurdex-howitworks, ozurdex-whattoexpect, ozurdex-aboutyourcondition, botoxspasticity, creonhcp, abbvieoncology, venclexta, botoxone, botox |
-| `callout` | 1 (photo-bg) | **New custom** | None | None | ozurdex-aboutyourcondition |
+| `teaser` | 3 (overlay-right, overlay-left, callout) | **New custom** | None | None | ozurdex-aboutyourcondition |
 | `cards` | 6 (icon, image, feature, savings, image-quote, clinical-pillars) | Block Collection + custom | Minimal–Low | Low | creonhcp, qulipta, botoxchronicmigraine, vraylar, rinvoqhcp, ubrelvy, vraylarhcp, botox |
 | `tabs` | 2 | Block Collection | Low | Low | epkinlyHCP, creonhcp |
 | `accordion` | 3 (standard, blade, references) | Block Collection + custom blade | Low–Medium | Low | creonhcp, botoxspasticity, duopa (standard); quliptahcp, skyrizihcp (blade) |
