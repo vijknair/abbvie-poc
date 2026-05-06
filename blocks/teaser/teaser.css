@@ -2,6 +2,10 @@
  * Used for: visual acuity panels, "Learn more" callouts.
  */
 
+.teaser-wrapper + .teaser-wrapper {
+  margin-top: 125px;
+}
+
 .teaser > div {
   position: relative;
   display: flex;

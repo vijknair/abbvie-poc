@@ -398,7 +398,7 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: var(--spacing-section) 0;
+  padding: 50px 0;
 }
 
 main .section.dark {
