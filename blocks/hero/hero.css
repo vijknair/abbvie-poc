@@ -10,7 +10,7 @@
   padding: 0;
 }
 
-.hero-container {
+main > .section.hero-container {
   margin: 0;
 }
 
