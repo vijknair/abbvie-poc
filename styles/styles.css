@@ -550,6 +550,43 @@ main .section.wide-gap .columns > div {
   gap: 120px;
 }
 
+/* Before/After — 2-column grid with labeled header bars above images */
+main .section.before-after > .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+main .section.before-after > .default-content-wrapper > h3 {
+  background-color: #A8BCD4;
+  color: var(--brand-primary);
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  padding: 12px 20px;
+  margin: 0;
+}
+
+main .section.before-after > .default-content-wrapper > picture {
+  display: block;
+  text-align: left;
+  margin-top: 0;
+}
+
+main .section.before-after > .default-content-wrapper > picture > img {
+  max-width: 100%;
+  border-radius: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.before-after > .default-content-wrapper > p {
+  grid-column: 1;
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color-muted);
+  margin-top: var(--spacing-s);
+}
+
 /* Retina callout — dark navy section with upward arrow */
 main .section.retina-callout {
   background-color: var(--brand-primary, #00335b);
