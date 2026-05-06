@@ -401,6 +401,18 @@ main .section.highlight {
   padding: 50px 0;
 }
 
+main .section.light > .default-content-wrapper > h2 {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: left;
+}
+
+main .section.light > .default-content-wrapper > ul > li {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--brand-primary);
+}
+
 main .section.dark {
   background-color: var(--brand-primary);
   color: var(--text-color-inverse);
@@ -408,6 +420,7 @@ main .section.dark {
   padding: var(--spacing-section) 0;
 }
 
+/* stylelint-disable no-descending-specificity */
 main .section.dark h1,
 main .section.dark h2,
 main .section.dark h3,
@@ -416,6 +429,7 @@ main .section.dark h5,
 main .section.dark h6 {
   color: var(--text-color-inverse);
 }
+/* stylelint-enable no-descending-specificity */
 
 main .section.dark a:any-link {
   color: var(--text-color-inverse);
@@ -428,6 +442,7 @@ main .section.accent {
 }
 
 /* Centered section — centers headings */
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.centered h2,
 main .section.centered h3 {
   text-align: center;
@@ -441,6 +456,7 @@ main .section.isi-content {
   border-top: 3px solid var(--brand-accent);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.isi-content h2,
 main .section.isi-content h3 {
   color: var(--brand-accent);
@@ -454,6 +470,7 @@ main .section.isi-content p {
   color: var(--isi-text-color);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.isi-content li {
   font-size: var(--isi-font-size);
   color: var(--isi-text-color);

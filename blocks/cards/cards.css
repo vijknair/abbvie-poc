@@ -53,5 +53,5 @@
 .cards.borderless > ul > li img {
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  border-radius: var(--border-radius-m);
+  border-radius: 0;
 }
