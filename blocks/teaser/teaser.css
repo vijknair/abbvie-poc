@@ -83,6 +83,52 @@
   max-width: 45%;
 }
 
+/* overlay-left list items: icon + text side by side */
+.teaser.overlay-left .teaser-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.teaser.overlay-left .teaser-content li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: var(--spacing-l, 24px);
+  font-size: 20px;
+}
+
+.teaser.overlay-left .teaser-content li::before {
+  content: "";
+  display: block;
+  width: 53px;
+  height: 53px;
+  flex-shrink: 0;
+  border: 2px solid var(--color-gray-400, #999);
+  border-radius: 50%;
+  background-size: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.teaser.overlay-left .teaser-content li:nth-child(1)::before {
+  background-image: url("https://www.ozurdex.com/content/dam/ozurdex/images/aboutyourcondition/recognize-faces-icon.png");
+  background-size: contain;
+  border: none;
+}
+
+.teaser.overlay-left .teaser-content li:nth-child(2)::before {
+  background-image: url("https://www.ozurdex.com/content/dam/ozurdex/images/aboutyourcondition/drivers-license-icon.png");
+  background-size: contain;
+  border: none;
+}
+
+.teaser.overlay-left .teaser-content li:nth-child(3)::before {
+  background-image: url("https://www.ozurdex.com/content/dam/ozurdex/images/aboutyourcondition/dial-telephone-icon.png");
+  background-size: contain;
+  border: none;
+}
+
 /* Mobile: stack content below image */
 @media (width < 900px) {
   .teaser > div {
