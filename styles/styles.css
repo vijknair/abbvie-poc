@@ -477,7 +477,23 @@ main .section.content-page > .default-content-wrapper > ul > li {
   margin-bottom: 12px;
 }
 
+/* Content page — center images and captions */
+main .section.content-page > .default-content-wrapper > picture {
+  display: block;
+  text-align: center;
+}
+
+main .section.content-page > .default-content-wrapper > picture > img {
+  max-width: 420px;
+  display: inline-block;
+}
+
+main .section.content-page > .default-content-wrapper > p:has(em) {
+  text-align: center;
+}
+
 /* Accent border left — green left border on p and ul (not headings), no break */
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.accent-border-left > .default-content-wrapper > p,
 main .section.accent-border-left > .default-content-wrapper > ul {
   border-left: 5px solid var(--brand-accent, #abb920);
@@ -553,6 +569,7 @@ main .section.retina-callout::after {
   border-color: transparent transparent var(--brand-primary, #00335b);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.retina-callout > .default-content-wrapper > p {
   font-family: var(--heading-font-family);
   font-size: 30px;
