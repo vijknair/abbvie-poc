@@ -1,0 +1,368 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "description": "OZURDEX homepage with hero, conditions columns, implant details, video CTA, procedure section, and ISI",
+      "urls": ["https://www.ozurdex.com/"],
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [".abbv-background-container.section-banner.home-page", ".ozur-works-home"]
+        },
+        {
+          "name": "columns",
+          "instances": [".ozure-home-pres-main-contain .abbv-row-container", ".ozure-home-tiny-imp-contain", ".procedure-section"]
+        },
+        {
+          "name": "isi",
+          "instances": [".abbv-inline-use-isi"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero Banner",
+          "selector": ".abbv-background-container.section-banner.home-page",
+          "style": null,
+          "blocks": ["hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "conditions",
+          "name": "Conditions List",
+          "selector": ".ozure-home-pres-main-contain",
+          "style": null,
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "implant",
+          "name": "A Tiny Implant",
+          "selector": ".ozure-home-tiny-imp-contain",
+          "style": null,
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "video-cta",
+          "name": "See How OZURDEX Works",
+          "selector": ".ozur-works-home",
+          "style": null,
+          "blocks": ["hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "procedure",
+          "name": "The Procedure Takes Just Minutes",
+          "selector": ".procedure-section",
+          "style": null,
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "isi",
+          "name": "Important Safety Information",
+          "selector": ".abbv-inline-use-isi",
+          "style": null,
+          "blocks": ["isi"],
+          "defaultContent": []
+        }
+      ]
+    },
+    {
+      "name": "howitworks",
+      "description": "How It Works page with hero, condition description, columns (implant details), retina images, video, and ISI",
+      "urls": ["https://www.ozurdex.com/howitworks"],
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [".abbv-background-container.section-banner"]
+        },
+        {
+          "name": "columns",
+          "instances": [".ozure-hiw-tiny-implant", ".ozure-hiw-retina-images"]
+        },
+        {
+          "name": "video",
+          "instances": [".ozure-hiw-video-section"]
+        },
+        {
+          "name": "isi",
+          "instances": [".abbv-inline-use-isi"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero Banner",
+          "selector": ".abbv-background-container.section-banner",
+          "style": null,
+          "blocks": ["hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "what-is-ozurdex",
+          "name": "What Is OZURDEX",
+          "selector": ".ozure-hiw-what-is-ozurdex",
+          "style": "content-page, centered, accent-border-left",
+          "blocks": [],
+          "defaultContent": ["h2", "p", "ul"]
+        },
+        {
+          "id": "implant-details",
+          "name": "OZURDEX Is",
+          "selector": ".ozure-hiw-tiny-implant",
+          "style": null,
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "what-does",
+          "name": "What Does OZURDEX Do",
+          "selector": ".ozure-hiw-what-does",
+          "style": "content-page, centered",
+          "blocks": [],
+          "defaultContent": ["h3", "ul"]
+        },
+        {
+          "id": "retina-images",
+          "name": "Before/After Retina Images",
+          "selector": ".ozure-hiw-retina-images",
+          "style": "wide-gap",
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "retina-callout",
+          "name": "Clinical Studies Callout",
+          "selector": ".ozure-hiw-callout",
+          "style": "retina-callout",
+          "blocks": [],
+          "defaultContent": ["p"]
+        },
+        {
+          "id": "what-happens",
+          "name": "What Happens to the Implant",
+          "selector": ".ozure-hiw-what-happens",
+          "style": "content-page, centered",
+          "blocks": [],
+          "defaultContent": ["h3", "ul"]
+        },
+        {
+          "id": "video",
+          "name": "Video",
+          "selector": ".ozure-hiw-video-section",
+          "style": null,
+          "blocks": ["video"],
+          "defaultContent": []
+        },
+        {
+          "id": "isi",
+          "name": "Important Safety Information",
+          "selector": ".abbv-inline-use-isi",
+          "style": null,
+          "blocks": ["isi"],
+          "defaultContent": []
+        }
+      ]
+    },
+    {
+      "name": "whattoexpect",
+      "description": "What to Expect page with hero, intro, before/during/after procedure sections, and ISI",
+      "urls": ["https://www.ozurdex.com/whattoexpect"],
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [".abbv-background-container.section-banner", ".during-procedure-hero"]
+        },
+        {
+          "name": "columns",
+          "instances": [".ozure-wte-before-pro", ".ozure-wte-after-pro"]
+        },
+        {
+          "name": "isi",
+          "instances": [".abbv-inline-use-isi"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero Banner",
+          "selector": ".abbv-background-container.section-banner",
+          "style": null,
+          "blocks": ["hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "intro",
+          "name": "What Should I Expect",
+          "selector": ".ozure-wte-heading",
+          "style": "content-page, centered, accent-border-left",
+          "blocks": [],
+          "defaultContent": ["h2", "p", "a"]
+        },
+        {
+          "id": "before",
+          "name": "Before the Procedure",
+          "selector": ".ozure-wte-before-pro",
+          "style": null,
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "during-hero",
+          "name": "During Procedure Banner",
+          "selector": ".during-procedure-hero",
+          "style": null,
+          "blocks": ["hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "during-text",
+          "name": "During the Procedure",
+          "selector": ".ozure-duringthe-proc-contain",
+          "style": "content-page, centered",
+          "blocks": [],
+          "defaultContent": ["h2", "ul"]
+        },
+        {
+          "id": "after",
+          "name": "After the Procedure",
+          "selector": ".ozure-wte-after-pro",
+          "style": null,
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "isi",
+          "name": "Important Safety Information",
+          "selector": ".abbv-inline-use-isi",
+          "style": null,
+          "blocks": ["isi"],
+          "defaultContent": []
+        }
+      ]
+    },
+    {
+      "name": "aboutyourcondition",
+      "description": "About Your Condition page with hero, visual acuity teasers, retina callout, condition sections (DME/RVO/Uveitis) with symptoms cards and download teasers, and ISI",
+      "urls": ["https://www.ozurdex.com/aboutyourcondition"],
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [".abbv-background-container.section-banner"]
+        },
+        {
+          "name": "teaser",
+          "instances": [".visual-acuity .abbv-image-text-v2.img1-dv", ".decreased-visual-acuity", "[class*='about-dme']", "[class*='about-rvo']", "[class*='about-uveitis']"]
+        },
+        {
+          "name": "cards",
+          "instances": [".abbv-symptoms-mid-image"],
+          "section": "light"
+        },
+        {
+          "name": "columns",
+          "instances": [".ozure-ayc-brvo-crvo"]
+        },
+        {
+          "name": "isi",
+          "instances": [".abbv-inline-use-isi"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero Banner",
+          "selector": ".abbv-background-container.section-banner",
+          "style": null,
+          "blocks": ["hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "intro",
+          "name": "How Does Your Condition Impact Your Vision",
+          "selector": ".ozure-ayc-heading",
+          "style": "content-page, centered, accent-border-left",
+          "blocks": [],
+          "defaultContent": ["h2", "p", "a"]
+        },
+        {
+          "id": "visual-acuity",
+          "name": "Visual Acuity",
+          "selector": ".visual-acuity",
+          "style": "light",
+          "blocks": ["teaser"],
+          "defaultContent": []
+        },
+        {
+          "id": "retina-callout",
+          "name": "Healthy Retina Callout",
+          "selector": ".ozure-ayc-retina-callout",
+          "style": "retina-callout",
+          "blocks": [],
+          "defaultContent": ["p"]
+        },
+        {
+          "id": "dme",
+          "name": "Diabetic Macular Edema (DME)",
+          "selector": ".ozure-ayc-dme-section",
+          "style": "content-page, centered",
+          "blocks": [],
+          "defaultContent": ["h2", "ul", "picture", "hr", "picture", "p"]
+        },
+        {
+          "id": "dme-symptoms",
+          "name": "DME Symptoms",
+          "selector": ".symptoms-container:nth-of-type(1)",
+          "style": "light",
+          "blocks": ["cards", "teaser"],
+          "defaultContent": ["h2", "ul"]
+        },
+        {
+          "id": "rvo",
+          "name": "Retinal Vein Occlusion (RVO)",
+          "selector": ".ozure-ayc-rvo-section",
+          "style": "content-page, centered",
+          "blocks": ["columns"],
+          "defaultContent": ["h2", "ul", "hr", "p"]
+        },
+        {
+          "id": "rvo-symptoms",
+          "name": "RVO Symptoms",
+          "selector": ".symptoms-container:nth-of-type(2)",
+          "style": "light",
+          "blocks": ["cards", "teaser"],
+          "defaultContent": ["h2", "ul"]
+        },
+        {
+          "id": "uveitis",
+          "name": "Noninfectious Uveitis",
+          "selector": ".ozure-ayc-uveitis-section",
+          "style": "content-page, centered",
+          "blocks": [],
+          "defaultContent": ["h2", "ul", "picture", "p"]
+        },
+        {
+          "id": "uveitis-symptoms",
+          "name": "Uveitis Symptoms",
+          "selector": ".ozure-ayc-uveitis-symptoms",
+          "style": "light",
+          "blocks": ["teaser"],
+          "defaultContent": ["h2", "ul"]
+        },
+        {
+          "id": "isi",
+          "name": "Important Safety Information",
+          "selector": ".abbv-inline-use-isi",
+          "style": null,
+          "blocks": ["isi"],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}
