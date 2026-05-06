@@ -23,6 +23,9 @@
   --heading-font-family: futura-pt, futura-pt-fallback, sans-serif;
   --body-font-family: futura-pt, futura-pt-fallback, sans-serif;
 
+  /* Light section background */
+  --light-color: #EBEBEB;
+
   /* Layout */
   --nav-height: 140px;
   --nav-bg: #F3F3F3;
