@@ -586,8 +586,9 @@ main .section.before-after > .default-content-wrapper > h3 {
   font-weight: 700;
   font-style: italic;
   text-align: center;
-  padding: 12px 20px;
+  padding: 8px 20px;
   margin: 0;
+  scroll-margin: 0;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -605,8 +606,10 @@ main .section.before-after > .default-content-wrapper > picture > img {
 main .section.before-after > .default-content-wrapper > p {
   grid-column: 1;
   grid-row: 3;
-  font-size: var(--body-font-size-xs);
+  font-size: 12px;
+  font-weight: 400;
   color: var(--text-color-muted);
+  text-align: left;
   margin-top: var(--spacing-s);
 }
 
