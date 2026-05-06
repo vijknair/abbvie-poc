@@ -133,6 +133,44 @@
   border: none;
 }
 
+/* Variant: callout — solid white box left, image right, text centered */
+.teaser.callout > div {
+  min-height: 400px;
+}
+
+.teaser.callout .teaser-image {
+  left: 40%;
+  right: 0;
+  width: 60%;
+}
+
+.teaser.callout .teaser-content {
+  margin-left: 0;
+  margin-right: auto;
+  opacity: 1;
+  align-self: center;
+  max-width: 40%;
+  text-align: center;
+}
+
+.teaser.callout .teaser-content p {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+.teaser.callout .teaser-content .button-container {
+  margin-top: var(--spacing-xl);
+}
+
+.teaser.callout .teaser-content a.button {
+  border: 2px solid var(--brand-primary);
+  color: var(--brand-primary);
+  background: transparent;
+  font-size: var(--body-font-size-m);
+  text-transform: uppercase;
+}
+
 /* Mobile: stack content below image */
 @media (width < 900px) {
   .teaser > div {
