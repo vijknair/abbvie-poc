@@ -31,24 +31,29 @@
 .teaser .teaser-content {
   position: relative;
   z-index: 1;
-  padding: 40px;
+  background-color: var(--color-white, #fff);
+  padding: 46px 45px;
   max-width: 50%;
+  margin-left: auto;
 }
 
 .teaser .teaser-content h2,
 .teaser .teaser-content h3 {
   font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-l);
+  font-size: 24px;
   font-weight: 700;
   color: var(--brand-primary);
   margin-top: 0;
+  margin-bottom: var(--spacing-m);
 }
 
-.teaser .teaser-content p {
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  line-height: 1.6;
-  color: var(--text-color-muted);
+.teaser .teaser-content p,
+.teaser .teaser-content li {
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-color-muted, #464646);
 }
 
 .teaser .teaser-content .button-container {
