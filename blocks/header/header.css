@@ -8,6 +8,29 @@
  */
 
 /* ============================================
+   EYEBROW BANNER — promotional bar above header
+   ============================================ */
+header .nav-eyebrow {
+  background-color: var(--brand-accent, #90124A);
+  color: var(--color-white, #fff);
+  font-size: 14px;
+  text-align: center;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+header .nav-eyebrow a {
+  color: var(--color-white, #fff);
+  text-decoration: underline;
+}
+
+header .nav-eyebrow p {
+  margin: 0;
+  color: var(--color-white, #fff);
+  font-size: 14px;
+}
+
+/* ============================================
    HEADER WRAPPER — overlays hero
    ============================================ */
 header {
@@ -40,6 +63,7 @@ header nav[aria-expanded='true'] {
   align-content: flex-start;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 header nav p {
   margin: 0;
   line-height: 1;

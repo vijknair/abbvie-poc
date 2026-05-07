@@ -108,7 +108,12 @@ export default async function decorate(block) {
 
   // Assign classes to the section DIVs (skip meta/link/script tags from fragment head)
   const sections = [...nav.querySelectorAll(':scope > div.section')];
-  const classes = ['brand', 'sections', 'tools'];
+  let classes;
+  if (sections.length >= 4) {
+    classes = ['eyebrow', 'brand', 'sections', 'tools'];
+  } else {
+    classes = ['brand', 'sections', 'tools'];
+  }
   sections.forEach((section, i) => {
     if (classes[i]) section.classList.add(`nav-${classes[i]}`);
   });
