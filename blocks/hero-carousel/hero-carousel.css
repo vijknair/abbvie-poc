@@ -77,6 +77,15 @@
   margin-bottom: var(--spacing-m);
 }
 
+/* Inline decorative SVG (e.g., "Relief" brush-stroke between text) */
+.hero-carousel-content p > img {
+  display: inline-block;
+  height: 1.5em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
 /* Navigation arrows */
 .hero-carousel-nav {
   position: absolute;
