@@ -80,6 +80,12 @@ body.rinvoq header .nav-eyebrow {
   order: 1;
 }
 
+body.rinvoq header .nav-eyebrow p,
+body.rinvoq header .nav-eyebrow a {
+  color: var(--color-white);
+  font-size: 13px;
+}
+
 /* Utility nav — dark bar with PI link */
 body.rinvoq header .nav-tools {
   background-color: var(--brand-primary);
