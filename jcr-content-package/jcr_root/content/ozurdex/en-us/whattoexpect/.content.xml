@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="cq:Page">
+  <jcr:content
+      jcr:primaryType="cq:PageContent"
+      jcr:title="WHAT TO EXPECT"
+      jcr:description="Find out what to expect before, during, and after your OZURDEX procedure."
+      sling:resourceType="core/franklin/components/page/v1/page"
+      cq:template="/conf/ozurdex/settings/wcm/templates/content-page">
+
+    <!-- Section 1: Hero -->
+    <section_0
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Hero Banner">
+      <hero
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="Hero"
+          model="hero"
+          image="/content/dam/ozurdex/images/whattoexpect/what-to-expect-hero.jpg"
+          imageAlt="What to Expect"
+          text="&lt;h1&gt;WHAT TO EXPECT&lt;/h1&gt;"/>
+    </section_0>
+
+    <!-- Section 2: Intro -->
+    <section_1
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="What Should I Expect"
+        style="content-page, centered, accent-border-left">
+      <title
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="WHAT SHOULD I EXPECT WITH OZURDEX&amp;reg;?"
+          titleType="h2"/>
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;OZURDEX&amp;reg; has been approved for three uses based on clinical trials. More than 1600 patients were included in the trials.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;#Procedure&quot;&gt;Preparing for the procedure&lt;/a&gt;&lt;/p&gt;"/>
+    </section_1>
+
+    <!-- Section 3: Before the Procedure (Columns) -->
+    <section_2
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Before the Procedure">
+      <columns
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="Columns"
+          model="columns">
+        <row_0
+            jcr:primaryType="nt:unstructured">
+          <col_0
+              jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/image/v1/image"
+                image="/content/dam/ozurdex/images/whattoexpect/before-the-procedure.jpg"
+                imageAlt="Before the Procedure"/>
+          </col_0>
+          <col_1
+              jcr:primaryType="nt:unstructured">
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/title/v1/title"
+                title="BEFORE THE PROCEDURE"
+                titleType="h2"/>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/text/v1/text"
+                text="&lt;ul&gt;&lt;li&gt;Speak with your doctor about any questions/concerns you may have&lt;/li&gt;&lt;li&gt;Arrange to have somebody take you to and from your appointment&lt;/li&gt;&lt;li&gt;Create a list of all the prescription and over-the-counter medications you take&lt;/li&gt;&lt;/ul&gt;"/>
+          </col_1>
+        </row_0>
+      </columns>
+    </section_2>
+
+    <!-- Section 4: During Procedure Banner (Hero image only) -->
+    <section_3
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="During Procedure Banner">
+      <hero
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="Hero"
+          model="hero"
+          image="/content/dam/ozurdex/images/whattoexpect/during-the-procedure-update.jpg"
+          imageAlt="During the Procedure"/>
+    </section_3>
+
+    <!-- Section 5: During the Procedure -->
+    <section_4
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="During the Procedure"
+        style="content-page, centered">
+      <title
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="DURING THE PROCEDURE"
+          titleType="h2"/>
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;ul&gt;&lt;li&gt;The injection of OZURDEX&amp;reg; will take only a few moments&lt;/li&gt;&lt;li&gt;You will be awake&lt;/li&gt;&lt;li&gt;Your doctor will clean and numb the surface of the eye for your comfort&lt;/li&gt;&lt;li&gt;Your doctor will inject OZURDEX&amp;reg; using a special applicator that's about the size of a pen&lt;/li&gt;&lt;li&gt;During the injection, you may feel pressure&lt;/li&gt;&lt;li&gt;You may then hear a click when your doctor presses the button that releases the OZURDEX&amp;reg; implant in your eye&lt;/li&gt;&lt;/ul&gt;"/>
+    </section_4>
+
+    <!-- Section 6: After the Procedure (Columns) -->
+    <section_5
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="After the Procedure">
+      <columns
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="Columns"
+          model="columns">
+        <row_0
+            jcr:primaryType="nt:unstructured">
+          <col_0
+              jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/image/v1/image"
+                image="/content/dam/ozurdex/images/whattoexpect/after-the-procedure.jpg"
+                imageAlt="After the Procedure"/>
+          </col_0>
+          <col_1
+              jcr:primaryType="nt:unstructured">
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/title/v1/title"
+                title="AFTER THE PROCEDURE"
+                titleType="h2"/>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/text/v1/text"
+                text="&lt;ul&gt;&lt;li&gt;Your doctor will check your eye, and then you will be ready to go home&lt;/li&gt;&lt;li&gt;You should notice an improvement in your vision over time. Individual results vary&lt;/li&gt;&lt;li&gt;If your eye becomes red, sensitive to light, painful, or develops a change in vision, please contact your eye doctor immediately&lt;/li&gt;&lt;li&gt;Be sure to follow your doctor's instructions following the procedure&lt;/li&gt;&lt;/ul&gt;"/>
+          </col_1>
+        </row_0>
+      </columns>
+    </section_5>
+
+    <!-- Section 7: ISI -->
+    <section_6
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Important Safety Information">
+      <isi
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="ISI"
+          model="isi"
+          text_uses="&lt;h2&gt;Approved Uses&lt;/h2&gt;&lt;p&gt;OZURDEX&amp;reg; (dexamethasone intravitreal implant) is a prescription medicine that is an implant injected into the eye (vitreous) and used:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;To treat adults with diabetic macular edema&lt;/li&gt;&lt;li&gt;To treat adults with swelling of the macula (macular edema) following branch retinal vein occlusion (BRVO) or central retinal vein occlusion (CRVO)&lt;/li&gt;&lt;li&gt;To treat adults with noninfectious inflammation of the uvea (uveitis) affecting the back segment of the eye&lt;/li&gt;&lt;/ul&gt;"
+          text_safety="&lt;h3&gt;IMPORTANT SAFETY INFORMATION&lt;/h3&gt;&lt;h3&gt;When Not to Use OZURDEX&amp;reg;&lt;/h3&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you have any infections in or around the eyes, including most viral diseases of the cornea and conjunctiva, including active herpes viral infection of the eye, vaccinia, varicella, mycobacterial infections, and fungal diseases.&lt;/p&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you have glaucoma that has progressed to a cup-to-disc ratio of greater than 0.8.&lt;/p&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you have a posterior lens capsule that is torn or ruptured.&lt;/p&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you are allergic to any of its ingredients.&lt;/p&gt;&lt;h3&gt;Warnings and Precautions&lt;/h3&gt;&lt;p&gt;Injections into the vitreous in the eye, including those with OZURDEX&amp;reg;, are associated with serious eye infection (endophthalmitis), eye inflammation, increased eye pressure, and retinal detachments. Your eye doctor should monitor you regularly after the injection.&lt;/p&gt;&lt;p&gt;Use of corticosteroids including OZURDEX&amp;reg; may produce posterior subcapsular cataracts, increased eye pressure, glaucoma, and may increase the establishment of secondary eye infections due to bacteria, fungi, or viruses. Let your doctor know if you have a history of ocular herpes simplex as corticosteroids are not recommended in these patients.&lt;/p&gt;&lt;h3&gt;Common Side Effects in Diabetic Macular Edema&lt;/h3&gt;&lt;p&gt;The most common side effects reported in patients with diabetic macular edema include: cataract, increased eye pressure, conjunctival blood spot, reduced vision, inflammation of the conjunctiva, specks that float in the field of vision, swelling of the conjunctiva, dry eye, vitreous detachment, vitreous opacities, retinal aneurysm, foreign body sensation, corneal erosion, inflammation of the cornea, anterior chamber inflammation, retinal tear, drooping eyelid, high blood pressure, and bronchitis.&lt;/p&gt;&lt;h3&gt;Common Side Effects in Retinal Vein Occlusion and Uveitis&lt;/h3&gt;&lt;p&gt;The most common side effects reported in patients for retinal vein occlusion and uveitis include: increased eye pressure, conjunctival blood spot, eye pain, eye redness, ocular hypertension, cataract, vitreous detachment, and headache.&lt;/p&gt;&lt;h3&gt;Patient Counseling Information&lt;/h3&gt;&lt;p&gt;After repeated injections with OZURDEX&amp;reg;, a cataract may occur. If this occurs, your vision will decrease and you will need an operation to remove the cataract and restore your vision. You may develop increased eye pressure with OZURDEX&amp;reg; that will need to be managed with eye drops, and rarely, with surgery.&lt;/p&gt;&lt;p&gt;In the days following injection with OZURDEX&amp;reg;, you may be at risk for potential complications including in particular, but not limited to, the development of serious eye infection or increased eye pressure. If your eye becomes red, sensitive to light, painful, or develops a change in vision, you should seek immediate care from your eye doctor. You may experience temporary visual blurring after receiving an injection and should not drive or use machinery until your vision has resolved.&lt;/p&gt;&lt;p&gt;Please &lt;a href=&quot;https://www.allergan.com/assets/pdf/ozurdex_pi.pdf&quot;&gt;click here&lt;/a&gt; for full Prescribing Information.&lt;/p&gt;"/>
+    </section_6>
+
+  </jcr:content>
+</jcr:root>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="cq:Page">
+  <jcr:content
+      jcr:primaryType="cq:PageContent"
+      jcr:title="Navigation"
+      sling:resourceType="core/franklin/components/page/v1/page"
+      cq:template="/conf/ozurdex/settings/wcm/templates/fragment">
+    <section_0
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section">
+      <image
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/image/v1/image"
+          image="/content/dam/ozurdex/images/homepage/Ozurdex-logo.png"
+          imageAlt="OZURDEX logo"
+          link="/"/>
+    </section_0>
+    <section_1
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section">
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;/howitworks&quot;&gt;HOW IT WORKS&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/whattoexpect&quot;&gt;WHAT TO EXPECT&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/aboutyourcondition&quot;&gt;ABOUT YOUR CONDITION&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.ozurdexsavingsprogram.com/&quot;&gt;PATIENT ASSISTANCE&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"/>
+    </section_1>
+    <section_2
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section">
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;&lt;a href=&quot;https://www.rxabbvie.com/pdf/ozurdex_pi.pdf&quot;&gt;Full Prescribing Information&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://hcp.ozurdex.com/&quot;&gt;For Healthcare Professionals&lt;/a&gt;&lt;/p&gt;"/>
+    </section_2>
+  </jcr:content>
+</jcr:root>

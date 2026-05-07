@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+  <filter root="/content/ozurdex/en-us/homepage"/>
+  <filter root="/content/ozurdex/en-us/howitworks"/>
+  <filter root="/content/ozurdex/en-us/whattoexpect"/>
+  <filter root="/content/ozurdex/en-us/aboutyourcondition"/>
+  <filter root="/content/ozurdex/en-us/nav"/>
+  <filter root="/content/ozurdex/en-us/footer"/>
+</workspaceFilter>

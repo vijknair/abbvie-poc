@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="cq:Page">
+  <jcr:content
+      jcr:primaryType="cq:PageContent"
+      jcr:title="HOW IT WORKS"
+      jcr:description="Learn how OZURDEX works to treat diabetic macular edema, retinal vein occlusion, and noninfectious uveitis."
+      sling:resourceType="core/franklin/components/page/v1/page"
+      cq:template="/conf/ozurdex/settings/wcm/templates/content-page">
+
+    <!-- Section 1: Hero -->
+    <section_0
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Hero Banner">
+      <hero
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="Hero"
+          model="hero"
+          image="/content/dam/ozurdex/images/howitworks/how-it-works-hero.jpg"
+          imageAlt="How It Works"
+          text="&lt;h1&gt;HOW IT WORKS&lt;/h1&gt;"/>
+    </section_0>
+
+    <!-- Section 2: What Is OZURDEX -->
+    <section_1
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="What Is OZURDEX"
+        style="content-page, centered, accent-border-left">
+      <title
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="WHAT IS OZURDEX&amp;reg;?"
+          titleType="h2"/>
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;A prescription medication approved by the U.S. Food and Drug Administration (FDA) to treat adults with:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Diabetic macular edema (DME)&lt;/li&gt;&lt;li&gt;Macular edema (swelling of the macula) following branch retinal vein occlusion or central retinal vein occlusion (RVO)&lt;/li&gt;&lt;li&gt;Noninfectious uveitis (an inflammatory disease of the uvea) affecting the back segment of the eye&lt;/li&gt;&lt;/ul&gt;"/>
+    </section_1>
+
+    <!-- Section 3: OZURDEX IS (Columns) -->
+    <section_2
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="OZURDEX Is">
+      <columns
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="Columns"
+          model="columns">
+        <row_0
+            jcr:primaryType="nt:unstructured">
+          <col_0
+              jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/image/v1/image"
+                image="/content/dam/ozurdex/images/homepage/size-comparison.jpg"
+                imageAlt="OZURDEX implant size comparison"/>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/text/v1/text"
+                text="&lt;p&gt;&lt;em&gt;OZURDEX&amp;reg; implant size comparison.&lt;/em&gt;&lt;/p&gt;"/>
+          </col_0>
+          <col_1
+              jcr:primaryType="nt:unstructured">
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/title/v1/title"
+                title="OZURDEX&amp;reg; IS:"
+                titleType="h3"/>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/text/v1/text"
+                text="&lt;ul&gt;&lt;li&gt;A tiny corticosteroid implant that slowly releases medication over time, without the need for monthly injections. It will dissolve naturally and will not need to be removed&lt;/li&gt;&lt;li&gt;Injected directly into the back of the eye, with minimal systemic absorption&lt;/li&gt;&lt;/ul&gt;"/>
+          </col_1>
+        </row_0>
+      </columns>
+    </section_2>
+
+    <!-- Section 4: What Does OZURDEX Do -->
+    <section_3
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="What Does OZURDEX Do"
+        style="content-page, centered">
+      <title
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="WHAT DOES OZURDEX&amp;reg; DO?"
+          titleType="h3"/>
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;ul&gt;&lt;li&gt;The swelling in your retina can be caused by several factors, including inflammation&lt;/li&gt;&lt;li&gt;OZURDEX&amp;reg; works to help reduce the inflammation in your retina and improve visual acuity&lt;/li&gt;&lt;li&gt;Once injected, the implant dissolves slowly and releases a corticosteroid called dexamethasone&lt;/li&gt;&lt;li&gt;Corticosteroids, such as dexamethasone, reduce inflammation&lt;/li&gt;&lt;/ul&gt;"/>
+    </section_3>
+
+    <!-- Section 5: Before/After Retina Images -->
+    <section_4
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Before After Retina Images"
+        style="before-after">
+      <title_1
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="Swollen Macula"
+          titleType="h3"/>
+      <image_1
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/image/v1/image"
+          image="/content/dam/ozurdex/images/howitworks/swollen-macula.png"
+          imageAlt="Swollen Macula"/>
+      <text_caption
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;Optical coherence tomography (OCT) image of the retina of a person with DME.&lt;/p&gt;"/>
+      <title_2
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="After Treatment"
+          titleType="h3"/>
+      <image_2
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/image/v1/image"
+          image="/content/dam/ozurdex/images/howitworks/after-treatment.png"
+          imageAlt="After Treatment"/>
+    </section_4>
+
+    <!-- Section 6: Retina Callout -->
+    <section_5
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Clinical Studies Callout"
+        style="retina-callout">
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;In clinical studies, OZURDEX&amp;reg; improved vision in patients without the need for monthly injections.&lt;/p&gt;"/>
+    </section_5>
+
+    <!-- Section 7: What Happens to the Implant -->
+    <section_6
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="What Happens to the Implant"
+        style="content-page, centered">
+      <title
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="WHAT HAPPENS TO THE OZURDEX&amp;reg; IMPLANT?"
+          titleType="h3"/>
+      <text
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;ul&gt;&lt;li&gt;The medication dissolves naturally over months&lt;/li&gt;&lt;li&gt;The implant does not need to be removed&lt;/li&gt;&lt;/ul&gt;"/>
+    </section_6>
+
+    <!-- Section 8: Video -->
+    <section_7
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Video">
+      <video
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="Video"
+          model="video"
+          text="&lt;p&gt;Brightcove Video: Account 1029485116001, Video ID 6313079694112&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://players.brightcove.net/1029485116001/default_default/index.html?videoId=6313079694112&quot;&gt;Watch: How OZURDEX Works&lt;/a&gt;&lt;/p&gt;"/>
+    </section_7>
+
+    <!-- Section 9: ISI -->
+    <section_8
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Important Safety Information">
+      <isi
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="ISI"
+          model="isi"
+          text_uses="&lt;h2&gt;Approved Uses&lt;/h2&gt;&lt;p&gt;OZURDEX&amp;reg; (dexamethasone intravitreal implant) is a prescription medicine that is an implant injected into the eye (vitreous) and used:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;To treat adults with diabetic macular edema&lt;/li&gt;&lt;li&gt;To treat adults with swelling of the macula (macular edema) following branch retinal vein occlusion (BRVO) or central retinal vein occlusion (CRVO)&lt;/li&gt;&lt;li&gt;To treat adults with noninfectious inflammation of the uvea (uveitis) affecting the back segment of the eye&lt;/li&gt;&lt;/ul&gt;"
+          text_safety="&lt;h3&gt;IMPORTANT SAFETY INFORMATION&lt;/h3&gt;&lt;h3&gt;When Not to Use OZURDEX&amp;reg;&lt;/h3&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you have any infections in or around the eyes, including most viral diseases of the cornea and conjunctiva, including active herpes viral infection of the eye, vaccinia, varicella, mycobacterial infections, and fungal diseases.&lt;/p&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you have glaucoma that has progressed to a cup-to-disc ratio of greater than 0.8.&lt;/p&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you have a posterior lens capsule that is torn or ruptured.&lt;/p&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you are allergic to any of its ingredients.&lt;/p&gt;&lt;h3&gt;Warnings and Precautions&lt;/h3&gt;&lt;p&gt;Injections into the vitreous in the eye, including those with OZURDEX&amp;reg;, are associated with serious eye infection (endophthalmitis), eye inflammation, increased eye pressure, and retinal detachments. Your eye doctor should monitor you regularly after the injection.&lt;/p&gt;&lt;p&gt;Use of corticosteroids including OZURDEX&amp;reg; may produce posterior subcapsular cataracts, increased eye pressure, glaucoma, and may increase the establishment of secondary eye infections due to bacteria, fungi, or viruses. Let your doctor know if you have a history of ocular herpes simplex as corticosteroids are not recommended in these patients.&lt;/p&gt;&lt;h3&gt;Common Side Effects in Diabetic Macular Edema&lt;/h3&gt;&lt;p&gt;The most common side effects reported in patients with diabetic macular edema include: cataract, increased eye pressure, conjunctival blood spot, reduced vision, inflammation of the conjunctiva, specks that float in the field of vision, swelling of the conjunctiva, dry eye, vitreous detachment, vitreous opacities, retinal aneurysm, foreign body sensation, corneal erosion, inflammation of the cornea, anterior chamber inflammation, retinal tear, drooping eyelid, high blood pressure, and bronchitis.&lt;/p&gt;&lt;h3&gt;Common Side Effects in Retinal Vein Occlusion and Uveitis&lt;/h3&gt;&lt;p&gt;The most common side effects reported in patients for retinal vein occlusion and uveitis include: increased eye pressure, conjunctival blood spot, eye pain, eye redness, ocular hypertension, cataract, vitreous detachment, and headache.&lt;/p&gt;&lt;h3&gt;Patient Counseling Information&lt;/h3&gt;&lt;p&gt;After repeated injections with OZURDEX&amp;reg;, a cataract may occur. If this occurs, your vision will decrease and you will need an operation to remove the cataract and restore your vision. You may develop increased eye pressure with OZURDEX&amp;reg; that will need to be managed with eye drops, and rarely, with surgery.&lt;/p&gt;&lt;p&gt;In the days following injection with OZURDEX&amp;reg;, you may be at risk for potential complications including in particular, but not limited to, the development of serious eye infection or increased eye pressure. If your eye becomes red, sensitive to light, painful, or develops a change in vision, you should seek immediate care from your eye doctor. You may experience temporary visual blurring after receiving an injection and should not drive or use machinery until your vision has resolved.&lt;/p&gt;&lt;p&gt;Please &lt;a href=&quot;https://www.allergan.com/assets/pdf/ozurdex_pi.pdf&quot;&gt;click here&lt;/a&gt; for full Prescribing Information.&lt;/p&gt;"/>
+    </section_8>
+
+  </jcr:content>
+</jcr:root>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="cq:Page">
+  <jcr:content
+      jcr:primaryType="cq:PageContent"
+      jcr:title="OZURDEX - Your Treatment Path Explained"
+      jcr:description="OZURDEX (dexamethasone intravitreal implant) is a prescription medication approved to treat 3 conditions in adults."
+      sling:resourceType="core/franklin/components/page/v1/page"
+      cq:template="/conf/ozurdex/settings/wcm/templates/homepage">
+
+    <!-- Section 1: Hero Banner -->
+    <section_0
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Hero Banner">
+      <hero
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="Hero"
+          model="hero"
+          image="/content/dam/ozurdex/images/homepage/father-son-reduced.png"
+          imageAlt="OZURDEX treatment path"
+          text="&lt;h1&gt;Your Treatment Path Explained&lt;/h1&gt;"/>
+    </section_0>
+
+    <!-- Section 2: Conditions List -->
+    <section_1
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Conditions List">
+      <columns
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/columns/v1/columns"
+          columns="2"
+          rows="1">
+        <row_0
+            jcr:primaryType="nt:unstructured">
+          <col_0
+              jcr:primaryType="nt:unstructured">
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/title/v1/title"
+                title="A Prescription Medication Approved to Treat 3 Conditions in Adults"
+                titleType="h2"/>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/text/v1/text"
+                text="&lt;ul&gt;&lt;li&gt;Diabetic macular edema (DME)&lt;/li&gt;&lt;li&gt;Macular edema (swelling of the macula) following branch or central retinal vein occlusion&lt;/li&gt;&lt;li&gt;Noninfectious uveitis (an inflammatory disease of the uvea) affecting the back segment of the eye&lt;/li&gt;&lt;/ul&gt;"/>
+          </col_0>
+          <col_1
+              jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/image/v1/image"
+                image="/content/dam/ozurdex/images/homepage/eye-diagram.png"
+                imageAlt="Eye anatomy diagram showing conditions treated by OZURDEX"/>
+          </col_1>
+        </row_0>
+      </columns>
+    </section_1>
+
+    <!-- Section 3: A Tiny Implant -->
+    <section_2
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="A Tiny Implant">
+      <columns
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/columns/v1/columns"
+          columns="2"
+          rows="1">
+        <row_0
+            jcr:primaryType="nt:unstructured">
+          <col_0
+              jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/image/v1/image"
+                image="/content/dam/ozurdex/images/homepage/size-comparison.jpg"
+                imageAlt="OZURDEX implant size comparison"/>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/text/v1/text"
+                text="&lt;p&gt;&lt;em&gt;OZURDEX&amp;reg; implant size comparison.&lt;/em&gt;&lt;/p&gt;"/>
+          </col_0>
+          <col_1
+              jcr:primaryType="nt:unstructured">
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/title/v1/title"
+                title="A TINY IMPLANT"
+                titleType="h2"/>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/text/v1/text"
+                text="&lt;p&gt;OZURDEX&amp;reg; is a tiny implant that slowly releases corticosteroid medication over time, without the need for monthly injections. It will dissolve naturally and will not need to be removed&lt;/p&gt;"/>
+            <button
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/button/v1/button"
+                link="/howitworks"
+                linkText="Learn More"
+                linkTitle="Learn More about how OZURDEX works"
+                linkType="primary"/>
+          </col_1>
+        </row_0>
+      </columns>
+    </section_2>
+
+    <!-- Section 4: See How OZURDEX Works (CTA Banner) -->
+    <section_3
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="See How OZURDEX Works">
+      <hero
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/block/v1/block"
+          name="Hero"
+          model="hero"
+          image="/content/dam/ozurdex/images/homepage/how-it-works-bg.jpg"
+          imageAlt="See how OZURDEX works"
+          text="&lt;h2&gt;See how OZURDEX&amp;reg; works&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;/howitworks#showVideo&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;"/>
+    </section_3>
+
+    <!-- Section 5: The Procedure Takes Just Minutes -->
+    <section_4
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Procedure Takes Minutes">
+      <columns
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/columns/v1/columns"
+          columns="2"
+          rows="1">
+        <row_0
+            jcr:primaryType="nt:unstructured">
+          <col_0
+              jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/image/v1/image"
+                image="/content/dam/ozurdex/images/homepage/treatment.jpg"
+                imageAlt="OZURDEX procedure"/>
+          </col_0>
+          <col_1
+              jcr:primaryType="nt:unstructured">
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/title/v1/title"
+                title="THE PROCEDURE TAKES JUST MINUTES"
+                titleType="h2"/>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/text/v1/text"
+                text="&lt;p&gt;Find out what to expect before, during, and after your OZURDEX&amp;reg; procedure.&lt;/p&gt;"/>
+            <button
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="core/franklin/components/button/v1/button"
+                link="/whattoexpect"
+                linkText="Learn More"
+                linkTitle="Learn More about what to expect"
+                linkType="primary"/>
+          </col_1>
+        </row_0>
+      </columns>
+    </section_4>
+
+    <!-- Section 6: ISI (Important Safety Information) -->
+    <section_5
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="core/franklin/components/section/v1/section"
+        name="Important Safety Information"
+        style="isi-content">
+      <title_uses
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="Approved Uses"
+          titleType="h2"/>
+      <text_uses
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;OZURDEX&amp;reg; (dexamethasone intravitreal implant) is a prescription medicine that is an implant injected into the eye (vitreous) and used:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;To treat adults with diabetic macular edema&lt;/li&gt;&lt;li&gt;To treat adults with swelling of the macula (macular edema) following branch retinal vein occlusion (BRVO) or central retinal vein occlusion (CRVO)&lt;/li&gt;&lt;li&gt;To treat adults with noninfectious inflammation of the uvea (uveitis) affecting the back segment of the eye&lt;/li&gt;&lt;/ul&gt;"/>
+      <title_isi
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="IMPORTANT SAFETY INFORMATION"
+          titleType="h3"/>
+      <title_contraindications
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="When Not to Use OZURDEX&amp;reg;"
+          titleType="h3"/>
+      <text_contraindications
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;OZURDEX&amp;reg; should not be used if you have any infections in or around the eyes, including most viral diseases of the cornea and conjunctiva, including active herpes viral infection of the eye, vaccinia, varicella, mycobacterial infections, and fungal diseases.&lt;/p&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you have glaucoma that has progressed to a cup-to-disc ratio of greater than 0.8.&lt;/p&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you have a posterior lens capsule that is torn or ruptured.&lt;/p&gt;&lt;p&gt;OZURDEX&amp;reg; should not be used if you are allergic to any of its ingredients.&lt;/p&gt;"/>
+      <title_warnings
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="Warnings and Precautions"
+          titleType="h3"/>
+      <text_warnings
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;Injections into the vitreous in the eye, including those with OZURDEX&amp;reg;, are associated with serious eye infection (endophthalmitis), eye inflammation, increased eye pressure, and retinal detachments. Your eye doctor should monitor you regularly after the injection.&lt;/p&gt;&lt;p&gt;Use of corticosteroids including OZURDEX&amp;reg; may produce posterior subcapsular cataracts, increased eye pressure, glaucoma, and may increase the establishment of secondary eye infections due to bacteria, fungi, or viruses. Let your doctor know if you have a history of ocular herpes simplex as corticosteroids are not recommended in these patients.&lt;/p&gt;"/>
+      <title_side_effects_dme
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="Common Side Effects in Diabetic Macular Edema"
+          titleType="h3"/>
+      <text_side_effects_dme
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;The most common side effects reported in patients with diabetic macular edema include: cataract, increased eye pressure, conjunctival blood spot, reduced vision, inflammation of the conjunctiva, specks that float in the field of vision, swelling of the conjunctiva, dry eye, vitreous detachment, vitreous opacities, retinal aneurysm, foreign body sensation, corneal erosion, inflammation of the cornea, anterior chamber inflammation, retinal tear, drooping eyelid, high blood pressure, and bronchitis.&lt;/p&gt;"/>
+      <title_side_effects_rvo
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="Common Side Effects in Retinal Vein Occlusion and Uveitis"
+          titleType="h3"/>
+      <text_side_effects_rvo
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;The most common side effects reported in patients for retinal vein occlusion and uveitis include: increased eye pressure, conjunctival blood spot, eye pain, eye redness, ocular hypertension, cataract, vitreous detachment, and headache.&lt;/p&gt;"/>
+      <title_counseling
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/title/v1/title"
+          title="Patient Counseling Information"
+          titleType="h3"/>
+      <text_counseling
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/text/v1/text"
+          text="&lt;p&gt;After repeated injections with OZURDEX&amp;reg;, a cataract may occur. If this occurs, your vision will decrease and you will need an operation to remove the cataract and restore your vision. You may develop increased eye pressure with OZURDEX&amp;reg; that will need to be managed with eye drops, and rarely, with surgery.&lt;/p&gt;&lt;p&gt;In the days following injection with OZURDEX&amp;reg;, you may be at risk for potential complications including in particular, but not limited to, the development of serious eye infection or increased eye pressure. If your eye becomes red, sensitive to light, painful, or develops a change in vision, you should seek immediate care from your eye doctor. You may experience temporary visual blurring after receiving an injection and should not drive or use machinery until your vision has resolved.&lt;/p&gt;&lt;p&gt;Please &lt;a href=&quot;https://www.allergan.com/assets/pdf/ozurdex_pi.pdf&quot;&gt;click here&lt;/a&gt; for full Prescribing Information.&lt;/p&gt;"/>
+    </section_5>
+
+  </jcr:content>
+</jcr:root>

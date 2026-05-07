@@ -1,0 +1,23 @@
+.video {
+  max-width: var(--content-max-width, 1200px);
+  margin: var(--spacing-xl, 32px) auto;
+  padding: 0 24px;
+}
+
+.video .video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.video video-js.vjs-fluid {
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+@media (width >= 900px) {
+  .video {
+    padding: 0 32px;
+  }
+}

@@ -1,0 +1,197 @@
+/* Teaser Block — background image with overlaid text/CTA.
+ * Used for: visual acuity panels, "Learn more" callouts.
+ * Variants: overlay-right (default), overlay-left
+ */
+
+.teaser-wrapper + .teaser-wrapper {
+  margin-top: 125px;
+}
+
+.cards-wrapper + .teaser-wrapper {
+  margin-top: 60px;
+}
+
+.section.light > .teaser-wrapper:last-child {
+  margin-bottom: -50px;
+}
+
+.teaser > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.teaser .teaser-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.teaser .teaser-image picture,
+.teaser .teaser-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Default: overlay-right — white semi-transparent box on the right */
+.teaser .teaser-content {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-white, #fff);
+  opacity: 0.75;
+  padding: 46px 45px;
+  max-width: 50%;
+  margin-left: auto;
+}
+
+.teaser .teaser-content h2,
+.teaser .teaser-content h3 {
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--brand-primary);
+  margin-top: 0;
+  margin-bottom: var(--spacing-m);
+}
+
+.teaser .teaser-content p,
+.teaser .teaser-content li {
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-color-muted, #464646);
+}
+
+.teaser .teaser-content .button-container {
+  margin-top: var(--spacing-l);
+}
+
+/* Variant: overlay-left — solid white box, vertically centered, image offset right */
+.teaser.overlay-left > div {
+  min-height: 668px;
+  justify-content: flex-start;
+}
+
+.teaser.overlay-left .teaser-image {
+  left: 30%;
+  right: 0;
+  width: 70%;
+}
+
+.teaser.overlay-left .teaser-content {
+  margin-left: 0;
+  margin-right: auto;
+  opacity: 1;
+  align-self: center;
+  max-width: 45%;
+}
+
+/* overlay-left list items: icon + text side by side */
+.teaser.overlay-left .teaser-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.teaser.overlay-left .teaser-content li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: var(--spacing-l, 24px);
+  font-size: 20px;
+}
+
+.teaser.overlay-left .teaser-content li::before {
+  content: "";
+  display: block;
+  width: 53px;
+  height: 53px;
+  flex-shrink: 0;
+  border: 2px solid var(--color-gray-400, #999);
+  border-radius: 50%;
+  background-size: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.teaser.overlay-left .teaser-content li:nth-child(1)::before {
+  background-image: url("https://www.ozurdex.com/content/dam/ozurdex/images/aboutyourcondition/recognize-faces-icon.png");
+  background-size: contain;
+  border: none;
+}
+
+.teaser.overlay-left .teaser-content li:nth-child(2)::before {
+  background-image: url("https://www.ozurdex.com/content/dam/ozurdex/images/aboutyourcondition/drivers-license-icon.png");
+  background-size: contain;
+  border: none;
+}
+
+.teaser.overlay-left .teaser-content li:nth-child(3)::before {
+  background-image: url("https://www.ozurdex.com/content/dam/ozurdex/images/aboutyourcondition/dial-telephone-icon.png");
+  background-size: contain;
+  border: none;
+}
+
+/* Variant: callout — solid white box left, image right, text centered */
+.teaser.callout > div {
+  min-height: 400px;
+}
+
+.teaser.callout .teaser-image {
+  left: 40%;
+  right: 0;
+  width: 60%;
+}
+
+.teaser.callout .teaser-content {
+  margin-left: 0;
+  margin-right: auto;
+  opacity: 1;
+  align-self: center;
+  max-width: 40%;
+  text-align: center;
+}
+
+.teaser.callout .teaser-content p {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+.teaser.callout .teaser-content .button-container {
+  margin-top: var(--spacing-xl);
+}
+
+.teaser.callout .teaser-content a.button {
+  border: 2px solid var(--brand-primary);
+  color: var(--brand-primary);
+  background: transparent;
+  font-size: var(--body-font-size-m);
+  text-transform: uppercase;
+}
+
+/* Mobile: stack content below image */
+@media (width < 900px) {
+  .teaser > div {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .teaser .teaser-image {
+    position: relative;
+    inset: auto;
+    height: 250px;
+  }
+
+  .teaser .teaser-content {
+    max-width: 100%;
+    padding: 24px;
+    opacity: 1;
+    margin-left: 0;
+  }
+}

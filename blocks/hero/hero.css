@@ -10,7 +10,7 @@
   padding: 0;
 }
 
-.hero-container {
+main > .section.hero-container {
   margin: 0;
 }
 
@@ -25,6 +25,16 @@
   padding: 60px 24px;
   overflow: hidden;
   text-align: center;
+}
+
+@media (width >= 900px) {
+  .hero {
+    height: 560px;
+  }
+
+  .hero:has(> div:only-child) {
+    height: 420px;
+  }
 }
 
 /* Row 1: Background image — absolute fill */
@@ -69,11 +79,11 @@
 }
 
 .hero h1 {
-  font-size: clamp(36px, 8vw, 65px);
+  font-size: clamp(32px, 6vw, 45px);
 }
 
 .hero h2 {
-  font-size: clamp(28px, 5vw, 40px);
+  font-size: clamp(24px, 4vw, 30px);
 }
 
 /* Hero body text */

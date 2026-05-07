@@ -123,8 +123,8 @@
 @media (width >= 900px) {
   :root {
     --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
+    --heading-font-size-xl: 30px;
+    --heading-font-size-l: 30px;
     --heading-font-size-m: 22px;
     --heading-font-size-s: 20px;
     --heading-font-size-xs: 18px;
@@ -398,7 +398,19 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: var(--spacing-section) 0;
+  padding: 50px 0;
+}
+
+main .section.light > .default-content-wrapper > h2 {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: left;
+}
+
+main .section.light > .default-content-wrapper > ul > li {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--brand-primary);
 }
 
 main .section.dark {
@@ -408,6 +420,7 @@ main .section.dark {
   padding: var(--spacing-section) 0;
 }
 
+/* stylelint-disable no-descending-specificity */
 main .section.dark h1,
 main .section.dark h2,
 main .section.dark h3,
@@ -416,6 +429,7 @@ main .section.dark h5,
 main .section.dark h6 {
   color: var(--text-color-inverse);
 }
+/* stylelint-enable no-descending-specificity */
 
 main .section.dark a:any-link {
   color: var(--text-color-inverse);
@@ -427,6 +441,13 @@ main .section.accent {
   padding: var(--spacing-section) 0;
 }
 
+/* Centered section — centers headings */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.centered h2,
+main .section.centered h3 {
+  text-align: center;
+}
+
 /* ISI section styling */
 main .section.isi-content {
   background-color: var(--color-white);
@@ -435,6 +456,7 @@ main .section.isi-content {
   border-top: 3px solid var(--brand-accent);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.isi-content h2,
 main .section.isi-content h3 {
   color: var(--brand-accent);
@@ -448,9 +470,204 @@ main .section.isi-content p {
   color: var(--isi-text-color);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.isi-content li {
   font-size: var(--isi-font-size);
   color: var(--isi-text-color);
+}
+
+/* Content page section — inner page body text styling */
+main .section.content-page > .default-content-wrapper > p {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--text-color-muted);
+}
+
+main .section.content-page > .default-content-wrapper > ul > li {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--text-color-muted);
+  margin-bottom: 12px;
+}
+
+/* Content page — center images and captions */
+main .section.content-page > .default-content-wrapper > picture {
+  display: block;
+  text-align: center;
+}
+
+main .section.content-page > .default-content-wrapper > picture > img {
+  max-width: 420px;
+  display: inline-block;
+}
+
+main .section.content-page > .default-content-wrapper > p:has(em) {
+  text-align: center;
+}
+
+/* Accent border left — green left border on p and ul (not headings), no break */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.accent-border-left > .default-content-wrapper > p,
+main .section.accent-border-left > .default-content-wrapper > ul {
+  border-left: 5px solid var(--brand-accent, #abb920);
+  padding-left: 45px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+main .section.accent-border-left > .default-content-wrapper > ul {
+  padding-left: 65px;
+}
+
+/* Resource link — anchor link with trailing arrow icon (used in whattoexpect) */
+main .section.accent-border-left > .default-content-wrapper > .button-container > a.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--heading-font-family);
+  font-size: 23px;
+  font-weight: 500;
+  color: var(--brand-primary);
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  text-transform: none;
+}
+
+main .section.accent-border-left > .default-content-wrapper > .button-container > a.button::after {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: var(--brand-accent, #abb920);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z'/%3E%3C/svg%3E");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+main .section.accent-border-left > .default-content-wrapper > .button-container > a.button:hover {
+  background-color: transparent;
+  color: var(--brand-primary);
+  text-decoration: underline;
+}
+
+/* Wide gap — increases gap between columns for before/after image comparisons */
+main .section.wide-gap .columns > div {
+  gap: 120px;
+}
+
+/* Before/After — 2-column grid with labeled header bars above images */
+main .section.before-after > .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0 80px;
+}
+
+main .section.before-after > .default-content-wrapper > h3:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+main .section.before-after > .default-content-wrapper > h3:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Image placement — handles both bare <picture> and <p><picture></p> */
+main .section.before-after > .default-content-wrapper > picture:nth-of-type(1),
+main .section.before-after > .default-content-wrapper > p:nth-of-type(1):has(> picture) {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+}
+
+main .section.before-after > .default-content-wrapper > picture:nth-of-type(2),
+main .section.before-after > .default-content-wrapper > p:nth-of-type(3):has(> picture) {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.before-after > .default-content-wrapper > h3 {
+  background-color: #A8BCD4;
+  color: var(--brand-primary);
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  padding: 8px 20px;
+  margin: 0;
+  scroll-margin: 0;
+}
+
+/* stylelint-disable no-descending-specificity */
+main .section.before-after > .default-content-wrapper > picture,
+main .section.before-after > .default-content-wrapper > p:has(> picture) {
+  display: block;
+  margin-top: 0;
+}
+/* stylelint-enable no-descending-specificity */
+
+main .section.before-after > .default-content-wrapper > picture > img,
+main .section.before-after > .default-content-wrapper > p > picture > img {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 0;
+}
+
+/* Caption — the p without a picture inside */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.before-after > .default-content-wrapper > p:not(:has(> picture)) {
+  grid-column: 1;
+  grid-row: 3;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-color-muted);
+  text-align: left;
+  margin-top: var(--spacing-s);
+}
+
+/* Retina callout — dark navy section with upward arrow */
+main .section.retina-callout {
+  background-color: var(--brand-primary, #00335b);
+  padding: 50px 24px;
+  margin-top: -30px;
+  position: relative;
+  text-align: center;
+}
+
+main .section.retina-callout::after {
+  content: " ";
+  position: absolute;
+  top: -30px;
+  left: calc(50% - 30px);
+  border-width: 0 30px 30px;
+  border-style: solid;
+  border-color: transparent transparent var(--brand-primary, #00335b);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.retina-callout > .default-content-wrapper > p {
+  font-family: var(--heading-font-family);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-white, #fff);
+  margin: 0;
+  text-align: center;
 }
 
 /* ============================================
