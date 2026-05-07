@@ -98,6 +98,7 @@ body.rinvoq .eyebrow-banner {
   padding: 8px 16px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 body.rinvoq .eyebrow-banner a {
   color: var(--color-white);
   text-decoration: underline;
