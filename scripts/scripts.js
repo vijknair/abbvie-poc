@@ -10,6 +10,7 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  getMetadata,
 } from './aem.js';
 
 /**
@@ -86,22 +87,23 @@ export function decorateMain(main) {
 }
 
 /**
- * Loads the brand theme CSS based on hostname.
- * Each AbbVie brand site maps to a theme file in /styles/themes/.
+ * Loads the brand theme CSS based on page metadata.
+ * Set 'theme' metadata via bulk metadata or page metadata block.
+ * Falls back to hostname detection for production domains.
  */
-function loadBrandTheme() {
-  const themes = {
-    'www.ozurdex.com': 'ozurdex',
-    'www.durysta.com': 'durysta',
-    'www.rinvoq.com': 'rinvoq',
-    'www.skyrizi.com': 'skyrizi',
-    'www.loloestrin.com': 'loloestrin',
-    localhost: 'ozurdex',
-  };
-  const { hostname } = window.location;
-  const theme = themes[hostname] || themes.localhost;
+async function loadTheme() {
+  let theme = getMetadata('theme');
+  if (!theme) {
+    const hostThemes = {
+      'www.ozurdex.com': 'ozurdex',
+      'www.rinvoq.com': 'rinvoq',
+      'www.skyrizi.com': 'skyrizi',
+    };
+    theme = hostThemes[window.location.hostname];
+  }
   if (theme) {
-    loadCSS(`${window.hlx.codeBasePath}/styles/themes/${theme}.css`);
+    document.body.classList.add(theme);
+    await loadCSS(`${window.hlx.codeBasePath}/styles/themes/${theme}.css`);
   }
 }
 
@@ -112,7 +114,7 @@ function loadBrandTheme() {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
-  loadBrandTheme();
+  await loadTheme();
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
