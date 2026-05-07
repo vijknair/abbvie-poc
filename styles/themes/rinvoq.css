@@ -52,22 +52,97 @@
   --isi-text-color: #4A4A4A;
 }
 
-/* Header — normal flow, not overlaying hero */
+/* Header — normal flow, stacked sections */
 body.rinvoq header {
   height: auto;
 }
 
 body.rinvoq header .nav-wrapper {
   position: relative;
-  background: var(--nav-bg);
+  background: var(--color-white);
 }
 
 body.rinvoq header nav {
-  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  max-width: unset;
 }
 
-body.rinvoq header nav a:any-link {
+/* Eyebrow — magenta promotional bar */
+body.rinvoq header .nav-eyebrow {
+  background-color: var(--brand-accent);
   color: var(--color-white);
+  font-size: 13px;
+  text-align: center;
+  padding: 6px 16px;
+  width: 100%;
+  order: 1;
+}
+
+/* Utility nav — dark bar with PI link */
+body.rinvoq header .nav-tools {
+  background-color: var(--brand-primary);
+  color: var(--color-white);
+  font-size: 12px;
+  padding: 4px 24px;
+  width: 100%;
+  order: 2;
+  text-align: right;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-tools a {
+  color: var(--color-white);
+  font-size: 12px;
+}
+
+/* Content area — logo left, support text + search right */
+body.rinvoq header .nav-brand {
+  background-color: var(--color-white);
+  padding: 12px 24px;
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  order: 3;
+}
+
+/* Primary nav — condition links bar */
+body.rinvoq header .nav-sections {
+  background-color: var(--brand-primary);
+  padding: 0 24px;
+  width: 100%;
+  order: 4;
+}
+
+body.rinvoq header .nav-sections ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  flex-wrap: wrap;
+}
+
+body.rinvoq header .nav-sections li {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-sections a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+body.rinvoq header .nav-sections a:hover {
+  text-decoration: underline;
 }
 
 /* Rinvoq buttons — bordered magenta accent (not filled) */

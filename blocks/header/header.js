@@ -110,7 +110,7 @@ export default async function decorate(block) {
   const sections = [...nav.querySelectorAll(':scope > div.section')];
   let classes;
   if (sections.length >= 4) {
-    classes = ['eyebrow', 'brand', 'sections', 'tools'];
+    classes = ['eyebrow', 'tools', 'brand', 'sections'];
   } else {
     classes = ['brand', 'sections', 'tools'];
   }
