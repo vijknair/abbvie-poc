@@ -97,25 +97,42 @@ body.rinvoq header .nav-tools a {
   font-size: 12px;
 }
 
-/* Content area — logo left, support text + search right */
+/* Content area — logo left, support links right, dark bg */
 body.rinvoq header .nav-brand {
-  background-color: var(--color-white);
-  padding: 12px 24px;
+  background-color: var(--brand-primary);
+  padding: 16px 24px;
   width: 100%;
-  max-width: var(--content-max-width);
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   order: 3;
 }
 
-/* Primary nav — condition links bar */
+body.rinvoq header .nav-brand p {
+  color: var(--color-white);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-brand a {
+  color: var(--color-white);
+}
+
+body.rinvoq header .nav-brand img {
+  max-height: 50px;
+}
+
+/* Primary nav — condition links bar (hidden on homepage) */
 body.rinvoq header .nav-sections {
   background-color: var(--brand-primary);
   padding: 0 24px;
   width: 100%;
   order: 4;
+}
+
+body.rinvoq:has(.hero-carousel-container) header .nav-sections {
+  display: none;
 }
 
 body.rinvoq header .nav-sections ul {

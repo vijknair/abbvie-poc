@@ -170,13 +170,13 @@ export default async function decorate(block) {
     }
   });
 
-  // Extract primary nav and place it below the hero section (always, not just desktop)
-  if (navSections) {
+  // Extract primary nav below hero — OZURDEX pattern only (3-section nav)
+  // For 4-section navs (Rinvoq), primary nav stays inside the header
+  if (navSections && sections.length < 4) {
     const primaryNavBar = document.createElement('div');
     primaryNavBar.className = 'primary-nav-bar';
     primaryNavBar.appendChild(navSections.cloneNode(true));
 
-    // Insert after the first section in main (the hero)
     const firstSection = document.querySelector('main > .section:first-child');
     if (firstSection) {
       firstSection.after(primaryNavBar);
