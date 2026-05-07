@@ -18,20 +18,20 @@
   overflow: hidden;
 }
 
-/* Slides — absolute stacked, fade in/out */
+/* Slides — horizontal scroll with snap */
 .hero-carousel-slide {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transform: translateX(100%);
+  transition: transform 0.6s ease-in-out;
   pointer-events: none;
 }
 
 .hero-carousel-slide.active {
   position: relative;
-  opacity: 1;
+  transform: translateX(0);
   pointer-events: auto;
 }
 
@@ -62,12 +62,12 @@
 
 .hero-carousel-content h1,
 .hero-carousel-content h2 {
-  font-family: var(--heading-font-family);
+  font-family: var(--body-font-family);
   font-weight: 700;
   color: var(--color-white, #fff);
-  font-size: clamp(24px, 4vw, 36px);
-  margin: 0 0 var(--spacing-m);
-  line-height: 1.2;
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.4;
 }
 
 .hero-carousel-content p {
@@ -103,13 +103,13 @@
 .hero-carousel-prev,
 .hero-carousel-next {
   pointer-events: auto;
-  background: rgb(0 0 0 / 30%);
-  border: none;
+  background: transparent;
+  border: 2px solid var(--color-white, #fff);
   color: var(--color-white, #fff);
-  font-size: 32px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -119,7 +119,7 @@
 
 .hero-carousel-prev:hover,
 .hero-carousel-next:hover {
-  background: rgb(0 0 0 / 60%);
+  background: rgb(255 255 255 / 20%);
 }
 
 /* Dot indicators */
