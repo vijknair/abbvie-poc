@@ -52,6 +52,24 @@
   --isi-text-color: #4A4A4A;
 }
 
+/* Header — normal flow, not overlaying hero */
+body.rinvoq header {
+  height: auto;
+}
+
+body.rinvoq header .nav-wrapper {
+  position: relative;
+  background: var(--nav-bg);
+}
+
+body.rinvoq header nav {
+  color: var(--color-white);
+}
+
+body.rinvoq header nav a:any-link {
+  color: var(--color-white);
+}
+
 /* Rinvoq buttons — bordered magenta accent (not filled) */
 body.rinvoq a.button:any-link,
 body.rinvoq button {
