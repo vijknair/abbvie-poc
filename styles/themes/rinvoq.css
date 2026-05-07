@@ -4,9 +4,10 @@
  * Layer 2 overrides for the AbbVie global design system.
  * Loaded after styles.css to override --brand-* tokens.
  *
- * Fonts: Neue Haas Grotesk (headings), Helvetica Neue LT W05 (body)
- * Primary: #25282A (near-black charcoal)
- * Accent: #90124A (magenta/burgundy — eyebrow banner)
+ * Fonts: Neue Haas Grotesk Display (headings), Helvetica Neue LT W05 (body)
+ * Primary: #25282A (charcoal/near-black)
+ * Accent: #90124A (magenta/burgundy)
+ * Footer: #F3F3F3 (light gray)
  */
 
 :root {
@@ -18,28 +19,68 @@
   /* Text */
   --text-color: #25282A;
   --text-color-muted: #4A4A4A;
+  --text-color-inverse: #fff;
 
-  /* Links */
-  --link-color: #25282A;
-  --link-hover-color: #1A1C1E;
+  /* Links — magenta accent */
+  --link-color: #90124A;
+  --link-hover-color: #6E0E39;
 
-  /* Typography */
-  --heading-font-family: "Neue Haas Grotesk Disp W0595Bl", "Helvetica Neue", helvetica, arial, sans-serif;
+  /* Typography — Neue Haas Grotesk (headings), Helvetica Neue (body)
+     These are licensed Monotype fonts — fallbacks used until font files available */
+  --heading-font-family: "Neue Haas Grotesk Disp W0595Bl", "Helvetica Neue", arial, sans-serif;
   --body-font-family: "Helvetica Neue LT W05_55 Roman", "Helvetica Neue", arial, sans-serif;
 
   /* Light section background */
-  --light-color: #F5F5F5;
+  --light-color: #F3F3F3;
 
   /* Layout */
   --nav-height: 80px;
   --nav-bg: #25282A;
 
-  /* Footer */
-  --footer-bg: #25282A;
-  --footer-text: #fff;
-  --footer-link-color: #fff;
+  /* Button tokens — bordered magenta style */
+  --button-border-radius: 0;
+  --button-text-transform: none;
+  --button-font-weight: 400;
 
-  /* ISI — uses brand primary for headings */
-  --isi-heading-color: var(--brand-primary);
+  /* Footer — light gray background (different from OZURDEX's dark navy) */
+  --footer-bg: #F3F3F3;
+  --footer-text: #25282A;
+  --footer-link-color: #90124A;
+
+  /* ISI */
+  --isi-heading-color: #25282A;
   --isi-text-color: #4A4A4A;
+}
+
+/* Rinvoq buttons — bordered magenta accent (not filled) */
+body.rinvoq a.button:any-link,
+body.rinvoq button {
+  border: 2px solid var(--brand-accent);
+  color: var(--brand-accent);
+  background-color: var(--color-white);
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  padding: 7px 40px 7px 10px;
+  border-radius: 0;
+  text-transform: none;
+}
+
+body.rinvoq a.button:hover,
+body.rinvoq button:hover {
+  background-color: var(--brand-accent);
+  color: var(--color-white);
+}
+
+/* Eyebrow banner — magenta promotional bar */
+body.rinvoq .eyebrow-banner {
+  background-color: var(--brand-accent);
+  color: var(--color-white);
+  font-size: 14px;
+  text-align: center;
+  padding: 8px 16px;
+}
+
+body.rinvoq .eyebrow-banner a {
+  color: var(--color-white);
+  text-decoration: underline;
 }
