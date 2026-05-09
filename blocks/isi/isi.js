@@ -22,19 +22,27 @@ export default function decorate(block) {
   stickyBar.setAttribute('aria-expanded', 'false');
 
   // Green title bar with heading + toggle
+  const isOzurdex = document.body.classList.contains('ozurdex');
   const titleBar = document.createElement('div');
   titleBar.className = 'isi-sticky-title-bar';
 
   const titleText = document.createElement('span');
   titleText.className = 'isi-sticky-title';
-  titleText.textContent = 'IMPORTANT SAFETY INFORMATION';
+  titleText.textContent = isOzurdex
+    ? 'IMPORTANT SAFETY INFORMATION'
+    : 'IMPORTANT SAFETY INFORMATION & USES';
+
+  const warningText = document.createElement('span');
+  warningText.className = 'isi-sticky-warning';
+  warningText.textContent = 'Warning: Serious Infections, Increased Risk of Death, Cancer, Major Cardiovascular Events, Blood Clots';
 
   const toggleBtn = document.createElement('button');
   toggleBtn.className = 'isi-sticky-toggle';
   toggleBtn.setAttribute('aria-label', 'Expand Safety Information');
-  toggleBtn.textContent = 'SEE MORE +';
+  toggleBtn.textContent = isOzurdex ? 'SEE MORE +' : '+';
 
   titleBar.appendChild(titleText);
+  titleBar.appendChild(warningText);
   titleBar.appendChild(toggleBtn);
 
   // Content area — clone the ISI content (skip the first "Approved Uses" section,
@@ -71,7 +79,11 @@ export default function decorate(block) {
   toggleBtn.addEventListener('click', () => {
     const expanded = stickyBar.getAttribute('aria-expanded') === 'true';
     stickyBar.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-    toggleBtn.textContent = expanded ? 'SEE MORE +' : 'SEE LESS −';
+    if (isOzurdex) {
+      toggleBtn.textContent = expanded ? 'SEE MORE +' : 'SEE LESS −';
+    } else {
+      toggleBtn.textContent = expanded ? '+' : '−';
+    }
     toggleBtn.setAttribute(
       'aria-label',
       expanded ? 'Expand Safety Information' : 'Collapse Safety Information',

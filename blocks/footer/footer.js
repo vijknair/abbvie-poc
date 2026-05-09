@@ -16,5 +16,7 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  footer.querySelectorAll(':scope > meta, :scope > link, :scope > script').forEach((el) => el.remove());
+
   block.append(footer);
 }

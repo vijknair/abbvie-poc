@@ -1,13 +1,13 @@
 /*
  * RINVOQ® (upadacitinib) — Brand Theme
  *
- * Layer 2 overrides for the AbbVie global design system.
- * Loaded after styles.css to override --brand-* tokens.
+ * Layer 2: Global token overrides only.
+ * Block-specific styling lives in respective block CSS files
+ * using body.rinvoq prefix.
  *
  * Fonts: Neue Haas Grotesk Display (headings), Helvetica Neue LT W05 (body)
  * Primary: #25282A (charcoal/near-black)
  * Accent: #90124A (magenta/burgundy)
- * Footer: #F3F3F3 (light gray)
  */
 
 :root {
@@ -25,8 +25,7 @@
   --link-color: #90124A;
   --link-hover-color: #6E0E39;
 
-  /* Typography — Neue Haas Grotesk (headings), Helvetica Neue (body)
-     These are licensed Monotype fonts — fallbacks used until font files available */
+  /* Typography */
   --heading-font-family: "Neue Haas Grotesk Disp W0595Bl", "Helvetica Neue", arial, sans-serif;
   --body-font-family: "Helvetica Neue LT W05_55 Roman", "Helvetica Neue", arial, sans-serif;
 
@@ -37,12 +36,12 @@
   --nav-height: 80px;
   --nav-bg: #25282A;
 
-  /* Button tokens — bordered magenta style */
+  /* Button tokens */
   --button-border-radius: 0;
   --button-text-transform: none;
   --button-font-weight: 400;
 
-  /* Footer — light gray background (different from OZURDEX's dark navy) */
+  /* Footer */
   --footer-bg: #F3F3F3;
   --footer-text: #25282A;
   --footer-link-color: #90124A;
@@ -52,123 +51,39 @@
   --isi-text-color: #4A4A4A;
 }
 
-/* Header — normal flow, stacked sections */
-body.rinvoq header {
-  height: auto;
+/* ============================================
+   GLOBAL LAYOUT — content width
+   ============================================ */
+body.rinvoq {
+  overflow-x: hidden;
 }
 
-body.rinvoq header .nav-wrapper {
-  position: relative;
-  background: var(--color-white);
-}
-
-body.rinvoq header nav {
-  display: flex;
-  flex-direction: column;
+body.rinvoq main > .section > div {
+  max-width: 1140px;
+  margin: 0 auto;
   padding: 0;
+}
+
+/* Hero section — full width */
+body.rinvoq main > .section:first-of-type {
+  margin-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq main > .section:first-of-type > div {
   max-width: unset;
+  padding: 0;
 }
 
-/* Eyebrow — magenta promotional bar */
-body.rinvoq header .nav-eyebrow {
-  background-color: var(--brand-accent);
-  color: var(--color-white);
-  font-size: 13px;
-  text-align: center;
-  padding: 6px 16px;
-  width: 100%;
-  order: 1;
+/* Columns yellow-white — full bleed */
+body.rinvoq main > .section:has(.columns.yellow-white) > div {
+  max-width: unset;
+  padding: 0;
 }
 
-body.rinvoq header .nav-eyebrow p,
-body.rinvoq header .nav-eyebrow a {
-  color: var(--color-white);
-  font-size: 13px;
-}
-
-/* Utility nav — dark bar with PI link */
-body.rinvoq header .nav-tools {
-  background-color: var(--brand-primary);
-  color: var(--color-white);
-  font-size: 12px;
-  padding: 4px 24px;
-  width: 100%;
-  order: 2;
-  text-align: right;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-body.rinvoq header .nav-tools a {
-  color: var(--color-white);
-  font-size: 12px;
-}
-
-/* Content area — logo left, support links right, dark bg */
-body.rinvoq header .nav-brand {
-  background-color: var(--brand-primary);
-  padding: 16px 24px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  order: 3;
-}
-
-body.rinvoq header .nav-brand p {
-  color: var(--color-white);
-  font-size: 14px;
-  margin: 0;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-body.rinvoq header .nav-brand a {
-  color: var(--color-white);
-}
-
-body.rinvoq header .nav-brand img {
-  max-height: 50px;
-}
-
-/* Primary nav — condition links bar (hidden on homepage) */
-body.rinvoq header .nav-sections {
-  background-color: var(--brand-primary);
-  padding: 0 24px;
-  width: 100%;
-  order: 4;
-}
-
-body.rinvoq:has(.hero-carousel-container) header .nav-sections {
-  display: none;
-}
-
-body.rinvoq header .nav-sections ul {
-  display: flex;
-  gap: 24px;
-  list-style: none;
-  margin: 0;
-  padding: 10px 0;
-  max-width: var(--content-max-width);
-  margin-inline: auto;
-  flex-wrap: wrap;
-}
-
-body.rinvoq header .nav-sections li {
-  margin: 0;
-  font-size: 14px;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-body.rinvoq header .nav-sections a {
-  color: var(--color-white);
-  text-decoration: none;
-  font-size: 14px;
-}
-
-body.rinvoq header .nav-sections a:hover {
-  text-decoration: underline;
-}
-
-/* Rinvoq buttons — bordered magenta accent (not filled) */
+/* ============================================
+   GLOBAL BUTTON STYLE
+   ============================================ */
 body.rinvoq a.button:any-link,
 body.rinvoq button {
   border: 2px solid var(--brand-accent);
@@ -187,17 +102,154 @@ body.rinvoq button:hover {
   color: var(--color-white);
 }
 
-/* Eyebrow banner — magenta promotional bar */
-body.rinvoq .eyebrow-banner {
-  background-color: var(--brand-accent);
-  color: var(--color-white);
-  font-size: 14px;
-  text-align: center;
-  padding: 8px 16px;
+/* ============================================
+   TEASER — image within content bounds
+   ============================================ */
+body.rinvoq .teaser-container {
+  margin: 0;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-body.rinvoq .eyebrow-banner a {
-  color: var(--color-white);
+body.rinvoq .teaser > div {
+  min-height: 380px;
+  overflow: visible;
+}
+
+body.rinvoq .teaser .teaser-image {
+  left: 60px;
+  right: -40%;
+  width: auto;
+}
+
+body.rinvoq .teaser .teaser-image img {
+  object-position: left center;
+  object-fit: cover;
+}
+
+body.rinvoq .teaser .teaser-content {
+  background-color: transparent;
+  opacity: 1;
+  color: #fff;
+  max-width: 40%;
+  padding: 40px 0;
+}
+
+body.rinvoq .teaser .teaser-content h2 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq .teaser .teaser-content p {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq .teaser .teaser-content a {
+  color: #fff;
   text-decoration: underline;
+}
+
+/* ============================================
+   ELIGIBILITY TEXT (below teaser)
+   ============================================ */
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq .teaser-wrapper ~ .default-content-wrapper p {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #25282a;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq .teaser-wrapper ~ .default-content-wrapper a {
+  color: #90124a;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ============================================
+   SEARCH TOGGLE
+   ============================================ */
+body.rinvoq .nav-search {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+
+body.rinvoq .nav-search-toggle {
+  all: unset;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgb(255 255 255 / 50%);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+body.rinvoq .nav-search-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+body.rinvoq .nav-search-toggle[hidden] {
+  display: none;
+}
+
+body.rinvoq .nav-search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.rinvoq .nav-search-form[hidden] {
+  display: none;
+}
+
+body.rinvoq .nav-search-form input {
+  all: unset;
+  width: 140px;
+  height: 32px;
+  background: #fff;
+  color: #25282a;
+  padding: 0 10px;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+body.rinvoq .nav-search-submit {
+  all: unset;
+  cursor: pointer;
+  color: #25282a;
+  background: #fff;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+body.rinvoq .nav-search-submit svg {
+  width: 18px;
+  height: 18px;
+  stroke: #25282a;
+}
+
+body.rinvoq .nav-search-close {
+  all: unset;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  margin-left: 8px;
+  line-height: 1;
 }

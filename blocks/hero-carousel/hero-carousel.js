@@ -45,11 +45,22 @@ export default function decorate(block) {
   let interval = null;
 
   function goTo(index) {
-    slides[current].classList.remove('active');
-    dots.children[current].classList.remove('active');
+    const previous = current;
     current = (index + slides.length) % slides.length;
+    slides[previous].classList.remove('active');
+    slides[previous].classList.add('exiting');
+    dots.children[previous].classList.remove('active');
     slides[current].classList.add('active');
     dots.children[current].classList.add('active');
+    setTimeout(() => {
+      slides[previous].classList.add('resetting');
+      slides[previous].classList.remove('exiting');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          slides[previous].classList.remove('resetting');
+        });
+      });
+    }, 650);
   }
 
   function next() { goTo(current + 1); }
