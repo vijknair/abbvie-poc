@@ -580,19 +580,24 @@ main .section.before-after > .default-content-wrapper > h3:nth-of-type(1) {
   grid-row: 1;
 }
 
-main .section.before-after > .default-content-wrapper > picture:nth-of-type(1) {
-  grid-column: 1;
-  grid-row: 2;
-}
-
 main .section.before-after > .default-content-wrapper > h3:nth-of-type(2) {
   grid-column: 2;
   grid-row: 1;
 }
 
-main .section.before-after > .default-content-wrapper > picture:nth-of-type(2) {
+/* Image placement — handles both bare <picture> and <p><picture></p> */
+main .section.before-after > .default-content-wrapper > picture:nth-of-type(1),
+main .section.before-after > .default-content-wrapper > p:nth-of-type(1):has(> picture) {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+}
+
+main .section.before-after > .default-content-wrapper > picture:nth-of-type(2),
+main .section.before-after > .default-content-wrapper > p:nth-of-type(3):has(> picture) {
   grid-column: 2;
   grid-row: 2;
+  margin: 0;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -608,19 +613,24 @@ main .section.before-after > .default-content-wrapper > h3 {
   scroll-margin: 0;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-main .section.before-after > .default-content-wrapper > picture {
+/* stylelint-disable no-descending-specificity */
+main .section.before-after > .default-content-wrapper > picture,
+main .section.before-after > .default-content-wrapper > p:has(> picture) {
   display: block;
   margin-top: 0;
 }
+/* stylelint-enable no-descending-specificity */
 
-main .section.before-after > .default-content-wrapper > picture > img {
+main .section.before-after > .default-content-wrapper > picture > img,
+main .section.before-after > .default-content-wrapper > p > picture > img {
   max-width: 100%;
+  width: 100%;
   border-radius: 0;
 }
 
+/* Caption — the p without a picture inside */
 /* stylelint-disable-next-line no-descending-specificity */
-main .section.before-after > .default-content-wrapper > p {
+main .section.before-after > .default-content-wrapper > p:not(:has(> picture)) {
   grid-column: 1;
   grid-row: 3;
   font-size: 12px;
