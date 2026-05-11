@@ -13,3 +13,10 @@ import-work/
 import-work-*/
 site-import-analysis/
 scrape-all.log
+
+# DA upload — generated files, not source
+asset-list.json
+docs/
+
+# Secrets
+.env
