@@ -218,12 +218,12 @@
 
   .columns.yellow-white > div > div:first-child {
     flex: 1;
-    padding: 30px 30px 30px 0;
+    padding: 40px 60px;
   }
 
   .columns.yellow-white > div > div:last-child {
     flex: 1;
-    padding: 30px 20px 30px 90px;
+    padding: 40px 60px;
   }
 
   .columns.yellow-white p {
