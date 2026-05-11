@@ -106,9 +106,16 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+  nav.querySelectorAll(':scope > meta, :scope > link, :scope > script').forEach((el) => el.remove());
+
   // Assign classes to the section DIVs (skip meta/link/script tags from fragment head)
   const sections = [...nav.querySelectorAll(':scope > div.section')];
-  const classes = ['brand', 'sections', 'tools'];
+  let classes;
+  if (sections.length >= 4) {
+    classes = ['eyebrow', 'tools', 'brand', 'sections'];
+  } else {
+    classes = ['brand', 'sections', 'tools'];
+  }
   sections.forEach((section, i) => {
     if (classes[i]) section.classList.add(`nav-${classes[i]}`);
   });
@@ -165,17 +172,73 @@ export default async function decorate(block) {
     }
   });
 
-  // Extract primary nav and place it below the hero section (always, not just desktop)
-  if (navSections) {
+  // Extract primary nav below hero — OZURDEX pattern only (3-section nav)
+  // For 4-section navs (Rinvoq), primary nav stays inside the header
+  if (navSections && sections.length < 4) {
     const primaryNavBar = document.createElement('div');
     primaryNavBar.className = 'primary-nav-bar';
     primaryNavBar.appendChild(navSections.cloneNode(true));
 
-    // Insert after the first section in main (the hero)
     const firstSection = document.querySelector('main > .section:first-child');
     if (firstSection) {
       firstSection.after(primaryNavBar);
     }
+  }
+
+  // Search toggle for RINVOQ only
+  const navBrandSection = nav.querySelector('.nav-brand');
+  if (navBrandSection && sections.length >= 4 && document.body.classList.contains('rinvoq')) {
+    const searchContainer = document.createElement('div');
+    searchContainer.className = 'nav-search';
+    searchContainer.innerHTML = `
+      <button class="nav-search-toggle" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="16.5" y1="16.5" x2="21" y2="21"/>
+        </svg>
+      </button>
+      <div class="nav-search-form" hidden>
+        <input type="text" placeholder="Search" aria-label="Search">
+        <button class="nav-search-submit" aria-label="Submit search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"/>
+          </svg>
+        </button>
+        <button class="nav-search-close" aria-label="Close search">&times;</button>
+      </div>`;
+
+    const toggle = searchContainer.querySelector('.nav-search-toggle');
+    const form = searchContainer.querySelector('.nav-search-form');
+    const input = searchContainer.querySelector('input');
+    const submit = searchContainer.querySelector('.nav-search-submit');
+    const close = searchContainer.querySelector('.nav-search-close');
+
+    toggle.addEventListener('click', () => {
+      form.hidden = false;
+      toggle.hidden = true;
+      input.focus();
+    });
+
+    close.addEventListener('click', () => {
+      form.hidden = true;
+      toggle.hidden = false;
+      input.value = '';
+    });
+
+    submit.addEventListener('click', () => {
+      const query = input.value.trim();
+      if (query) window.location.href = `/search-results#q=${encodeURIComponent(query)}&t=All`;
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const query = input.value.trim();
+        if (query) window.location.href = `/search-results#q=${encodeURIComponent(query)}&t=All`;
+      }
+    });
+
+    navBrandSection.appendChild(searchContainer);
   }
 
   const navWrapper = document.createElement('div');

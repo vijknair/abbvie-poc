@@ -104,7 +104,6 @@
     order: unset;
   }
 
-
   .columns li {
     font-size: 22px;
     line-height: 36px;
@@ -114,5 +113,121 @@
   .columns p:not(.button-container, :has(picture), :has(img), :has(a), :has(em)) {
     border-left-width: 5px;
     padding-left: 30px;
+  }
+}
+
+/* ============================================
+   VARIANT: yellow-white — split background
+   Left col: yellow (#f5c518), Right col: white
+   ============================================ */
+.columns-container:has(.yellow-white) {
+  margin: 0;
+  padding: 0;
+}
+
+.columns-container:has(.yellow-white) > .columns-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.columns.yellow-white {
+  position: relative;
+}
+
+.columns.yellow-white > div {
+  padding: 0;
+  gap: 0;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.columns.yellow-white > div > div:first-child {
+  background: #f5c518;
+  padding: 30px 24px;
+}
+
+.columns.yellow-white > div > div:last-child {
+  background: #fff;
+  padding: 30px 24px;
+}
+
+.columns.yellow-white h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #25282a;
+}
+
+.columns.yellow-white p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #25282a;
+  border-left: none;
+  padding-left: 0;
+  font-weight: 400;
+}
+
+.columns.yellow-white > div > div:last-child img {
+  max-width: 180px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+}
+
+.columns.yellow-white > div > div:first-child img {
+  max-width: 240px;
+  max-height: 60px;
+  width: auto;
+  margin: 0 0 16px;
+}
+
+.columns.yellow-white em {
+  font-size: 11px;
+  color: #25282a;
+  font-style: italic;
+}
+
+.columns.yellow-white > div > div:last-child em {
+  font-size: 11px;
+  color: #666;
+}
+
+.columns.yellow-white a.button {
+  background: transparent;
+  border: 2px solid #25282a;
+  color: #25282a;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 40px 10px 16px;
+}
+
+.columns.yellow-white > div > div:first-child p:last-child a {
+  border: none;
+  padding: 0;
+  color: #90124a;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  background: none;
+}
+
+@media (width >= 900px) {
+  .columns.yellow-white > div {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .columns.yellow-white > div > div:first-child {
+    flex: 1;
+    padding: 40px 60px;
+  }
+
+  .columns.yellow-white > div > div:last-child {
+    flex: 1;
+    padding: 40px 60px;
+  }
+
+  .columns.yellow-white p {
+    border-left: none;
+    padding-left: 0;
   }
 }

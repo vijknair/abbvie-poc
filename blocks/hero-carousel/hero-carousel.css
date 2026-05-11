@@ -1,0 +1,188 @@
+/* Hero Carousel — vanilla JS, fade transition.
+ * First slide renders as static HTML (no JS dependency for LCP).
+ * Auto-rotates every 6s, pauses on hover/visibility.
+ */
+
+.hero-carousel-container .hero-carousel-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-carousel-container {
+  margin: 0;
+  overflow: hidden;
+}
+
+.hero-carousel {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+/* Slides — horizontal scroll with snap */
+.hero-carousel-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  transform: translateX(100%);
+  transition: transform 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.hero-carousel-slide.active {
+  position: relative;
+  transform: translateX(0);
+  pointer-events: auto;
+  height: 100%;
+}
+
+.hero-carousel-slide.exiting {
+  transform: translateX(-100%);
+}
+
+.hero-carousel-slide.resetting {
+  transition: none;
+}
+
+/* Image — full bleed background */
+.hero-carousel-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-carousel-image picture,
+.hero-carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content overlay */
+.hero-carousel-content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max-width, 1200px);
+  margin: 0 auto;
+  padding: 30px 24px;
+  color: var(--color-white, #fff);
+}
+
+.hero-carousel-content h1,
+.hero-carousel-content h2 {
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  color: var(--color-white, #fff);
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.hero-carousel-content p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: var(--color-white, #fff);
+  margin-bottom: var(--spacing-m);
+}
+
+/* Inline decorative SVG (e.g., "Relief" brush-stroke between text) */
+.hero-carousel-content p > img {
+  display: inline-block;
+  height: 1.5em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Navigation arrows — visible only on hover */
+.hero-carousel-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-carousel:hover .hero-carousel-nav {
+  opacity: 1;
+}
+
+.hero-carousel .hero-carousel-nav .hero-carousel-prev,
+.hero-carousel .hero-carousel-nav .hero-carousel-next {
+  all: unset;
+  pointer-events: auto;
+  background: rgb(0 0 0 / 40%);
+  color: #fff;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: background 0.2s ease;
+}
+
+.hero-carousel .hero-carousel-nav .hero-carousel-prev:hover,
+.hero-carousel .hero-carousel-nav .hero-carousel-next:hover {
+  background: rgb(0 0 0 / 60%);
+}
+
+/* Dot indicators */
+.hero-carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.hero-carousel .hero-carousel-dots .hero-carousel-dot {
+  all: unset;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #c00;
+  background: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.hero-carousel .hero-carousel-dots .hero-carousel-dot.active {
+  background: #c00;
+}
+
+/* Desktop height */
+@media (width >= 900px) {
+  .hero-carousel {
+    height: 300px;
+  }
+
+  .hero-carousel-content {
+    padding: 40px 32px;
+  }
+}
+
+/* Mobile: stack content below image */
+@media (width < 600px) {
+  .hero-carousel {
+    height: 225px;
+  }
+
+  .hero-carousel-nav {
+    display: none;
+  }
+}
