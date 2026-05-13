@@ -1,0 +1,156 @@
+/* Footer — Rinvoq brand overrides
+ * Loaded lazily alongside footer.css when theme=rinvoq
+ */
+
+body.rinvoq footer {
+  background-color: #f4f4f4;
+  color: #333;
+  border-top: none;
+}
+
+body.rinvoq footer .footer > div {
+  max-width: var(--content-max-width, 1200px);
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+body.rinvoq footer .footer h5 {
+  color: #071d49;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: none;
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq footer .footer ul {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq footer .footer li {
+  margin: 0;
+  padding: 4px 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq footer .footer a {
+  color: #9b1b4a;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+body.rinvoq footer .footer a:hover {
+  text-decoration: underline;
+}
+
+/* Top section — legal number */
+body.rinvoq footer .footer > div > .section:first-of-type {
+  background: #fff;
+  margin: -30px -24px 0;
+  padding: 20px 24px;
+}
+
+body.rinvoq footer .footer > div > .section:first-of-type p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #071d49;
+}
+
+/* Links section — 3-column grid */
+body.rinvoq footer .footer > div > .section:nth-of-type(2) {
+  padding: 30px 0 0;
+}
+
+body.rinvoq footer .footer > div > .section:nth-of-type(2) .default-content-wrapper {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+/* Bottom section — logo + copyright */
+body.rinvoq footer .footer > div > .section:last-of-type {
+  border-top: 1px solid rgb(0 0 0 / 15%);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+body.rinvoq footer .footer > div > .section:last-of-type .default-content-wrapper {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+body.rinvoq footer .footer > div > .section:last-of-type p {
+  margin: 0;
+  color: #999;
+  font-size: 11px;
+}
+
+body.rinvoq footer .footer > div > .section:last-of-type img {
+  max-width: 140px;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  body.rinvoq footer .footer > div {
+    padding: 40px 32px;
+  }
+
+  body.rinvoq footer .footer > div > .section:first-of-type {
+    margin: -40px -32px 0;
+    padding: 20px 32px;
+  }
+
+  body.rinvoq footer .footer > div > .section:nth-of-type(2) .default-content-wrapper {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 0 40px;
+  }
+
+  body.rinvoq footer .footer > div > .section:nth-of-type(2) h5:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  body.rinvoq footer .footer > div > .section:nth-of-type(2) ul:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  body.rinvoq footer .footer > div > .section:nth-of-type(2) h5:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  body.rinvoq footer .footer > div > .section:nth-of-type(2) ul:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  body.rinvoq footer .footer > div > .section:nth-of-type(2) h5:nth-of-type(3) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  body.rinvoq footer .footer > div > .section:nth-of-type(2) ul:nth-of-type(3) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
+
+@media (width < 600px) {
+  body.rinvoq footer .footer > div > .section:last-of-type .default-content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

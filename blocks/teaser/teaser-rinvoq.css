@@ -1,0 +1,69 @@
+/* Teaser — Rinvoq brand overrides
+ * Loaded lazily alongside teaser.css when theme=rinvoq
+ */
+
+body.rinvoq .teaser-container {
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq .teaser > div {
+  min-height: 380px;
+  overflow: visible;
+}
+
+body.rinvoq .teaser .teaser-image {
+  left: 60px;
+  right: -40%;
+  width: auto;
+}
+
+body.rinvoq .teaser .teaser-image img {
+  object-position: left center;
+  object-fit: cover;
+}
+
+body.rinvoq .teaser .teaser-content {
+  background-color: transparent;
+  opacity: 1;
+  color: #fff;
+  max-width: 40%;
+  padding: 40px 0;
+}
+
+body.rinvoq .teaser .teaser-content h2 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq .teaser .teaser-content p {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq .teaser .teaser-content a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Eligibility text (below teaser) */
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq .teaser-wrapper ~ .default-content-wrapper p {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #25282a;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq .teaser-wrapper ~ .default-content-wrapper a {
+  color: #90124a;
+  font-weight: 700;
+  text-decoration: underline;
+}

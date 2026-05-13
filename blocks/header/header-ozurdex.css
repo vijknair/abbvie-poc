@@ -1,0 +1,248 @@
+/* Header — Ozurdex brand overrides
+ * Loaded lazily alongside header.css when theme=ozurdex
+ */
+
+body.ozurdex header {
+  height: 0;
+}
+
+body.ozurdex header .nav-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav, 300);
+  background: transparent;
+}
+
+body.ozurdex header nav {
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  max-width: var(--content-max-width, 1200px);
+  padding: 12px 24px;
+}
+
+body.ozurdex header nav[aria-expanded='true'] {
+  flex-wrap: wrap;
+  background: var(--nav-bg, #f3f3f3);
+  min-height: 100dvh;
+  align-content: flex-start;
+}
+
+body.ozurdex header nav .nav-hamburger {
+  order: 3;
+  height: 22px;
+  display: flex;
+  align-items: center;
+}
+
+body.ozurdex header nav .nav-hamburger button {
+  height: 22px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+  color: var(--color-white, #fff);
+  overflow: initial;
+  text-overflow: initial;
+  white-space: initial;
+}
+
+body.ozurdex header nav[aria-expanded='true'] .nav-hamburger button {
+  color: var(--brand-primary);
+}
+
+body.ozurdex header .nav-brand {
+  order: 1;
+  flex-shrink: 0;
+}
+
+body.ozurdex header nav .nav-brand a {
+  display: inline-block;
+}
+
+body.ozurdex header nav .nav-brand img {
+  width: 150px;
+  height: auto;
+}
+
+body.ozurdex header nav .nav-brand .button-container {
+  margin: 0;
+}
+
+body.ozurdex header nav .nav-brand a.button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  text-transform: none;
+}
+
+body.ozurdex header nav .nav-brand a.button:hover {
+  background: none;
+}
+
+body.ozurdex header nav .nav-sections {
+  order: 4;
+  flex-basis: 100%;
+  display: none;
+  visibility: hidden;
+}
+
+body.ozurdex header nav[aria-expanded='true'] .nav-sections {
+  display: block;
+  visibility: visible;
+  margin-top: 20px;
+}
+
+body.ozurdex header nav .nav-sections ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+body.ozurdex header nav .nav-sections ul > li {
+  font-weight: 500;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color, #e8e8e8);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.ozurdex header nav .nav-sections a {
+  color: var(--brand-primary);
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+body.ozurdex header nav .nav-tools {
+  order: 2;
+  display: none;
+}
+
+body.ozurdex header nav .nav-tools .default-content-wrapper a,
+body.ozurdex header nav .nav-tools .default-content-wrapper a.button {
+  display: inline;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  color: var(--color-white, #fff);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+body.ozurdex header nav .nav-tools .default-content-wrapper a:hover,
+body.ozurdex header nav .nav-tools .default-content-wrapper a.button:hover {
+  background: none;
+  color: var(--color-white, #fff);
+  text-decoration: underline;
+}
+
+body.ozurdex header nav .nav-tools p {
+  display: inline;
+  margin: 0;
+}
+
+body.ozurdex header nav .nav-tools p + p::before {
+  content: "|";
+  margin: 0 12px;
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+@media (width >= 900px) {
+  body.ozurdex header nav {
+    padding: 10px 32px 16px;
+    flex-wrap: wrap;
+  }
+
+  body.ozurdex header nav .nav-tools {
+    display: block;
+    color: var(--color-white, #fff);
+    order: 1;
+    flex-basis: 100%;
+    margin-bottom: 6px;
+  }
+
+  body.ozurdex header nav .nav-tools .default-content-wrapper a,
+  body.ozurdex header nav .nav-tools .default-content-wrapper a.button {
+    font-style: normal;
+  }
+
+  body.ozurdex header nav .nav-brand {
+    order: 2;
+  }
+
+  body.ozurdex header nav .nav-hamburger {
+    display: none;
+    visibility: hidden;
+  }
+
+  body.ozurdex header nav .nav-sections.nav-sections {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  body.ozurdex header nav .nav-brand img {
+    width: 180px;
+  }
+}
+
+/* Primary nav bar — OZURDEX only (below hero) */
+body.ozurdex .primary-nav-bar {
+  background: var(--nav-bg, #f3f3f3);
+  border-bottom: 1px solid var(--border-color, #e8e8e8);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky, 200);
+}
+
+body.ozurdex .primary-nav-bar .section.nav-sections {
+  display: block;
+  visibility: visible;
+  max-width: var(--content-max-width, 1200px);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+body.ozurdex .primary-nav-bar .nav-sections .default-content-wrapper > ul {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 12px 0;
+}
+
+body.ozurdex .primary-nav-bar .nav-sections .default-content-wrapper > ul > li {
+  font-weight: 500;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.ozurdex .primary-nav-bar .section.nav-sections .default-content-wrapper a {
+  color: var(--brand-primary);
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+body.ozurdex .primary-nav-bar .section.nav-sections .default-content-wrapper a:hover {
+  opacity: 0.7;
+}
+
+@media (width < 900px) {
+  body.ozurdex .primary-nav-bar {
+    display: none;
+  }
+}

@@ -1,0 +1,263 @@
+/* Header — Rinvoq brand overrides
+ * Loaded lazily alongside header.css when theme=rinvoq
+ */
+
+body.rinvoq header {
+  height: auto;
+}
+
+body.rinvoq header .nav-wrapper {
+  position: relative;
+  z-index: var(--z-nav, 300);
+  background: var(--color-white);
+}
+
+body.rinvoq header nav {
+  flex-direction: column;
+  padding: 0;
+  max-width: unset;
+}
+
+/* Eyebrow — magenta bar */
+body.rinvoq header .nav-eyebrow {
+  background-color: #90124a;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  padding: 6px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  order: 1;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-eyebrow p,
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-eyebrow a {
+  color: #fff;
+  font-size: 13px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-tools {
+  background-color: #f3f3f3;
+  color: #25282a;
+  font-size: 12px;
+  padding: 0;
+  width: 100%;
+  order: 2;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.rinvoq header .nav-tools .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  max-width: var(--content-max-width, 1200px);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-tools p {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  border-left: 2px solid #d4a843;
+}
+
+body.rinvoq header .nav-tools p:first-child {
+  border-left: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-tools a {
+  color: #90124a;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-tools p + p::before {
+  content: none;
+}
+
+/* Content area — dark bg, logo left, links right */
+body.rinvoq header .nav-brand {
+  background-color: #25282a;
+  padding: 0 32px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  order: 3;
+  height: 88px;
+}
+
+body.rinvoq header .nav-brand .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--content-max-width, 1200px);
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-brand p {
+  color: #fff;
+  font-size: 12px;
+  margin: 0;
+}
+
+body.rinvoq header .nav-brand p:first-child {
+  flex-shrink: 0;
+}
+
+body.rinvoq header .nav-brand p:last-child {
+  text-align: right;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-brand a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #90124a;
+  text-underline-offset: 3px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-brand img {
+  max-height: 50px;
+  width: auto;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq header .nav-sections {
+  background-color: #25282a;
+  padding: 0 24px;
+  width: 100%;
+  order: 4;
+  display: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.rinvoq:has(.hero-carousel-container) header .nav-sections {
+  display: none;
+}
+
+/* Hamburger — mobile only */
+body.rinvoq header nav .nav-hamburger {
+  display: none;
+}
+
+@media (width < 900px) {
+  body.rinvoq header nav .nav-hamburger {
+    display: flex;
+    position: absolute;
+    right: 24px;
+    top: 70px;
+    z-index: 10;
+  }
+
+  body.rinvoq header nav .nav-hamburger button {
+    all: unset;
+    cursor: pointer;
+    color: #fff;
+    height: 22px;
+    display: flex;
+    align-items: center;
+  }
+
+  body.rinvoq header .nav-brand p:last-child {
+    display: none;
+  }
+}
+
+/* Search toggle (part of header nav) */
+body.rinvoq .nav-search {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+
+body.rinvoq .nav-search-toggle {
+  all: unset;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgb(255 255 255 / 50%);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+body.rinvoq .nav-search-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+body.rinvoq .nav-search-toggle[hidden] {
+  display: none;
+}
+
+body.rinvoq .nav-search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.rinvoq .nav-search-form[hidden] {
+  display: none;
+}
+
+body.rinvoq .nav-search-form input {
+  all: unset;
+  width: 140px;
+  height: 32px;
+  background: #fff;
+  color: #25282a;
+  padding: 0 10px;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+body.rinvoq .nav-search-submit {
+  all: unset;
+  cursor: pointer;
+  color: #25282a;
+  background: #fff;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+body.rinvoq .nav-search-submit svg {
+  width: 18px;
+  height: 18px;
+  stroke: #25282a;
+}
+
+body.rinvoq .nav-search-close {
+  all: unset;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  margin-left: 8px;
+  line-height: 1;
+}

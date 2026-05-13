@@ -87,24 +87,61 @@ export function decorateMain(main) {
 }
 
 /**
- * Loads the brand theme CSS based on page metadata.
- * Set 'theme' metadata via bulk metadata or page metadata block.
- * Falls back to hostname detection for production domains.
+ * Resolves the active brand theme from metadata or hostname.
+ * Returns the theme name or empty string if none.
+ */
+function getTheme() {
+  const theme = getMetadata('theme');
+  if (theme) return theme;
+  const hostThemes = {
+    'www.ozurdex.com': 'ozurdex',
+    'www.rinvoq.com': 'rinvoq',
+    'www.skyrizi.com': 'skyrizi',
+  };
+  return hostThemes[window.location.hostname] || '';
+}
+
+/**
+ * Loads the brand theme CSS (global tokens only — kept small for LCP).
  */
 async function loadTheme() {
-  let theme = getMetadata('theme');
-  if (!theme) {
-    const hostThemes = {
-      'www.ozurdex.com': 'ozurdex',
-      'www.rinvoq.com': 'rinvoq',
-      'www.skyrizi.com': 'skyrizi',
-    };
-    theme = hostThemes[window.location.hostname];
-  }
+  const theme = getTheme();
   if (theme) {
     document.body.classList.add(theme);
     await loadCSS(`${window.hlx.codeBasePath}/styles/themes/${theme}.css`);
   }
+}
+
+/**
+ * Loads brand-specific block CSS lazily alongside the base block CSS.
+ * Watches for blocks reaching "loaded" status and loads
+ * blocks/{name}/{name}-{theme}.css in parallel. Fails silently
+ * when no brand file exists for a given block.
+ */
+function initBrandBlockCSS() {
+  const theme = getTheme();
+  if (!theme) return;
+
+  const loaded = new Set();
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((m) => {
+      if (m.type === 'attributes' && m.attributeName === 'data-block-status') {
+        const block = m.target;
+        if (block.dataset.blockStatus === 'loaded') {
+          const { blockName } = block.dataset;
+          if (blockName && !loaded.has(blockName)) {
+            loaded.add(blockName);
+            loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}-${theme}.css`);
+          }
+        }
+      }
+    });
+  });
+  observer.observe(document, {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['data-block-status'],
+  });
 }
 
 /**
@@ -115,6 +152,7 @@ async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   await loadTheme();
+  initBrandBlockCSS();
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);

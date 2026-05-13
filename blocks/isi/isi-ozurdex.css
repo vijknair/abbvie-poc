@@ -1,0 +1,84 @@
+/* ISI — Ozurdex brand overrides
+ * Loaded lazily alongside isi.css when theme=ozurdex
+ */
+
+body.ozurdex .isi {
+  border-top: none;
+}
+
+body.ozurdex .isi-sticky-bar {
+  height: 176px;
+  background: #fff;
+  box-shadow: 0 -2px 8px rgb(0 0 0 / 15%);
+}
+
+body.ozurdex .isi-sticky-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--brand-accent, #a0b320);
+  padding: 8px 24px;
+  min-height: 36px;
+}
+
+body.ozurdex .isi-sticky-title {
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+body.ozurdex .isi-sticky-warning {
+  display: none;
+}
+
+body.ozurdex .isi-sticky-toggle {
+  all: unset;
+  cursor: pointer;
+  font-family: var(--heading-font-family);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+}
+
+body.ozurdex .isi-sticky-toggle:hover {
+  opacity: 0.8;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.ozurdex .isi-sticky-content {
+  padding: 16px 24px 8px;
+  height: calc(100% - 36px);
+  background: #fff;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.ozurdex .isi-sticky-fade {
+  background: linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, #fff 100%);
+  top: auto;
+  bottom: 0;
+  height: 40px;
+}
+
+@media (width >= 900px) {
+  body.ozurdex .isi-sticky-title-bar {
+    padding: 8px 32px;
+  }
+
+  body.ozurdex .isi-sticky-content {
+    padding: 16px 32px 8px;
+  }
+}

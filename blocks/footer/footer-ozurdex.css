@@ -1,0 +1,105 @@
+/* Footer — Ozurdex brand overrides
+ * Loaded lazily alongside footer.css when theme=ozurdex
+ */
+
+body.ozurdex footer {
+  background-color: var(--footer-bg, #00335b);
+  color: var(--footer-text, #fff);
+  border-top: 4px solid var(--brand-accent, #a0b320);
+}
+
+body.ozurdex footer .footer > div {
+  margin: auto;
+  max-width: var(--content-max-width, 1200px);
+  padding: 40px 24px 30px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* Links section (first in HTML, last visually) */
+body.ozurdex footer .section:first-child {
+  border-top: none;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+body.ozurdex footer .section:first-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px 24px;
+}
+
+body.ozurdex footer .section:first-child li {
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+body.ozurdex footer .section:first-child li::after {
+  content: none;
+}
+
+body.ozurdex footer a {
+  color: var(--footer-link-color, #fff);
+  text-decoration: underline;
+}
+
+body.ozurdex footer a:hover {
+  opacity: 0.8;
+}
+
+body.ozurdex footer .section:first-child a {
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+/* Logo/text section (last in HTML, first visually) */
+body.ozurdex footer .section:last-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+body.ozurdex footer .section:last-child p {
+  margin: 0 0 12px;
+  color: var(--footer-text, #fff);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+body.ozurdex footer .section:last-child picture {
+  display: block;
+  margin-bottom: 20px;
+}
+
+body.ozurdex footer .section:last-child img {
+  max-width: 200px;
+  height: auto;
+}
+
+body.ozurdex footer .section:last-child p:last-child {
+  margin-top: 15px;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+body.ozurdex footer h2,
+body.ozurdex footer h3,
+body.ozurdex footer h4 {
+  color: var(--footer-text, #fff);
+}
+
+@media (width >= 900px) {
+  body.ozurdex footer .footer > div {
+    padding: 40px 32px 30px;
+  }
+
+  body.ozurdex footer .section:first-child ul {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
